@@ -1,0 +1,106 @@
+
+:host{
+    width: 100%;
+}
+
+.nav-item-list{
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    text-align: center;
+    cursor: pointer;
+    &.selectedTab{
+        color: #4C7DF4;
+    }
+}
+.dropdown{
+    &.show{
+        .dropdown-toggle{
+            color: #4C7DF4;
+        }
+    }
+    .dropdown-toggle{
+        @extend .nav-item-list;
+        &::after{
+            display: none;
+        }
+    }
+}
+
+::ng-deep .nav-megamenu-list{
+    width: 100%;
+    left: 0 !important;
+    transform: none !important;
+    top: 76px !important;
+    background: #004DBA;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    right: 0 !important;
+    margin: 0 auto !important;
+    .dropdown-menu{
+        background: #004DBA;
+        border: 0;
+        padding: 30px 60px;
+        margin: 0;
+        .submenu-list{
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+            &:last-child{
+                margin: 0;
+            }
+            h1{
+                &.active{
+                    color: #323232;
+                    background: #FFF;
+                }
+                color: #FFF;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: normal;
+                display: flex;
+                height: 51px;
+                padding: 12px 36px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                align-self: stretch;
+                border-radius: 60px;
+                background: transparent;
+                flex-shrink: 0;
+                width: 200px;
+                cursor: pointer;
+
+            }
+            .childrens-list{
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 18px;
+                .dropdown-item{
+                    flex: 1 1 32%;
+                    border-radius: 8px;
+                    background: #FFF;
+                    display: flex;
+                    padding: 15px 40px;
+                    align-items: center;
+                    gap: 20px;
+                    align-self: stretch;
+                    color: #323232;
+                    font-family: "Open Sans";
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    cursor: pointer;
+                    // max-width: 32%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+
+
+.heading-border{
+    padding-bottom: 15px;
+    &::before{
+        content: "";
+        position: absolute;
+        background: linear-gradient(127deg, #954CF6 3.64%, #2A99FF 79.56%);
+        left: 0;
+        bottom: 0;
+        width: 115px;
+        height: 5px;
+        border-radius: 4px;
+    }
+    &.center-border{
+        &::before{
+            margin: 0 auto;
+            right: 0;
+        }
+    }
+}
+
+p{
+    color: #2C2C2C;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 160% */
+}
+
+
+.promates-btn{
+    flex-shrink: 0;
+    border-radius: 60px;
+    background: linear-gradient(93deg, #8F51F7 15.35%, #00ADEF 87.08%);
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+    gap: 10px;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: 0;
+}

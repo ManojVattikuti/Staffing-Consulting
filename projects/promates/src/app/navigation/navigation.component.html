@@ -1,0 +1,52 @@
+<!-- <ng-container *ngFor="let item of menuItems">
+    <div class="" ngbDropdown container="body" *ngIf="item?.subnav && item?.subnav.length > 0">
+        <button ngbDropdownToggle>{{ item.name }}</button>
+        <ul ngbDropdownMenu>
+            <li *ngFor="let subItem of item.subnav">
+                <h1>{{subItem.name}}</h1>
+                <ul *ngFor="let child of subItem.subchildren">
+                    <li ngbDropdownItem (click)="navigateToChild(child.path)">{{ child.name }}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <a ngbDropdownItem (click)="navigateToChild(item.path)">{{ item.name }}</a>
+</ng-container> -->
+
+
+
+<div class="d-flex align-items-center justify-content-center gap-4">
+    <ng-container *ngFor="let item of menuItems">
+        <ng-template [ngTemplateOutlet]="dropdownTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
+    </ng-container>
+</div>
+
+
+
+<ng-template #dropdownTemplate let-item="item">
+    <div ngbDropdown container="body" *ngIf="item?.subnav && item?.subnav.length > 0" dropdownClass="nav-megamenu-list">
+        <button ngbDropdownToggle (click)="subItemSelection(item)">{{ item.name }}</button>
+        <ul ngbDropdownMenu>
+            <ng-container *ngFor="let subItem of item.subnav">
+                <div  class="submenu-list">
+                    <h1 (click)="subItemSelection(item,subItem)" [ngClass]="{'active':item.selectedSubNav?.id === subItem.id}">{{subItem.name}}</h1>
+                    <div class="childrens-list" *ngIf="item.selectedSubNav?.id === subItem.id">
+                        <button *ngFor="let child of subItem.subchildren" ngbDropdownItem (click)="navigateToChild(child.path)">
+                            <svg width="33" height="40" viewBox="0 0 33 40" fill="none">
+                                <path d="M29.9556 1.40952H14.3689L14.3229 1.28929C14.0236 0.512902 13.2766 0 12.444 0H3.21811C1.46964 0 0 1.38778 0 3.13625V36.8625C0 38.6084 1.46836 40 3.21811 40H27.2145C27.5919 40 27.9436 39.8133 28.1559 39.505C28.3682 39.1955 28.4156 38.8002 28.2838 38.4511H29.9568C31.5748 38.4511 32.8168 37.1451 32.8168 35.5284V4.3424C32.8155 2.72567 31.5723 1.40952 29.9556 1.40952ZM29.5782 35.0718H27.0329L25.6068 31.3024C26.3857 31.1604 26.9728 30.4979 26.9728 29.678C26.9728 28.7532 26.2258 28.0293 25.2985 28.0293H24.3661L23.1996 24.9314H25.5825C26.5072 24.9314 27.2542 24.164 27.2542 23.2405C27.2542 22.317 26.5072 21.5521 25.5825 21.5521H21.9499L20.7834 18.453H25.5825C26.5072 18.453 27.2542 17.7559 27.2542 16.8337C27.2542 15.9089 26.5072 15.2118 25.5825 15.2118H19.5338L18.3673 12.1152H25.5825C26.5072 12.1152 27.2542 11.3478 27.2542 10.4243C27.2542 9.50213 26.5072 8.73597 25.5825 8.73597H17.1189L15.6173 4.79135H29.577V35.0718H29.5782Z" fill="url(#paint0_linear_70_34)"/>
+                                <defs>
+                                  <linearGradient id="paint0_linear_70_34" x1="-9.68974" y1="18.8136" x2="21.8579" y2="38.5984" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#954CF6"/>
+                                    <stop offset="1" stop-color="#2A99FF"/>
+                                  </linearGradient>
+                                </defs>
+                              </svg>
+                            <span>{{ child.name }}</span>
+                        </button>
+                    </div>
+                </div>
+            </ng-container>
+        </ul>
+    </div>
+    <button class="nav-item-list" (click)="navigateToChild(item.path);subItemSelection(item)" *ngIf="!item?.subnav.length" [ngClass]="{'selectedTab':item.selected}">{{ item.name }}</button>
+</ng-template>

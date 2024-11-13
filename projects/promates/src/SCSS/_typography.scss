@@ -1,0 +1,59 @@
+// Typography Mixin
+@mixin headingTextDisplay($size, $weight: var(--font-weight-normal-Regular, 400), $lineheight: normal, $color: var(--colors-text-text-primary-900, #101828), $textalign: left, $spacing: null) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $lineheight;
+    color: $color;
+    text-align: $textalign;
+    margin: 0;
+    letter-spacing: $spacing;
+    
+    // Font weight variations
+    &.medium { font-weight: 500; }
+    &.semibold { font-weight: 600; }
+    &.bold { font-weight: 700; }
+}
+
+// General Utility for Heading Classes
+@mixin heading($name, $size, $lineheight, $spacing: null) {
+    .#{$name} {
+        @include headingTextDisplay($size, 400, $lineheight, var(--colors-text-text-primary-900, #101828), left, $spacing);
+    }
+}
+
+// General Utility for Text Classes
+@mixin text($name, $size, $lineheight) {
+    .#{$name} {
+        @include headingTextDisplay($size, 400, $lineheight, var(--colors-text-text-secondary-700, #344054));
+    }
+}
+
+// General Utility for Description Text Classes
+@mixin description($name, $size, $lineheight) {
+    .#{$name} {
+        @include headingTextDisplay($size, 400, $lineheight, var(--colors-text-text-tertiary-600, #475467));
+    }
+}
+
+// Headings
+@include heading('heading-two-xl', 72px, 90px, -0.02em);
+@include heading('heading-xl', 60px, 72px, -0.02em);
+@include heading('heading-lg', 48px, 60px, -0.96px);
+@include heading('heading-md', 36px, 44px);
+@include heading('heading-sm', 36px, 44px);
+@include heading('heading-xs', 32px, 42px);
+@include heading('heading-xxs', 24px, 32px);
+
+// Text
+@include text('text-xl', 20px, 30px);
+@include text('text-lg', 18px, 28px);
+@include text('text-md', 16px, 24px);
+@include text('text-sm', 14px, 20px);
+@include text('text-xs', 12px, 18px);
+
+// Description Text
+@include description('desc-xl', 20px, 30px);
+@include description('desc-lg', 18px, 28px);
+@include description('desc-md', 16px, 24px);
+@include description('desc-sm', 14px, 20px);
+@include description('desc-xs', 12px, 18px);

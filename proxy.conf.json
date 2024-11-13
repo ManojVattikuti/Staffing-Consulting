@@ -1,0 +1,13 @@
+{
+    "/promates/*": {
+      "target": "http://localhost:4201",
+      "secure": false,
+      "logLevel": "debug"
+    },
+    "/trimah/*": {
+      "target": "http://localhost:4202",
+      "secure": false,
+      "logLevel": "debug"
+    }
+  }
+  
