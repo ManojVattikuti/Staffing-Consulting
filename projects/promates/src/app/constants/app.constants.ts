@@ -12,13 +12,17 @@ export const APP_PATHS = {
     HOME: 'home',
     ABOUT: 'about',
     FOR_BUSINESS: 'forbusiness',
+    SERVICES:{
+      STAFFING:'staffing',
+      CONSULTING:'consulting'
+    },
     INDUSTRIES: {
-      FINANCE: 'forbusiness/industries/finance',
-      HEALTH_CARE: 'forbusiness/industries/healthcare',
-      IT: 'forbusiness/industries/it',
-      RETAIL: 'forbusiness/industries/retail',
-      LIFE_SCIENCES: 'forbusiness/industries/lifesciences',
-      LOGISTICS: 'forbusiness/industries/logistics',
+      FINANCE: 'finance',
+      HEALTH_CARE: 'healthcare',
+      IT: 'it',
+      RETAIL: 'retail',
+      LIFE_SCIENCES: 'lifesciences',
+      LOGISTICS: 'logistics',
     },
     STAFFING: {
       CONTRACT: 'forbusiness/staffing/contract',
@@ -32,6 +36,9 @@ export const APP_PATHS = {
       SUPPORT: 'forbusiness/consulting/support',
     },
     INSIGHTS: 'insights',
-    JOB_SEEKER: 'job-seeker',
+    JOB_SEEKER: {
+      SEARCH_JOBS:'searchjobs',
+      SUBMIT_RESUME:'submitresume'
+    },
     CONTACT: 'contact',
 };

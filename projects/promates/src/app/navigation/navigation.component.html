@@ -1,19 +1,3 @@
-<!-- <ng-container *ngFor="let item of menuItems">
-    <div class="" ngbDropdown container="body" *ngIf="item?.subnav && item?.subnav.length > 0">
-        <button ngbDropdownToggle>{{ item.name }}</button>
-        <ul ngbDropdownMenu>
-            <li *ngFor="let subItem of item.subnav">
-                <h1>{{subItem.name}}</h1>
-                <ul *ngFor="let child of subItem.subchildren">
-                    <li ngbDropdownItem (click)="navigateToChild(child.path)">{{ child.name }}</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <a ngbDropdownItem (click)="navigateToChild(item.path)">{{ item.name }}</a>
-</ng-container> -->
-
-
 
 <div class="d-flex align-items-center justify-content-center gap-4">
     <ng-container *ngFor="let item of menuItems">
@@ -24,12 +8,12 @@
 
 
 <ng-template #dropdownTemplate let-item="item">
-    <div ngbDropdown container="body" *ngIf="item?.subnav && item?.subnav.length > 0" dropdownClass="nav-megamenu-list">
+    <div ngbDropdown container="body" #headerDropdown="ngbDropdown" *ngIf="item?.subnav && item?.subnav.length > 0" dropdownClass="nav-megamenu-list">
         <button ngbDropdownToggle (click)="subItemSelection(item)">{{ item.name }}</button>
         <ul ngbDropdownMenu>
             <ng-container *ngFor="let subItem of item.subnav">
                 <div  class="submenu-list">
-                    <h1 (click)="subItemSelection(item,subItem)" [ngClass]="{'active':item.selectedSubNav?.id === subItem.id}">{{subItem.name}}</h1>
+                    <h1 (click)="!subItem?.path ? subItemSelection(item,subItem) : navigateToChild(subItem.path,headerDropdown)" [ngClass]="{'active':item.selectedSubNav?.id === subItem.id}">{{subItem.name}}</h1>
                     <div class="childrens-list" *ngIf="item.selectedSubNav?.id === subItem.id">
                         <button *ngFor="let child of subItem.subchildren" ngbDropdownItem (click)="navigateToChild(child.path)">
                             <svg width="33" height="40" viewBox="0 0 33 40" fill="none">

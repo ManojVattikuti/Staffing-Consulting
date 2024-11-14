@@ -22,12 +22,13 @@ export const MENU_DATA = [
             name: 'Staffing',
             id: 'staffing',
             icon: '',
-            path: APP_PATHS.STAFFING
+            path: APP_PATHS.SERVICES.STAFFING
           },
           {
             name: 'Consulting',
             id: 'consulting',
             icon: '',
+            path: APP_PATHS.SERVICES.CONSULTING
           }
         ]
       },
@@ -45,31 +46,31 @@ export const MENU_DATA = [
           {
             name: 'Health Care',
             icon: '',
-            id: '',
+            id: 'healthcare',
             path: APP_PATHS.INDUSTRIES.HEALTH_CARE
           },
           {
             name: 'Information Technology',
             icon: '',
-            id: '',
+            id: 'it',
             path: APP_PATHS.INDUSTRIES.IT
           },
           {
             name: 'Retail',
             icon: '',
-            id: '',
+            id: 'retail',
             path: APP_PATHS.INDUSTRIES.RETAIL
           },
           {
             name: 'Life Sciences',
             icon: '',
-            id: '',
+            id: 'lifesciences',
             path: APP_PATHS.INDUSTRIES.LIFE_SCIENCES
           },
           {
             name: 'Logistics',
             icon: '',
-            id: '',
+            id: 'logistics',
             path: APP_PATHS.INDUSTRIES.LOGISTICS
           },
         ],
@@ -148,11 +149,13 @@ export const MENU_DATA = [
         name: 'Search Jobs',
         id: 'searchjobs', // Add an id for the subnav
         icon: '',
+        path:APP_PATHS.JOB_SEEKER.SEARCH_JOBS,
       },
       {
         name: 'Submit Resume',
-        id: 'submit Resume', // Add an id for the subnav
+        id: 'submitresume', // Add an id for the subnav
         icon: '',
+        path:APP_PATHS.JOB_SEEKER.SUBMIT_RESUME,
       }
     ],
     // path: APP_PATHS.JOB_SEEKER // Use the path from APP_PATHS

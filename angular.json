@@ -27,7 +27,8 @@
             "index": "projects/trimah/src/index.html",
             "browser": "projects/trimah/src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "projects/trimah/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -89,7 +90,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "projects/trimah/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
@@ -132,7 +134,8 @@
             "index": "projects/promates/src/index.html",
             "browser": "projects/promates/src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+               "@angular/localize/init"
             ],
             "tsConfig": "projects/promates/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -195,7 +198,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "projects/promates/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
@@ -240,7 +244,8 @@
             "tsConfig": "projects/shared/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ]
           }
         }

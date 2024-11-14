@@ -14,9 +14,6 @@
     background: transparent;
     text-align: center;
     cursor: pointer;
-    &.selectedTab{
-        color: #4C7DF4;
-    }
 }
 .dropdown{
     &.show{
@@ -100,6 +97,20 @@
                     cursor: pointer;
                     // max-width: 32%;
                 }
+            }
+        }
+        .inner-list-data{
+            .inner-list-btn{
+                color: #FFF;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                border: 0;
+                padding: 0;
+                background: transparent;
+                text-align: center;
+                cursor: pointer;
             }
         }
     }

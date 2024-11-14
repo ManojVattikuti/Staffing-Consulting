@@ -1,0 +1,35 @@
+
+.frequently-asked-que{
+    padding: 100px;
+}
+
+.accordion-item{
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.10);
+    border: 0;
+    margin-bottom: 10px;
+    // border-bottom: 1px solid #E1EAF6;
+    .accordion-button{
+        border: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #333;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 32px;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+    .accordion-body{
+        p{
+            color: #2C2C2C;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+        }
+    }
+}
