@@ -19,7 +19,9 @@
     "paths": {
       "shared": [
         "./dist/shared"
-      ]
+      ],
+      "@promates.environments/*": ["./projects/promates/src/environments/*"],
+      "@promates.services/*": ["./projects/promates/src/app/services/*"]
     },
     "importHelpers": true,
     "target": "ES2022",
