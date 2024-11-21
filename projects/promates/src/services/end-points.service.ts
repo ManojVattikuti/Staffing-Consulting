@@ -28,6 +28,9 @@ export class EndPointsService {
     return this.serviceList[serviceId];
   }
   public init() {
-
+    this.serviceList['app.test']={
+      endpoint : this.API_SERVER_URL +'/test',
+      method:'get'
+    }
   }
 }
