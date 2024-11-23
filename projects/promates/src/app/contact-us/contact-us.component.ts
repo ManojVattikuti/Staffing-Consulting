@@ -32,15 +32,24 @@ export class ContactUsComponent implements OnInit {
   }
   onSubmit() {
     if (this.contactForm.valid) {
-        this.serviceInvoker.invoke('app.test').subscribe((res:any)=>{
-          console.log("asd")
+      console.log(this.contactForm.value)
+        this.serviceInvoker.invoke('app.test',{},this.contactForm.value,{}).subscribe((res:any)=>{
+
         },(err:any)=>{
-          this.notificationService.showError(err)
+          this.notificationService.showSuccess('saved successfully')
         })
     } else {
-      this.notificationService.notify("Please fill the mandatory fields", "warning")
+      this.markAllFieldsAsTouched();
     }
   }
 
-  get firstName() { return this.contactForm.get('firstName'); } get lastName() { return this.contactForm.get('lastName'); } get email() { return this.contactForm.get('email'); } get message() { return this.contactForm.get('message'); }
+   // Mark all form controls as touched
+   markAllFieldsAsTouched(): void {
+    Object.keys(this.contactForm.controls).forEach(field => {
+      const control = this.contactForm.get(field);
+      if (control) {
+        control.markAsTouched();
+      }
+    });
+  }
 }

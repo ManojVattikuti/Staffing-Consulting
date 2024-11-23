@@ -30,7 +30,7 @@ export class EndPointsService {
   public init() {
     this.serviceList['app.test']={
       endpoint : this.API_SERVER_URL +'/test',
-      method:'get'
+      method:'post'
     }
   }
 }
