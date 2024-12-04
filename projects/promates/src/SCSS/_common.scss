@@ -44,3 +44,9 @@ p{
     line-height: normal;
     border: 0;
 }
+
+.dropdown-toggle{
+    &::after{
+        display: none;
+    }
+}

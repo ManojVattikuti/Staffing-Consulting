@@ -1,1 +1,119 @@
-<p>submit-resume works!</p>
+<div class="submit-resume">
+    <div class="container p-0">
+        <h1 class="heading-border position-relative heading-xs semibold mb-4">Submit Resume</h1>
+        <div class="form-block">
+            <form>
+                <div class="d-flex gap-4">
+                    <div class="form-group">
+                        <label for="name">First name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Last name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                    </div>
+                </div>
+                <div class="d-flex gap-4">
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Alternate Phone</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone">
+                    </div>
+                </div>
+
+                <div class="d-flex gap-4">
+                    <div class="form-group">
+                        <label for="email">Primary Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Alternate Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                </div>
+
+                <div class="d-flex gap-4 mb-3">
+                    <div ngbDropdown class="d-inline-block w-100">
+                        <label for="state">State</label>
+                        <button class="form-select" id="dropdownMenu1" ngbDropdownToggle>State</button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
+                            <button class="dropdown-item">Action - 1</button>
+                            <button class="dropdown-item">Action - 2</button>
+                        </div>
+                    </div>
+                    <div ngbDropdown class="d-inline-block w-100">
+                        <label for="gender">Gender</label>
+                        <button class="form-select" id="dropdownMenu1" ngbDropdownToggle>Gender</button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
+                            <button class="dropdown-item">Action - 1</button>
+                            <button class="dropdown-item">Action - 2</button>
+                        </div>
+                    </div>
+                </div>
+                <label for="zip">Zip</label>
+                <div class="d-flex gap-4 mb-3">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="zip" name="zip" placeholder="Zip">
+                    </div>
+                    <div ngbDropdown class="d-inline-block w-100">
+                        <button class="form-select" id="dropdownMenu1" ngbDropdownToggle>Country</button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
+                            <button class="dropdown-item">Action - 1</button>
+                            <button class="dropdown-item">Action - 2</button>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="text-sm medium">Media Upload</h1>
+                <p class="desc-xs mb-2">Add your documents here, and you can upload up to 5 files max</p>
+                <div class="media-upload mb-3">
+                    <input type="file" class="form-control" id="resume" name="resume">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                        <path d="M29.025 15.06C28.005 9.885 23.46 6 18 6C13.665 6 9.9 8.46 8.025 12.06C3.51 12.54 0 16.365 0 21C0 25.965 4.035 30 9 30H28.5C32.64 30 36 26.64 36 22.5C36 18.54 32.925 15.33 29.025 15.06ZM28.5 27H9C5.685 27 3 24.315 3 21C3 17.925 5.295 15.36 8.34 15.045L9.945 14.88L10.695 13.455C12.12 10.71 14.91 9 18 9C21.93 9 25.32 11.79 26.085 15.645L26.535 17.895L28.83 18.06C31.17 18.21 33 20.175 33 22.5C33 24.975 30.975 27 28.5 27ZM12 19.5H15.825V24H20.175V19.5H24L18 13.5L12 19.5Z" fill="#0054CC"/>
+                    </svg>
+                    <div class="text-sm">Drag your file(s) or <span>browse</span></div>
+                    <p class="text-xs">Max 10 MB files are allowed</p>
+                </div>
+                <p class="text-sm">Only support .jpg, .png and .svg and zip files</p>
+                <div class="dropdown-divider"></div>
+
+                <label for="url" class="mb-2">Upload from URL</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons">
+                    <button class="btn btn-primary" type="button">Upload</button>
+                </div>
+                <div ngbDropdown class="d-inline-block mb-3 w-100">
+                    <button class="form-select" id="dropdownMenu1" ngbDropdownToggle>Specialty</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
+                        <button class="dropdown-item">Action - 1</button>
+                        <button class="dropdown-item">Action - 2</button>
+                    </div>
+                </div>
+                <h1 class="text-sm medium mb-2">Specialty</h1>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                    Default radio
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        I am authorised to work in the united states for any employer
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        I required sponsorship to work in United states
+                    </label>
+                </div>
+
+                <button class="promates-btn mt-4">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
