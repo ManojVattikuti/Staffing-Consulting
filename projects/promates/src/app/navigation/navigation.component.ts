@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'; // {{ edit_1 }}
 import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from '@promates.environments/environment';
 
 @Component({
   selector: 'app-navigation',
@@ -18,7 +19,7 @@ export class NavigationComponent {
   private menuService= inject(MenuService);
   @ViewChild('headerDropdown', { static: false }) headerDropdown!: NgbDropdown;
   navigateToAbout(): void {
-    this.route.navigate(['/about']);
+    this.route.navigate(['/about'],{skipLocationChange:environment.ENABLE_SKIP_LOCATION});
   }
   navigateToChild(path: string,headerDropdown?:any): void { // {{ edit_1 }}
     if(this.headerDropdown?.isOpen()){
@@ -27,7 +28,7 @@ export class NavigationComponent {
     if(headerDropdown?.isOpen()){
       headerDropdown.close();
     }
-    this.route.navigate([path]); // Navigate to the child path
+    this.route.navigate([path],{skipLocationChange:environment.ENABLE_SKIP_LOCATION}); // Navigate to the child path
   }
   constructor() {}
 

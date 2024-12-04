@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { NavigationComponent } from "../navigation/navigation.component";
 import { Router } from '@angular/router';
-
+import { environment } from '@promates.environments/environment';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -12,6 +12,6 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   public route = inject(Router);
   navigateToHome(){
-    this.route.navigate(['home']); 
+    this.route.navigate(['home'],{skipLocationChange:environment.ENABLE_SKIP_LOCATION}); 
   }
 }
