@@ -14,6 +14,7 @@ import { LifeSciencesComponent } from './life-sciences/life-sciences.component';
 import { LogisticsComponent } from './logistics/logistics.component';
 import { SearchJobsComponent } from './search-jobs/search-jobs.component';
 import { SubmitResumeComponent } from './submit-resume/submit-resume.component';
+import { LoginComponent } from './login/login.component';
 
 // const menuRoutes = MENU_DATA.map(item => ({
 //     path: 'item.path',
@@ -23,6 +24,7 @@ import { SubmitResumeComponent } from './submit-resume/submit-resume.component';
 export const routes: Routes = [
     // { path: '', redirectTo: APP_PATHS.HOME, pathMatch: 'full' },
     { path: '', component: HomeComponent, canActivate: [] },
+    { path: 'login', component: LoginComponent },   
     // ...menuRoutes,
     { path: APP_PATHS.ABOUT, component:AboutusComponent},
     { path: APP_PATHS.CONTACT, component: ContactUsComponent },

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { NavigationComponent } from "../navigation/navigation.component";
 import { Router } from '@angular/router';
 import { environment } from '@promates.environments/environment';
@@ -10,8 +10,12 @@ import { environment } from '@promates.environments/environment';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  @Input() isLoginPage = false;
   public route = inject(Router);
   navigateToHome(){
     this.route.navigate(['home'],{skipLocationChange:environment.ENABLE_SKIP_LOCATION}); 
+  }
+  navigateToLogin(){
+    this.route.navigate(['login'],{skipLocationChange:environment.ENABLE_SKIP_LOCATION}); 
   }
 }

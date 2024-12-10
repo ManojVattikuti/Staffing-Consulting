@@ -1,5 +1,5 @@
-<app-header></app-header>
-
+<app-header [isLoginPage]="isLoginPage"></app-header>
+    <!-- {{isLoginPage}} -->
 <router-outlet />
 
-<app-footer></app-footer>
+<app-footer [isLoginPage]="isLoginPage"></app-footer>
