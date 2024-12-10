@@ -18,4 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
 export class AppComponent {
   title = $localize`:Title for the app:Welcome to our application!`;
   welcomeMessage: string = $localize`Welcome to our localized app!`;
+  isLoginPage = true;
 }
+
+

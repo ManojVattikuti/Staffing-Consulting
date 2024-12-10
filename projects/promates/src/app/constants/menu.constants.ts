@@ -12,6 +12,7 @@ export const MENU_DATA = [
     name: 'For Business',
     icon: '',
     id: 'forbusiness',
+    subchildrens:true,
     subnav: [
       {
         name: 'Services',
@@ -144,6 +145,7 @@ export const MENU_DATA = [
     name: 'For Job Seekers',
     icon: '',
     id: 'jobseeker',
+    subchildrens:false,
     subnav: [
       {
         name: 'Search Jobs',
