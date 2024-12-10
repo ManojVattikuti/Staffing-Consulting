@@ -152,8 +152,8 @@
             "scripts": [],
             "fileReplacements": [
               {
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
+                "replace": "./projects/promates/src/environments/environment.ts",
+                "with": "./projects/promates/src/environments/environment.prod.ts"
               }
             ]
           },
