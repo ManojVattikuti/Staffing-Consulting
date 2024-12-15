@@ -74,29 +74,29 @@
                 cursor: pointer;
 
             }
-            .childrens-list{
-                width: 100%;
+        }
+        .childrens-list{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            .dropdown-item{
+                flex: 1 1 32%;
+                border-radius: 8px;
+                background: #FFF;
                 display: flex;
-                flex-wrap: wrap;
-                gap: 18px;
-                .dropdown-item{
-                    flex: 1 1 32%;
-                    border-radius: 8px;
-                    background: #FFF;
-                    display: flex;
-                    padding: 15px 40px;
-                    align-items: center;
-                    gap: 20px;
-                    align-self: stretch;
-                    color: #323232;
-                    font-family: "Open Sans";
-                    font-size: 14px;
-                    font-style: normal;
-                    font-weight: 700;
-                    line-height: normal;
-                    cursor: pointer;
-                    // max-width: 32%;
-                }
+                padding: 15px 40px;
+                align-items: center;
+                gap: 20px;
+                align-self: stretch;
+                color: #323232;
+                font-family: "Open Sans";
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                cursor: pointer;
+                // max-width: 32%;
             }
         }
         .inner-list-data{

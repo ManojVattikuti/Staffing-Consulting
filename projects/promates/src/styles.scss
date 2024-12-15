@@ -41,6 +41,7 @@ $prefix: "bs-";
 @import "../../../node_modules/bootstrap/scss/helpers/text-truncation";
 @import "../../../node_modules/bootstrap/scss/grid";
 @import "../../../node_modules/bootstrap/scss/containers";
+@import "../../../node_modules/bootstrap/scss/carousel";
 @import "./SCSS/typography";
 @import "./SCSS/common";
 
@@ -53,3 +54,60 @@ $prefix: "bs-";
 // @import "./customSCSS/buttons/btn";
 // @import "./customSCSS/scroll";
 
+::-webkit-scrollbar {
+  height: 1rem;
+  width: .5rem
+}
+
+::-webkit-scrollbar:horizontal {
+  height: .5rem;
+  width: 1rem
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 9999px
+}
+
+::-webkit-scrollbar-thumb {
+  --tw-border-opacity: 1;
+  background-color: #F2F4F7 !important;
+  border-color: #D0D5DD;
+  border-radius: 9999px;
+  border-width: 1px
+}
+
+::-webkit-scrollbar-thumb:hover {
+  --tw-bg-opacity: 1;
+  background-color: #D0D5DD !important;
+}
+
+.dark::-webkit-scrollbar-thumb {
+  --tw-bg-opacity: 1;
+  background-color: #D0D5DD;
+}
+
+.dark::-webkit-scrollbar-thumb:hover {
+  --tw-bg-opacity: 1;
+  background-color: #D0D5DD;
+}
+
+@media (min-width: 768px) {
+  .scrollbar-trigger ::-webkit-scrollbar-thumb {
+    visibility: hidden
+  }
+
+  .scrollbar-trigger:hover ::-webkit-scrollbar-thumb {
+    visibility: visible
+  }
+}
+
+.h-auto {
+  height: auto;
+}
+
+.dropdown-menu {
+  max-height: 200px;
+  overflow: hidden;
+  overflow-y: scroll;
+}

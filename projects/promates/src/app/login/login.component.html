@@ -1,20 +1,31 @@
 <div class="login-container">
-    <div class="back-btn d-none">Back to Home</div>
+    <div class="back-btn"> <button class="btn btn-secondary" (click)="navigateTo('')">← Back to Home</button> </div>
     <div class="login-form w-100">
         <div class="login-form-data">
             <img src="assets/login/logo-mark.svg" alt="Promates Logo">
             <h1 class="text-center">Welcome back</h1>
             <p class="text-center mb-4">Welcome back! Please enter your details.</p>
-            <div class="mb-3 w-100">
-                <label for="exampleFormControlInput1" class="form-label text-sm medium">Email</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
-            </div>
-            <div class="mb-3 w-100">
-                <label for="exampleFormControlInput1" class="form-label text-sm medium">Password</label>
-                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Enter your password">
-            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="w-100">
+                <div class="mb-3 w-100">
+                    <label for="exampleFormControlInput1" class="form-label text-sm medium">Email<sup>*</sup></label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="email" placeholder="Enter your email">
+                    <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)" class="error-msg">
+                        <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+                        <div *ngIf="loginForm.get('email')?.errors?.['email']">Enter a valid email.</div>
+                    </div>
+                </div>
+                <div class="mb-3 w-100">
+                    <label for="exampleFormControlInput2" class="form-label text-sm medium">Password<sup>*</sup></label>
+                    <input type="password" class="form-control" id="exampleFormControlInput2" formControlName="password" placeholder="Enter your password">
+                    <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" class="error-msg"> 
+                        <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div> 
+                        <div *ngIf="loginForm.get('password')?.errors?.['pattern']">Password must contain at least one uppercase letter, one number, and one special character.</div> 
+                    </div>
+                </div>
+                <button type="submit" class="w-100 btn btn-primary btn-lg" [disabled]="loginForm.invalid">Submit</button>
+            </form>
             <button class="w-100 btn btn-primary btn-lg">Sign in</button>
-            <p class="text-center desc-xs medium">Don't have an account? <a href="#">Sign up</a></p>
+            <p class="text-center desc-xs medium">Don't have an account? <a (click)="navigateTo('signup')">Sign up</a></p>
             <p class="text-center desc-xs medium">Forgot your password? <a href="#">Reset password</a></p>
         </div>
     </div>

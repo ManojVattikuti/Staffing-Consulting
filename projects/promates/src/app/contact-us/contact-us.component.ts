@@ -34,7 +34,8 @@ export class ContactUsComponent implements OnInit {
     if (this.contactForm.valid) {
       console.log(this.contactForm.value)
         this.serviceInvoker.invoke('app.test',{},this.contactForm.value,{}).subscribe((res:any)=>{
-
+          this.notificationService.showSuccess('saved successfully')
+          this.contactForm.reset()
         },(err:any)=>{
           this.notificationService.showSuccess('saved successfully')
         })

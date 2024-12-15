@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-feedback',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './feedback.component.html',
   styleUrl: './feedback.component.scss'
 })

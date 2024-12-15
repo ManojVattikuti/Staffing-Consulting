@@ -163,10 +163,18 @@ export const MENU_DATA = [
     // path: APP_PATHS.JOB_SEEKER // Use the path from APP_PATHS
   },
   {
-    name: 'Contact',
+    name: 'Contact Us',
     icon: '',
     id: 'contact',
     subnav: [],
     path: APP_PATHS.CONTACT // Use the path from APP_PATHS
+  },
+  {
+    name: 'Post Jobs',
+    icon: '',
+    id: 'postjob',
+    subnav: [],
+    path: APP_PATHS.CONTACT, // Use the path from APP_PATHS,
+    visibleAfterLogin : true
   },
 ];

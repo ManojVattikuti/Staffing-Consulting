@@ -15,6 +15,7 @@ import { LogisticsComponent } from './logistics/logistics.component';
 import { SearchJobsComponent } from './search-jobs/search-jobs.component';
 import { SubmitResumeComponent } from './submit-resume/submit-resume.component';
 import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 // const menuRoutes = MENU_DATA.map(item => ({
 //     path: 'item.path',
@@ -24,7 +25,8 @@ import { LoginComponent } from './login/login.component';
 export const routes: Routes = [
     // { path: '', redirectTo: APP_PATHS.HOME, pathMatch: 'full' },
     { path: '', component: HomeComponent, canActivate: [] },
-    { path: 'login', component: LoginComponent },   
+    { path: APP_PATHS.LOGIN, component: LoginComponent },   
+    { path: APP_PATHS.SIGN_UP, component: SignUpComponent },
     // ...menuRoutes,
     { path: APP_PATHS.ABOUT, component:AboutusComponent},
     { path: APP_PATHS.CONTACT, component: ContactUsComponent },

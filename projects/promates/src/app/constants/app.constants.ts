@@ -12,6 +12,8 @@ export const APP_PATHS = {
     HOME: 'home',
     ABOUT: 'about',
     FOR_BUSINESS: 'forbusiness',
+    LOGIN:'login',
+    SIGN_UP:'signup',
     SERVICES:{
       STAFFING:'staffing',
       CONSULTING:'consulting'
