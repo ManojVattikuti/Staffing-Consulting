@@ -43,10 +43,18 @@ p{
     font-weight: 600;
     line-height: normal;
     border: 0;
+    &:disabled{
+        opacity: 0.5;
+        pointer-events: none;
+    }
 }
 
 .dropdown-toggle{
     &::after{
         display: none;
     }
+}
+
+.d-none{
+    display: none !important;
 }
