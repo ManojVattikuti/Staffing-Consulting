@@ -27,7 +27,11 @@ export class ContactUsComponent implements OnInit {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
-        message: ['', Validators.required]
+        message: ['', Validators.required],
+        companyName:['',Validators.required],
+        companyLocation: ['',Validators.required],
+        PhoneNumber:['', [Validators.required,
+          Validators.pattern('[0-9]{10}')]],
       });
   }
   onSubmit() {

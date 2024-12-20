@@ -155,17 +155,34 @@
                 </div>                
 
                 <p class="text-sm d-none">Only support .jpg, .png and .svg and zip files</p>
-                <div class="dropdown-divider d-none"></div>
-                <label for="url" class="mb-2 d-none">Upload from URL</label>
-                <div class="input-group mb-3 d-none">
-                    <input type="text" class="form-control"  formControlName="uploadURL" id="uploadURL" name="uploadURL" placeholder="Enter URL">
-                    <button class="btn btn-primary" type="button" >Upload</button>
-                    <div *ngIf="resumeForm.get('uploadURL')?.invalid && (resumeForm.get('uploadURL')?.touched || resumeForm.get('uploadURL')?.dirty)"
-                        class="text-danger">
-                        Please enter a valid URL.
+                <div class="dropdown-divider"></div>
+                <label for="url" class="mb-2">GitHub URL</label>
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control"  formControlName="githubURL" id="githubURL" name="githubURL" placeholder="Enter URL">
+                    <div *ngIf="resumeForm.get('githubURL')?.invalid && (resumeForm.get('githubURL')?.touched || resumeForm.get('githubURL')?.dirty)"
+                    class="text-danger">
+                    Please enter a valid URL.
+                    </div>
+                    <button class="btn btn-primary d-none" type="button" >Upload</button>
+                </div>
+                <label for="url" class="mb-2">LinkedIn URL</label>
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control"  formControlName="linkedInURL" id="linkedInURL" name="linkedInURL" placeholder="Enter linkedInURL">
+                    <button class="btn btn-primary d-none" type="button" >Upload</button>
+                    <div *ngIf="resumeForm.get('linkedInURL')?.invalid && (resumeForm.get('linkedInURL')?.touched || resumeForm.get('linkedInURL')?.dirty)"
+                    class="text-danger">
+                    Please enter a valid URL.
                     </div>
                 </div>
 
+                <label for="experience" class="mb-2">Experience</label>
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control"  formControlName="experience" id="experience" name="experience" placeholder="Enter Experience">
+                    <div *ngIf="resumeForm.get('experience')?.invalid && (resumeForm.get('experience')?.touched || resumeForm.get('experience')?.dirty)"
+                    class="text-danger">
+                    Please enter a experience.
+                    </div>
+                </div>
                 <div ngbDropdown class="d-inline-block mb-3 w-100 d-none">
                     <label for="specialty">Specialty<sup>*</sup></label>
                     <button class="form-select" id="dropdownMenu4" ngbDropdownToggle type="button">Specialty</button>

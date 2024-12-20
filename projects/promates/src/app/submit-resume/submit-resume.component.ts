@@ -372,7 +372,9 @@ export class SubmitResumeComponent implements OnInit {
       resume: ['', Validators.required],
       // specialty: ['', Validators.required],
       workAuth: ['authorized', Validators.required],
-      uploadURL: ['', Validators.pattern('(https?://)?(www.)?([a-zA-Z0-9-]+\\.){1,}([a-zA-Z]{2,22})(/[a-zA-Z0-9-]+)*(/)?')],
+      githubURL: ['', Validators.pattern('(https?://)?(www.)?([a-zA-Z0-9-]+\\.){1,}([a-zA-Z]{2,22})(/[a-zA-Z0-9-]+)*(/)?')],
+      linkedInURL: ['', Validators.pattern('(https?://)?(www.)?([a-zA-Z0-9-]+\\.){1,}([a-zA-Z]{2,22})(/[a-zA-Z0-9-]+)*(/)?')],
+      experience:['']
     });
   }
   onSubmit(): void {
