@@ -64,7 +64,7 @@ git.checkout(commitId, (err) => {
         console.log('Dependencies installed.');
 
         // Build the Angular project
-        exec(`ng build ${projectName} --configuration=${buildType}`, (error, stdout, stderr) => {
+        exec(`npm run build ${projectName} --configuration=${buildType}`, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error building project: ${error.message}`);
                 return;
