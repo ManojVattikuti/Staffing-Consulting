@@ -7,11 +7,12 @@ import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from '@promates.environments/environment';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports: [CommonModule, NgbDropdownModule],
+  imports: [CommonModule, NgbDropdownModule,TranslateModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })
@@ -21,8 +22,8 @@ export class NavigationComponent implements OnInit {
   public route = inject(Router);
   private menuService = inject(MenuService);
   @ViewChild('headerDropdown', { static: false }) headerDropdown!: NgbDropdown;
-  constructor(private authService: AuthService) {
-
+  constructor(private authService: AuthService,
+    public translate: TranslateService) {
   }
   navigateToAbout(): void {
     this.route.navigate(['/about'], { skipLocationChange: environment.ENABLE_SKIP_LOCATION });
@@ -91,6 +92,7 @@ export class NavigationComponent implements OnInit {
   ngOnDestry() {
     this.subscription.unsubscribe();
   }
+
 
 
 }

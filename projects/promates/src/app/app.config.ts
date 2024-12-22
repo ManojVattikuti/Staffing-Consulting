@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: HttpClient) =>
-  new TranslateHttpLoader(http, './i18n/', '.json');
+  new TranslateHttpLoader(http, '/assets/i18n/', '.json');
 
 export const appConfig: ApplicationConfig = {
   providers: [
