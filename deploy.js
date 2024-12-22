@@ -14,6 +14,11 @@ if (!commitId || !projectName) {
     process.exit(1);
 }
 
+if (!sshKeyPath) {
+    console.error('Please set the SSH_KEY_PATH environment variable.');
+    process.exit(1);
+}
+
 // Function to deploy the build
 const deployBuild = () => {
     console.log('Deploying build...');
@@ -59,7 +64,7 @@ git.checkout(commitId, (err) => {
         console.log('Dependencies installed.');
 
         // Build the Angular project
-        exec(`npm run build ${projectName} --configuration=${buildType}`, (error, stdout, stderr) => {
+        exec(`ng build ${projectName} --configuration=${buildType}`, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error building project: ${error.message}`);
                 return;
