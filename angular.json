@@ -115,7 +115,7 @@
       "i18n": {
         "sourceLocale": "en-US",
         "locales": {
-          "fr": "projects/promates/src/locale/messages.fr.xlf"
+         
         }
       },
       "schematics": {
