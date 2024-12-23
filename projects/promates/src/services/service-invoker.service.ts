@@ -42,7 +42,7 @@ export class ServiceInvokerService {
 
     let serviceConf = this.endpoints.getServiceInfo(serviceId);
     let _url, _verb, _headers = JSON.parse(JSON.stringify(this.DEFAULT_HEADERS));
-    if (serviceId === 'post.upload.file' || serviceId === 'bt.post.uploadbotfuncfile') {
+    if (serviceId === 'post.submitresume' || serviceId === 'bt.post.uploadbotfuncfile') {
       _headers = JSON.parse(JSON.stringify(this.UPLOAD_HEADERS));
     }
     try {

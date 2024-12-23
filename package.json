@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "builddocs":"ng build promates --output-path docs --base-href /Staffing-Consulting/"
+    "builddocs": "ng build promates --output-path docs --base-href /Staffing-Consulting/"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +24,7 @@
     "@ngx-translate/http-loader": "7.0.0",
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.2",
+    "lodash": "^4.17.21",
     "ngx-toastr": "19.0.0",
     "rxjs": "~7.8.0",
     "simple-git": "^3.27.0",
@@ -36,6 +37,7 @@
     "@angular/compiler-cli": "18.2.0",
     "@angular/localize": "18.2.9",
     "@types/jasmine": "~5.1.0",
+    "@types/lodash": "^4.17.13",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

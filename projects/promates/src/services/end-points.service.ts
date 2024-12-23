@@ -5,32 +5,26 @@ import { environment } from '@promates.environments/environment';
 })
 export class EndPointsService {
 
-  // private API_URL_PREFIX = "/api";
-  private API_URL_PREFIX = "/workbench/api";
-  private API_VERSION_PREFIX = '/1.1';
-  private SERVER_URL: String = "";
   public API_SERVER_URL: String;
-  private serviceList: any = {};
-  private workbenchValue = "banking";
+  private apiList: any = {};
 
 
   constructor() {
     if (environment.production) {
-      this.SERVER_URL = window.location.protocol + '//' + window.location.host;
-      this.API_SERVER_URL = this.SERVER_URL + this.API_URL_PREFIX;
+      this.API_SERVER_URL = window.location.protocol + '//' + window.location.host;
     } else {
-      this.API_SERVER_URL = environment['API_SERVER_URL'] + this.API_URL_PREFIX;
+      this.API_SERVER_URL = environment['API_SERVER_URL']
     }
     this.init();
   }
 
   public getServiceInfo(serviceId?: any) {
-    return this.serviceList[serviceId];
+    return this.apiList[serviceId];
   }
   public init() {
-    this.serviceList['app.test']={
-      endpoint : this.API_SERVER_URL +'/test',
-      method:'post'
+    this.apiList['post.submitresume'] = {
+      endpoint: this.API_SERVER_URL + '/api/candidates',
+      method: 'post'
     }
   }
 }

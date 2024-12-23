@@ -50,14 +50,14 @@
 
                 <div class="d-flex gap-4">
                     <div class="form-group">
-                        <label for="primaryEmail">Primary Email<sup>*</sup></label>
-                        <input type="email" class="form-control" id="primaryEmail" formControlName="primaryEmail"
+                        <label for="email">Primary Email<sup>*</sup></label>
+                        <input type="email" class="form-control" id="email" formControlName="email"
                             placeholder="Email">
-                        <div *ngIf="resumeForm.get('primaryEmail')?.invalid && (resumeForm.get('primaryEmail')?.touched || resumeForm.get('primaryEmail')?.dirty)"
+                        <div *ngIf="resumeForm.get('email')?.invalid && (resumeForm.get('email')?.touched || resumeForm.get('email')?.dirty)"
                             class="text-danger">
-                            <div *ngIf="resumeForm.get('primaryEmail')?.errors?.['required']">Primary email is required.
+                            <div *ngIf="resumeForm.get('email')?.errors?.['required']">Primary email is required.
                             </div>
-                            <div *ngIf="resumeForm.get('primaryEmail')?.errors?.['email']">Enter a valid email address.
+                            <div *ngIf="resumeForm.get('email')?.errors?.['email']">Enter a valid email address.
                             </div>
                         </div>
                     </div>
