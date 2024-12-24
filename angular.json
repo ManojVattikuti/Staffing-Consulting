@@ -112,12 +112,6 @@
     },
     "promates": {
       "projectType": "application",
-      "i18n": {
-        "sourceLocale": "en-US",
-        "locales": {
-         
-        }
-      },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -155,8 +149,7 @@
                 "replace": "./projects/promates/src/environments/environment.ts",
                 "with": "./projects/promates/src/environments/environment.prod.ts"
               }
-            ],
-            "localize":true
+            ]
           },
           "configurations": {
             "production": {
