@@ -2,6 +2,8 @@
 <div class="header-wrapper">
     <div class="logo" (click)="navigateToHome()">ProMates</div>
     <app-navigation></app-navigation>
-    <button class="promates-btn">Join the Platform</button>
+    <button class="promates-btn btn-with-arrow">
+        <span>Join the Platform</span>
+    </button>
     <button class="promates-btn ms-2" (click)="isAuthenticated ? logoutUser(): navigateToLogin()" >{{isAuthenticated ? 'Logout' : 'Login'}}</button>
 </div>
