@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NotificationService } from '../../services/notification.service';
-import { ServiceInvokerService } from '../../services/service-invoker.service';
+import { ServiceInvokerService } from '../../services/api-invoker.service';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import * as _ from 'lodash';
 

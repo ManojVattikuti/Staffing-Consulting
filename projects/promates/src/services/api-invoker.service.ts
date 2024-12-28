@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
-import { EndPointsService } from './end-points.service';
+import { EndPointsService } from './urls.service';
 import { NotificationService } from './notification.service';
 import { Observable } from 'rxjs';
 

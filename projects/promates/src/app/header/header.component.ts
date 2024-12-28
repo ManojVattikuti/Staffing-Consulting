@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
     }));
   }
   navigateToHome(){
-    this.route.navigate(['home'],{skipLocationChange:environment.ENABLE_SKIP_LOCATION}); 
+    this.route.navigate([''],{skipLocationChange:environment.ENABLE_SKIP_LOCATION}); 
   }
   navigateToLogin(){
     this.route.navigate(['login'],{skipLocationChange:environment.ENABLE_SKIP_LOCATION}); 

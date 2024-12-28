@@ -26,5 +26,15 @@ export class EndPointsService {
       endpoint: this.API_SERVER_URL + '/api/candidates',
       method: 'post'
     }
+
+    this.apiList['get.jobListing'] = {
+      endpoint: this.API_SERVER_URL + '/api/joblisting',
+      method: 'get'
+    }
+
+    this.apiList['post.contactus'] = {
+      endpoint: this.API_SERVER_URL + '/api/contactus',
+      method: 'post'
+    }
   }
 }

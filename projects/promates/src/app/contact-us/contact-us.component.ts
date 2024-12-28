@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NotificationService } from '../../services/notification.service';
-import { ServiceInvokerService } from '../../services/service-invoker.service';
+import { ServiceInvokerService } from '../../services/api-invoker.service';
 @Component({
   selector: 'app-contact-us',
   standalone: true,
@@ -37,7 +37,7 @@ export class ContactUsComponent implements OnInit {
   onSubmit() {
     if (this.contactForm.valid) {
       console.log(this.contactForm.value)
-        this.serviceInvoker.invoke('app.test',{},this.contactForm.value,{}).subscribe((res:any)=>{
+        this.serviceInvoker.invoke('post.contactus',{},this.contactForm.value,{}).subscribe((res:any)=>{
           this.notificationService.showSuccess('saved successfully')
           this.contactForm.reset()
         },(err:any)=>{

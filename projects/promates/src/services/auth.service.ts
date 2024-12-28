@@ -23,4 +23,8 @@ export class AuthService {
   isAuthenticated(): boolean {
     return this.authenticated.getValue();
   }
+
+  getToken(){
+    return 'test'
+  }
 }

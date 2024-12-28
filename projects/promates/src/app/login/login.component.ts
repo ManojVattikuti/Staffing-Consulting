@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NotificationService } from '../../services/notification.service';
-import { ServiceInvokerService } from '../../services/service-invoker.service';
+import { ServiceInvokerService } from '../../services/api-invoker.service';
 import { Router } from '@angular/router';
 import { environment } from '@promates.environments/environment';
 import { AuthService } from '../../services/auth.service';
