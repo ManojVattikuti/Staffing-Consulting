@@ -16,7 +16,9 @@ $prefix: "bs-";
 // @import '../node_modules/ag-grid-community/styles/ag-grid.min.css';
 // @import 'ag-grid-community/styles/ag-theme-alpine.css';
 // @import 'ag-grid-community/styles/ag-theme-balham.css';
-
+html {
+  scroll-behavior: smooth;
+}
 
 @import "./SCSS/reset";
 
