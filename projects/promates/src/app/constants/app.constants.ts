@@ -43,4 +43,5 @@ export const APP_PATHS = {
       SUBMIT_RESUME:'submitresume'
     },
     CONTACT: 'contact',
+    POST_JOBS:'postjobs'
 };

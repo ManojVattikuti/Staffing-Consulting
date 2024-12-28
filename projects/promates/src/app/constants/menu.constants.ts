@@ -174,7 +174,7 @@ export const MENU_DATA = [
     icon: '',
     id: 'postjob',
     subnav: [],
-    path: APP_PATHS.CONTACT, // Use the path from APP_PATHS,
+    path: APP_PATHS.POST_JOBS, // Use the path from APP_PATHS,
     visibleAfterLogin : true
   },
 ];
