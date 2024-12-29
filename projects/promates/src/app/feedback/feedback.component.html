@@ -1,7 +1,8 @@
-<div class="feedback-wrapper" data-aos="flip-left" data-aos-delay="10" data-aos-duration="1000" data-aos-offset="200">
+<div class="feedback-wrapper" >
+  <!-- <div class="feedback-wrapper" data-aos="flip-left" data-aos-delay="10" data-aos-duration="1000" data-aos-offset="200"> -->
     <div class="container">
-        <h1 class="heading-border position-relative heading-xs semibold center-border text-center mb-4">Our Client feedback</h1>
-        <p class="desc-sm mb-4 text-center">Discover what our clients say about their experience with our services</p>
+        <h1 class="heading-border position-relative heading-xs semibold center-border text-center mb-4">{{'our_client_feedback'|translate}}</h1>
+        <p class="desc-sm mb-4 text-center">{{'our_client_feedback_desc'|translate  }}</p>
 
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -11,29 +12,29 @@
                     <div class="feedback-card-header d-flex align-items-center gap-3 justify-content-start">
                       <img src="assets/feedback/user.svg" alt="">
                       <div class="d-flex flex-column">
-                        <h1 class="text-lg semibold">William Johnson</h1>
-                        <p class="desc-sm medium">Sales Manager</p>
+                        <h1 class="text-lg semibold">{{'client_feedback1_title'|translate}}</h1>
+                        <p class="desc-sm medium">{{'client_feedback1_desg'|translate}}</p>
                       </div>
                     </div>
                     <div class="feedback-card-body mt-4">
-                      <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+                      <p class="text-sm">{{'client_feedback1_desc'|translate}}</p>
                     </div>
                   </div>
                   <div class="feedback-card">
                     <div class="feedback-card-header d-flex align-items-center gap-3 justify-content-start">
                       <img src="assets/feedback/user.svg" alt="">
                       <div class="d-flex flex-column">
-                        <h1 class="text-lg semibold">William Johnson</h1>
-                        <p class="desc-sm medium">Sales Manager</p>
+                        <h1 class="text-lg semibold">{{'client_feedback2_title'|translate}}</h1>
+                        <p class="desc-sm medium">{{'client_feedback2_desg'|translate}}</p>
                       </div>
                     </div>
                     <div class="feedback-card-body mt-4">
-                      <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+                      <p class="text-sm">{{'client_feedback2_desc' | translate}}</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item d-none">
                 <div class="feedback-card-wrapper d-flex align-items-center gap-3">
                   <div class="feedback-card">
                     <div class="feedback-card-header d-flex align-items-center gap-3 justify-content-start">
@@ -47,7 +48,7 @@
                       <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
                     </div>
                   </div>
-                  <div class="feedback-card">
+                  <div class="feedback-card d-none">
                     <div class="feedback-card-header d-flex align-items-center gap-3 justify-content-start">
                       <img src="assets/feedback/user.svg" alt="">
                       <div class="d-flex flex-column">
@@ -61,7 +62,7 @@
                   </div>
                 </div>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item d-none">
                 <div class="feedback-card-wrapper d-flex align-items-center gap-3">
                   <div class="feedback-card">
                     <div class="feedback-card-header d-flex align-items-center gap-3 justify-content-start">
@@ -90,12 +91,12 @@
                 </div>
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <button class="carousel-control-prev d-none" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M0.939341 13.0607C0.353554 12.4749 0.353554 11.5251 0.93934 10.9393L10.4853 1.3934C11.0711 0.807613 12.0208 0.807613 12.6066 1.3934C13.1924 1.97919 13.1924 2.92893 12.6066 3.51472L4.12132 12L12.6066 20.4853C13.1924 21.0711 13.1924 22.0208 12.6066 22.6066C12.0208 23.1924 11.0711 23.1924 10.4853 22.6066L0.939341 13.0607ZM24 13.5L2 13.5L2 10.5L24 10.5L24 13.5Z" fill="#4C7DF4"/>
               </svg>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <button class="carousel-control-next d-none" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M23.0607 10.9393C23.6464 11.5251 23.6464 12.4749 23.0607 13.0607L13.5147 22.6066C12.9289 23.1924 11.9792 23.1924 11.3934 22.6066C10.8076 22.0208 10.8076 21.0711 11.3934 20.4853L19.8787 12L11.3934 3.51472C10.8076 2.92893 10.8076 1.97918 11.3934 1.3934C11.9792 0.80761 12.9289 0.80761 13.5147 1.3934L23.0607 10.9393ZM-1.31134e-07 10.5L22 10.5L22 13.5L1.31134e-07 13.5L-1.31134e-07 10.5Z" fill="#4C7DF4"/>
               </svg>

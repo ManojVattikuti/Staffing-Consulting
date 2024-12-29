@@ -6,6 +6,7 @@ import { AboutSecComponent } from "../about-sec/about-sec.component";
 import { BuildBusinessNeedsComponent } from "../build-business-needs/build-business-needs.component";
 import { TransfromBusinessComponent } from "../transfrom-business/transfrom-business.component";
 
+
 @Component({
   selector: 'app-body',
   standalone: true,
