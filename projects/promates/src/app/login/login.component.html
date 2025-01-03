@@ -1,8 +1,10 @@
 <div class="login-container">
-    <div class="back-btn"> <button class="btn btn-secondary" (click)="navigateTo('')">← Back to Home</button> </div>
+    <!-- <div class="back-btn"> <button class="btn btn-secondary" (click)="navigateTo('')">← Back to Home</button> </div> -->
     <div class="login-form w-100">
         <div class="login-form-data">
-            <img src="assets/login/logo-mark.svg" alt="Promates Logo">
+            <div class="logo"><img src="../../assets/Promates_Logo.svg"/>
+                <div >Promates</div>
+            </div>
             <h1 class="text-center">Welcome back</h1>
             <p class="text-center mb-4">Welcome back! Please enter your details.</p>
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="w-100">
@@ -29,7 +31,7 @@
             <p class="text-center desc-xs medium">Forgot your password? <a href="#">Reset password</a></p>
         </div>
     </div>
-    <div class="login-image w-100">
+    <div class="login-image w-100 d-none">
         <img src="assets/login/section.svg" alt="Promates Logo">
     </div>
 </div>
