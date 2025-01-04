@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NotificationService } from '../services/notification.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
+declare const AOS :any;
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -25,6 +26,10 @@ export class AppComponent implements OnInit {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd) // Only react to NavigationEnd events
     ).subscribe(() => {
+      setTimeout(() => {
+        AOS.refreshHard()
+      }, 100);
+
       window.scrollTo(0, 0); // Scroll to the top
     });
   }
