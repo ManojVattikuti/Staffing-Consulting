@@ -16,14 +16,14 @@
     </div>
 
     <div class="mb-3">
-      <label for="company" class="form-label text-sm medium">Company Name<sup>*</sup></label>
-      <input id="company" 
+      <label for="companyName" class="form-label text-sm medium">Company Name<sup>*</sup></label>
+      <input id="companyName" 
              type="text" 
              class="form-control"
-             [class.is-invalid]="jobForm.get('company')?.invalid && jobForm.get('company')?.touched"
-             formControlName="company" 
-             placeholder="Your company name">
-      <div class="invalid-feedback" *ngIf="jobForm.get('company')?.invalid && jobForm.get('company')?.touched">
+             [class.is-invalid]="jobForm.get('companyName')?.invalid && jobForm.get('companyName')?.touched"
+             formControlName="companyName" 
+             placeholder="Your companyName name">
+      <div class="invalid-feedback" *ngIf="jobForm.get('companyName')?.invalid && jobForm.get('companyName')?.touched">
         Company name is required
       </div>
     </div>
@@ -42,24 +42,24 @@
     </div>
 
     <div class="mb-3">
-      <label for="jobType" class="form-label text-sm medium">Job Type<sup>*</sup></label>
+      <label for="employmentType" class="form-label text-sm medium">Job Type<sup>*</sup></label>
       <div class="dropdown-container">
         <div ngbDropdown class="d-block">
           <button type="button" 
                   class="w-100 text-start form-select" 
-                  [class.is-invalid]="jobForm.get('jobType')?.invalid && jobForm.get('jobType')?.touched"
-                  id="jobTypeDropdown" 
-                  ngbDropdownToggle>
-            {{jobForm.get('jobType')?.value || 'Select job type'}}
+                  [class.is-invalid]="jobForm.get('employmentType')?.invalid && jobForm.get('employmentType')?.touched"
+                  id="employmentTypeDropdown" 
+                  ngbDropdownToggle type="button">
+            {{jobForm.get('employmentType')?.value || 'Select job type'}}
           </button>
-          <div ngbDropdownMenu aria-labelledby="jobTypeDropdown" class="w-100">
+          <div ngbDropdownMenu aria-labelledby="employmentTypeDropdown" class="w-100">
             <button ngbDropdownItem *ngFor="let type of jobTypes" 
-                    (click)="jobForm.patchValue({jobType: type})">
+                    (click)="jobForm.patchValue({employmentType: type})" type="button">
               {{type}}
             </button>
           </div>
         </div>
-        <div class="invalid-feedback" *ngIf="jobForm.get('jobType')?.invalid && jobForm.get('jobType')?.touched">
+        <div class="invalid-feedback" *ngIf="jobForm.get('employmentType')?.invalid && jobForm.get('employmentType')?.touched">
           Job type is required
         </div>
       </div>
@@ -78,7 +78,7 @@
           </button>
           <div ngbDropdownMenu aria-labelledby="experienceLevelDropdown" class="w-100">
             <button ngbDropdownItem *ngFor="let level of experienceLevels" 
-                    (click)="jobForm.patchValue({experienceLevel: level})">
+                    (click)="jobForm.patchValue({experienceLevel: level})" type="button">
               {{level}}
             </button>
           </div>
@@ -90,14 +90,14 @@
     </div>
 
     <div class="mb-3">
-      <label for="salary" class="form-label text-sm medium">Salary Range<sup>*</sup></label>
-      <input id="salary" 
+      <label for="salaryRange" class="form-label text-sm medium">Salary Range<sup>*</sup></label>
+      <input id="salaryRange" 
              type="text" 
              class="form-control"
-             [class.is-invalid]="jobForm.get('salary')?.invalid && jobForm.get('salary')?.touched"
-             formControlName="salary" 
+             [class.is-invalid]="jobForm.get('salaryRange')?.invalid && jobForm.get('salaryRange')?.touched"
+             formControlName="salaryRange" 
              placeholder="e.g., $80,000 - $100,000">
-      <div class="invalid-feedback" *ngIf="jobForm.get('salary')?.invalid && jobForm.get('salary')?.touched">
+      <div class="invalid-feedback" *ngIf="jobForm.get('salaryRange')?.invalid && jobForm.get('salaryRange')?.touched">
         Salary range is required
       </div>
     </div>
@@ -150,7 +150,7 @@
     </div>
 
     <div class="d-flex gap-2">
-      <button type="submit" class="btn btn-primary" [disabled]="!jobForm.valid">Post Job</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!jobForm.valid || savingInProgress">{{savingInProgress ? 'Saving..': 'Post Job'}}</button>
       <button type="button" class="btn btn-secondary" (click)="jobForm.reset()">Reset</button>
     </div>
   </form>

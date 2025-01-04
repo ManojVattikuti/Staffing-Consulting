@@ -33,13 +33,13 @@
                     <div class="char-remaining"></div>
                 </div>
                 <div class="mb-3 w-100">
-                    <label for="PhoneNumber" class="form-label text-sm medium">Phone Number<sup>*</sup></label>
-                    <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" formControlName="PhoneNumber" placeholder="Phone Number" required autocomplete="off">
-                    <!-- <div class="error-msg" *ngIf="contactForm.get('PhoneNumber')?.invalid && contactForm.get('PhoneNumber')?.touched">Last name is required</div> -->
-                    <div *ngIf="contactForm.get('PhoneNumber')?.invalid && (contactForm.get('PhoneNumber')?.touched || contactForm.get('PhoneNumber')?.dirty)"
+                    <label for="phoneNumber" class="form-label text-sm medium">Phone Number<sup>*</sup></label>
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number" required autocomplete="off">
+                    <!-- <div class="error-msg" *ngIf="contactForm.get('phoneNumber')?.invalid && contactForm.get('phoneNumber')?.touched">Last name is required</div> -->
+                    <div *ngIf="contactForm.get('phoneNumber')?.invalid && (contactForm.get('phoneNumber')?.touched || contactForm.get('phoneNumber')?.dirty)"
                     class="text-danger">
-                    <div *ngIf="contactForm.get('PhoneNumber')?.errors?.['required']">Phone number is required.</div>
-                    <div *ngIf="contactForm.get('PhoneNumber')?.errors?.['pattern']">Enter a valid 10-digit phone
+                    <div class="error-msg" *ngIf="contactForm.get('phoneNumber')?.errors?.['required']">Phone number is required.</div>
+                    <div class="error-msg" *ngIf="contactForm.get('phoneNumber')?.errors?.['pattern']">Enter a valid 10-digit phone
                         number.</div>
                 </div>
                 </div>
@@ -68,8 +68,8 @@
                 <div class="error-msg" *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched">Message is required</div>
             </div>
             <div class="d-flex align-items-center justify-content-end">
-                <button class="promates-btn w-25 text-center justify-content-center btn-with-arrow" type="submit">
-                    <span>Submit</span>
+                <button class="promates-btn w-25 text-center justify-content-center btn-with-arrow" type="submit" [disabled]="savingInProgress">
+                    <span>{{savingInProgress ? 'Submitting..' : 'Submit'}}</span>
                 </button>
             </div>
          </form>

@@ -33,8 +33,23 @@ export class EndPointsService {
     }
 
     this.apiList['post.contactus'] = {
-      endpoint: this.API_SERVER_URL + '/api/contactus',
+      endpoint: this.API_SERVER_URL + '/api/contact',
       method: 'post'
     }
+    this.apiList['get.contactus'] = {
+      endpoint: this.API_SERVER_URL + '/api/contact',
+      method: 'get'
+    }
+
+    this.apiList['post.job'] = {
+      endpoint: this.API_SERVER_URL + '/api/job-postings',
+      method: 'post'
+    };
+
+    this.apiList['app.login'] = {
+      endpoint: this.API_SERVER_URL + '/api/auth/google',
+      method: 'get'
+    };
+
   }
 }

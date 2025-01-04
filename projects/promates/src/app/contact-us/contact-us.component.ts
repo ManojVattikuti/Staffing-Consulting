@@ -17,6 +17,7 @@ import { ServiceInvokerService } from '../../services/api-invoker.service';
 })
 export class ContactUsComponent implements OnInit {
   contactForm!: FormGroup;
+  savingInProgress:boolean = false;
   constructor(private fb: FormBuilder,
     public notificationService: NotificationService,
     private serviceInvoker:ServiceInvokerService
@@ -30,18 +31,21 @@ export class ContactUsComponent implements OnInit {
         message: ['', Validators.required],
         companyName:['',Validators.required],
         companyLocation: ['',Validators.required],
-        PhoneNumber:['', [Validators.required,
+        phoneNumber:['', [Validators.required,
           Validators.pattern('[0-9]{10}')]],
       });
   }
   onSubmit() {
     if (this.contactForm.valid) {
       console.log(this.contactForm.value)
+      this.savingInProgress = true;
         this.serviceInvoker.invoke('post.contactus',{},this.contactForm.value,{}).subscribe((res:any)=>{
-          this.notificationService.showSuccess('saved successfully')
+          this.notificationService.showSuccess(res.message ? res.message : 'saved successfully')
           this.contactForm.reset()
+          this.savingInProgress = false;
         },(err:any)=>{
-          this.notificationService.showSuccess('saved successfully')
+          this.savingInProgress = false;
+          this.notificationService.showError(err)
         })
     } else {
       this.markAllFieldsAsTouched();
