@@ -56,5 +56,10 @@ export class EndPointsService {
       method: 'get'
     };
 
+    this.apiList['get.companies'] = {
+      endpoint: this.API_SERVER_URL + '/api/companies',
+      method: 'get'
+    };
+
   }
 }

@@ -6,10 +6,11 @@ import { ServiceInvokerService } from '../../services/api-invoker.service';
 import { LoaderComponent } from '../shared/components/loader/loader.component';
 import { NotificationService } from '../../services/notification.service';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-search-jobs',
   standalone: true,
-  imports: [CommonModule, FormsModule, NgbDropdownModule, LoaderComponent,NgbPaginationModule],
+  imports: [CommonModule, FormsModule, NgbDropdownModule, LoaderComponent, NgbPaginationModule],
   templateUrl: './search-jobs.component.html',
   styleUrl: './search-jobs.component.scss'
 })
@@ -17,6 +18,7 @@ export class SearchJobsComponent implements OnInit {
 
   constructor(private serviceInvoker: ServiceInvokerService,
     public notificationService: NotificationService,
+    private authService: AuthService
   ) {
 
   }
@@ -112,7 +114,14 @@ export class SearchJobsComponent implements OnInit {
   ];
 
   loading: boolean = false;
+  accountInformation: any = {};
+  role: any = ''
   ngOnInit() {
+    let accountData = this.authService.getUserData();
+    if (accountData) {
+      this.accountInformation = accountData.userData
+      this.role = this.accountInformation.role
+    }
     this.getListing()
 
   }
@@ -121,6 +130,7 @@ export class SearchJobsComponent implements OnInit {
 
   getListing() {
     this.loading = true;
+    this.listingloading = true
     // let params = {
     //   page: this.page,
     //   limit: this.limit
@@ -128,10 +138,12 @@ export class SearchJobsComponent implements OnInit {
     this.serviceInvoker.invoke('get.jobs', {}).subscribe((res: any) => {
       this.searchJobs = res;
       this.loading = false;
+      this.listingloading = false;
     }, (err) => {
       this.searchJobs = [];
       this.listing = [];
       this.loading = false;
+      this.listingloading = false;
       this.notificationService.showError(err)
     })
   }
@@ -150,20 +162,20 @@ export class SearchJobsComponent implements OnInit {
 
   getSearchJobs() {
     this.loading = true;
-    let params: any = {
-      page: this.page,
-      limit: this.limit
-    }
-    if (this.searchJobsQuery.title) {
-      params.limit = params.limit + '&title=' + this.searchJobsQuery.title;
-    }
-    if (this.searchJobsQuery.location) {
-      params.limit = params.limit + '&location=' + this.searchJobsQuery.location;
-    }
-    if (this.searchJobsQuery.type) {
-      params.limit = params.limit + '&type=' + this.searchJobsQuery.type;
-    }
-    this.serviceInvoker.invoke('get.jobs', params).subscribe((res: any) => {
+    // let params: any = {
+    //   page: this.page,
+    //   limit: this.limit
+    // }
+    // if (this.searchJobsQuery.title) {
+    //   params.limit = params.limit + '&title=' + this.searchJobsQuery.title;
+    // }
+    // if (this.searchJobsQuery.location) {
+    //   params.limit = params.limit + '&location=' + this.searchJobsQuery.location;
+    // }
+    // if (this.searchJobsQuery.type) {
+    //   params.limit = params.limit + '&type=' + this.searchJobsQuery.type;
+    // }
+    this.serviceInvoker.invoke('get.jobs', {}).subscribe((res: any) => {
       this.searchJobs = res;
       this.loading = false;
     }, (err) => {
@@ -176,23 +188,31 @@ export class SearchJobsComponent implements OnInit {
   listingloading: boolean = false;
   getJobListing() {
     this.listingloading = true;
-    let params: any = {
-      page: this.page,
-      limit: this.limit
-    }
-    if (this.jobListingQuery.location) {
-      params.limit = params.limit + '&location=' + this.jobListingQuery.location;
-    }
-    if (this.jobListingQuery.type) {
-      params.limit = params.limit + '&type=' + this.jobListingQuery.type;
-    }
-    this.serviceInvoker.invoke('get.jobs', params).subscribe((res: any) => {
-      this.listing = res;
+    // let params: any = {
+    //   page: this.page,
+    //   limit: this.limit
+    // }
+    // if (this.jobListingQuery.location) {
+    //   params.limit = params.limit + '&location=' + this.jobListingQuery.location;
+    // }
+    // if (this.jobListingQuery.type) {
+    //   params.limit = params.limit + '&type=' + this.jobListingQuery.type;
+    // }
+    this.serviceInvoker.invoke('get.jobs', {}).subscribe((res: any) => {
+      this.searchJobs = res;
       this.listingloading = false;
     }, (err) => {
-      this.listing = [];
+      this.searchJobs = [];
       this.listingloading = false;
       this.notificationService.showError(err)
     })
+  }
+
+  checkForRole() {
+    if (this.role === 'admin' || this.role === 'super_admin') {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

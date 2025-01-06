@@ -16,7 +16,8 @@ import { SearchJobsComponent } from './search-jobs/search-jobs.component';
 import { SubmitResumeComponent } from './submit-resume/submit-resume.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { PostJobsComponent } from './post-jobs/post-jobs.component'
+import { PostJobsComponent } from './post-jobs/post-jobs.component';
+import { CompaniesComponent } from './companies/companies.component';
 
 // const menuRoutes = MENU_DATA.map(item => ({
 //     path: 'item.path',
@@ -42,5 +43,6 @@ export const routes: Routes = [
     { path: APP_PATHS.JOB_SEEKER.SEARCH_JOBS, component: SearchJobsComponent },
     { path: APP_PATHS.JOB_SEEKER.SUBMIT_RESUME, component: SubmitResumeComponent },
     { path: APP_PATHS.POST_JOBS, component: PostJobsComponent },
+    { path: APP_PATHS.COMPANIES, component: CompaniesComponent },
 
 ];

@@ -4,7 +4,7 @@
         <div >Promates</div>
     </div>
     <app-navigation></app-navigation>
-    <button class="promates-btn btn-with-arrow">
+    <button class="promates-btn btn-with-arrow d-none">
         <span>Join the Platform</span>
     </button>
     <button class="promates-btn ms-2" (click)="isAuthenticated ? logoutUser(): navigateToLogin()" [disabled]="logginInProgress">{{isAuthenticated ? (logginInProgress ? 'Logging out..' :'Logout') : (logginInProgress ? 'Logging in..' :'Login')}}</button>

@@ -57,6 +57,7 @@ export class HeaderComponent implements OnInit {
     setTimeout(() => {
       this.logginInProgress = false;
       this.authService.logout();
+      this.navigateToHome();
       this.notificationService.notify("Logged out successfully", 'success');
     }, 1000);
   }

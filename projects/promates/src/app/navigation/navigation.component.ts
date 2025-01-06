@@ -39,10 +39,20 @@ export class NavigationComponent implements OnInit {
   }
 
   isAuthenticated: boolean = false;
+  role: string = '';
   ngOnInit(): void {
+    let user = this.authService.getUserData();
+    if(user && user.userData) {
+      this.role = user.userData.role;
+    }
+
     this.menuItems = this.menuService.getMenuData();
     this.subscription.add( this.authService.authenticated$.subscribe((authStatus: boolean) => {
       this.isAuthenticated = authStatus;
+      let user = this.authService.getUserData();
+      if(user && user.userData) {
+        this.role = user.userData.role;
+      }
       this.onUserLoggedIn(authStatus);
     }));
   }
@@ -84,6 +94,9 @@ export class NavigationComponent implements OnInit {
   private setVisibility(item: any, authStatus: boolean): void {
     if (item.hasOwnProperty('visibleAfterLogin')) {
       item.visible = item.visibleAfterLogin === authStatus;
+      if(item.permission && !item.permission.includes(this.role)) {
+        item.visible = false;
+      }
     } else {
       item.visible = true;
     }

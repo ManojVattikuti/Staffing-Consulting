@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NotificationService } from '../services/notification.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
 declare const AOS :any;
 @Component({
   selector: 'app-root',
@@ -17,12 +18,18 @@ declare const AOS :any;
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  constructor(translate: TranslateService,private router: Router) {
+  constructor(translate: TranslateService,private router: Router,private authService:AuthService) {
     translate.setDefaultLang('en');
     translate.use('en');
   }
 
   ngOnInit(): void {
+    let tokenData = this.authService.getUserData();
+    if(tokenData && tokenData.token){
+      this.authService.login(); 
+      this.authService.storeUserData(tokenData.token,tokenData.userData);
+      
+    }
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd) // Only react to NavigationEnd events
     ).subscribe(() => {
