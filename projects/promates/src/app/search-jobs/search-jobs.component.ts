@@ -5,10 +5,11 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceInvokerService } from '../../services/api-invoker.service';
 import { LoaderComponent } from '../shared/components/loader/loader.component';
 import { NotificationService } from '../../services/notification.service';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-search-jobs',
   standalone: true,
-  imports: [CommonModule, FormsModule, NgbDropdownModule, LoaderComponent],
+  imports: [CommonModule, FormsModule, NgbDropdownModule, LoaderComponent,NgbPaginationModule],
   templateUrl: './search-jobs.component.html',
   styleUrl: './search-jobs.component.scss'
 })
@@ -120,12 +121,12 @@ export class SearchJobsComponent implements OnInit {
 
   getListing() {
     this.loading = true;
-    let params = {
-      page: this.page,
-      limit: this.limit
-    }
-    this.serviceInvoker.invoke('get.jobs', params).subscribe((res: any) => {
-      this.listing = res.data;
+    // let params = {
+    //   page: this.page,
+    //   limit: this.limit
+    // }
+    this.serviceInvoker.invoke('get.jobs', {}).subscribe((res: any) => {
+      this.searchJobs = res;
       this.loading = false;
     }, (err) => {
       this.searchJobs = [];
@@ -163,7 +164,7 @@ export class SearchJobsComponent implements OnInit {
       params.limit = params.limit + '&type=' + this.searchJobsQuery.type;
     }
     this.serviceInvoker.invoke('get.jobs', params).subscribe((res: any) => {
-      this.searchJobs = res.data;
+      this.searchJobs = res;
       this.loading = false;
     }, (err) => {
       this.searchJobs = [];
@@ -186,7 +187,7 @@ export class SearchJobsComponent implements OnInit {
       params.limit = params.limit + '&type=' + this.jobListingQuery.type;
     }
     this.serviceInvoker.invoke('get.jobs', params).subscribe((res: any) => {
-      this.listing = res.data;
+      this.listing = res;
       this.listingloading = false;
     }, (err) => {
       this.listing = [];

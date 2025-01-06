@@ -52,7 +52,7 @@ export class EndPointsService {
     };
 
     this.apiList['get.jobs'] = {
-      endpoint: this.API_SERVER_URL + '/api/job-postings?page=:page&limit=:limit',
+      endpoint: this.API_SERVER_URL + '/api/job-postings',
       method: 'get'
     };
 

@@ -47,20 +47,21 @@
                                 <p class="text-sm medium"> {{job.description}} </p>
                             </div>
                             <div class="job-card-location flex-shrink-0 d-flex gap-2 flex-column">
-                                <p class="text-sm medium mb-1">{{job.date}}</p>
-                                <p class="text-sm medium mb-1">{{job.type}}</p>
+                                <p class="text-sm medium mb-1">{{job.experienceLevel}}</p>
+                                <p class="text-sm medium mb-1">{{job.employmentType}}</p>
                                 <p class="text-sm medium mb-1">{{job.location}}</p>
                             </div>
                         </div>
                     </div>
                 </ng-container>
             </ng-container>
+            <!-- <ngb-pagination [collectionSize]="se" [(page)]="page" [directionLinks]="false" /> -->
         </div>
     </div>
 </div>
 
 
-<div class="search-jobs">
+<div class="search-jobs d-none">
     <div class="container p-0">
         <h1 class="heading-border position-relative heading-xs semibold mb-4">Job Listing</h1>
         <div class="form-block">
