@@ -1,51 +1,44 @@
-
-*{
-    font-family: "Open Sans", sans-serif;
+* {
+  font-family: 'Open Sans', sans-serif;
 }
 // @import 'bootstrap/scss/bootstrap';
 // @import "./SCSS/reset";
 // /* Importing Bootstrap SCSS file. */
 
-
+/* You can add global styles to this file, and also import other style files */
+$prefix: 'bs-';
 
 /* You can add global styles to this file, and also import other style files */
-$prefix: "bs-";
-
-
-  /* You can add global styles to this file, and also import other style files */
 // @import '../node_modules/ag-grid-community/styles/ag-grid.min.css';
 // @import 'ag-grid-community/styles/ag-theme-alpine.css';
 // @import 'ag-grid-community/styles/ag-theme-balham.css';
 
+@import './SCSS/reset';
 
-@import "./SCSS/reset";
-
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "./SCSS/bs-variables-custom";
-@import "../../../node_modules/bootstrap/scss/maps";
-@import "../../../node_modules/bootstrap/scss/mixins";
+@import '../../../node_modules/bootstrap/scss/functions';
+@import './SCSS/bs-variables-custom';
+@import '../../../node_modules/bootstrap/scss/maps';
+@import '../../../node_modules/bootstrap/scss/mixins';
 
 // Layout & components
 
-@import "../../../node_modules/bootstrap/scss/root";
-@import "../../../node_modules/bootstrap/scss/utilities";
-@import "../../../node_modules/bootstrap/scss/accordion";
-@import "../../../node_modules/bootstrap/scss/forms/form-control";
-@import "../../../node_modules/bootstrap/scss/forms/form-check";
-@import "../../../node_modules/bootstrap/scss/forms/form-select";
-@import "../../../node_modules/bootstrap/scss/forms/input-group";
-@import "../../../node_modules/bootstrap/scss/buttons";
-@import "../../../node_modules/bootstrap/scss/transitions";
-@import "../../../node_modules/bootstrap/scss/dropdown";
-@import "../../../node_modules/bootstrap/scss/utilities/api";
-@import "../../../node_modules/bootstrap/scss/helpers/text-truncation";
-@import "../../../node_modules/bootstrap/scss/grid";
-@import "../../../node_modules/bootstrap/scss/containers";
-@import "../../../node_modules/bootstrap/scss/carousel";
-@import "./SCSS/typography";
-@import "./SCSS/common";
-
-
+@import '../../../node_modules/bootstrap/scss/root';
+@import '../../../node_modules/bootstrap/scss/utilities';
+@import '../../../node_modules/bootstrap/scss/accordion';
+@import '../../../node_modules/bootstrap/scss/forms/form-control';
+@import '../../../node_modules/bootstrap/scss/forms/form-check';
+@import '../../../node_modules/bootstrap/scss/forms/form-select';
+@import '../../../node_modules/bootstrap/scss/forms/input-group';
+@import '../../../node_modules/bootstrap/scss/buttons';
+@import '../../../node_modules/bootstrap/scss/transitions';
+@import '../../../node_modules/bootstrap/scss/dropdown';
+@import '../../../node_modules/bootstrap/scss/utilities/api';
+@import '../../../node_modules/bootstrap/scss/helpers/text-truncation';
+@import '../../../node_modules/bootstrap/scss/grid';
+@import '../../../node_modules/bootstrap/scss/containers';
+@import '../../../node_modules/bootstrap/scss/carousel';
+@import './SCSS/typography';
+@import './SCSS/common';
 
 @import '../../../node_modules/ngx-toastr/toastr.css';
 // @import "./customSCSS/typography";
@@ -56,49 +49,49 @@ $prefix: "bs-";
 
 ::-webkit-scrollbar {
   height: 1rem;
-  width: .5rem
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar:horizontal {
-  height: .5rem;
-  width: 1rem
+  height: 0.5rem;
+  width: 1rem;
 }
 
 ::-webkit-scrollbar-track {
   background-color: transparent;
-  border-radius: 9999px
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb {
   --tw-border-opacity: 1;
-  background-color: #F2F4F7 !important;
-  border-color: #D0D5DD;
+  background-color: #f2f4f7 !important;
+  border-color: #d0d5dd;
   border-radius: 9999px;
-  border-width: 1px
+  border-width: 1px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   --tw-bg-opacity: 1;
-  background-color: #D0D5DD !important;
+  background-color: #d0d5dd !important;
 }
 
 .dark::-webkit-scrollbar-thumb {
   --tw-bg-opacity: 1;
-  background-color: #D0D5DD;
+  background-color: #d0d5dd;
 }
 
 .dark::-webkit-scrollbar-thumb:hover {
   --tw-bg-opacity: 1;
-  background-color: #D0D5DD;
+  background-color: #d0d5dd;
 }
 
 @media (min-width: 768px) {
   .scrollbar-trigger ::-webkit-scrollbar-thumb {
-    visibility: hidden
+    visibility: hidden;
   }
 
   .scrollbar-trigger:hover ::-webkit-scrollbar-thumb {
-    visibility: visible
+    visibility: visible;
   }
 }
 

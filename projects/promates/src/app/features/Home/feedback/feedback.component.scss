@@ -1,0 +1,46 @@
+.feedback-wrapper {
+  padding: 100px 100px 40px 100px;
+}
+.carousel {
+  .carousel-inner {
+    .carousel-item {
+      .feedback-card-wrapper {
+        padding: 60px;
+        .feedback-card {
+          border-radius: 8px;
+          background: #fff;
+          box-shadow: 0px 24px 48px 0px rgba(0, 17, 86, 0.08);
+          display: flex;
+          padding: 35px 30px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          flex: 1 0 0;
+          position: relative;
+          .feedback-card-header {
+          }
+        }
+      }
+    }
+  }
+  .carousel-control-next {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 60px;
+    border: 2px solid #4c7df4;
+    padding: 0;
+    top: 125px;
+    right: -40px;
+    opacity: 1;
+    background: #fff;
+  }
+  .carousel-control-prev {
+    @extend .carousel-control-next;
+    left: -40px;
+  }
+}

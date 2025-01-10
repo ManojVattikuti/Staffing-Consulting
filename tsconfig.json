@@ -17,19 +17,14 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "paths": {
-      "shared": [
-        "./dist/shared"
-      ],
+      "shared": ["./dist/shared"],
       "@promates.environments/*": ["./projects/promates/src/environments/*"],
       "@promates.services/*": ["./projects/promates/src/app/services/*"]
     },
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
