@@ -4,13 +4,7 @@ import { Component } from '@angular/core';
   selector: 'lib-shared',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      shared works!
-    </p>
-  `,
-  styles: ``
+  template: ` <p>shared works!</p> `,
+  styles: ``,
 })
-export class SharedComponent {
-
-}
+export class SharedComponent {}

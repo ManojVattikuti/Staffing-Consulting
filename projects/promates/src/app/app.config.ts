@@ -3,11 +3,17 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideToastr } from 'ngx-toastr';
-import { provideHttpClient ,HTTP_INTERCEPTORS ,HttpClient, withFetch, withInterceptorsFromDi } from "@angular/common/http";
-import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import {
+  provideHttpClient,
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  withFetch,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { AuthInterceptor } from '../services/auth-interceptor.service';
+import { AuthInterceptor } from './common/services/auth-interceptor.service';
 
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: HttpClient) =>
   new TranslateHttpLoader(http, '/assets/i18n/', '.json');
@@ -20,7 +26,7 @@ export const appConfig: ApplicationConfig = {
     provideToastr({
       timeOut: 5000,
       autoDismiss: false,
-      closeButton: true
+      closeButton: true,
     }),
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
     importProvidersFrom(
@@ -30,13 +36,13 @@ export const appConfig: ApplicationConfig = {
           useFactory: httpLoaderFactory,
           deps: [HttpClient],
         },
-      })
+      }),
     ),
     // Adding the AuthInterceptor provider
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 };

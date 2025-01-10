@@ -1,38 +1,68 @@
 // Typography Mixin
-@mixin headingTextDisplay($size, $weight: var(--font-weight-normal-Regular, 400), $lineheight: normal, $color: var(--colors-text-text-primary-900, #101828), $textalign: left, $spacing: null) {
-    font-size: $size;
-    font-weight: $weight;
-    line-height: $lineheight;
-    color: $color;
-    text-align: $textalign;
-    margin: 0;
-    letter-spacing: $spacing;
-    
-    // Font weight variations
-    &.medium { font-weight: 500; }
-    &.semibold { font-weight: 700; }
-    &.bold { font-weight: 700; }
+@mixin headingTextDisplay(
+  $size,
+  $weight: var(--font-weight-normal-Regular, 400),
+  $lineheight: normal,
+  $color: var(--colors-text-text-primary-900, #101828),
+  $textalign: left,
+  $spacing: null
+) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineheight;
+  color: $color;
+  text-align: $textalign;
+  margin: 0;
+  letter-spacing: $spacing;
+
+  // Font weight variations
+  &.medium {
+    font-weight: 500;
+  }
+  &.semibold {
+    font-weight: 700;
+  }
+  &.bold {
+    font-weight: 700;
+  }
 }
 
 // General Utility for Heading Classes
 @mixin heading($name, $size, $lineheight, $spacing: null) {
-    .#{$name} {
-        @include headingTextDisplay($size, 400, $lineheight, var(--colors-text-text-primary-900, #101828), left, $spacing);
-    }
+  .#{$name} {
+    @include headingTextDisplay(
+      $size,
+      400,
+      $lineheight,
+      var(--colors-text-text-primary-900, #101828),
+      left,
+      $spacing
+    );
+  }
 }
 
 // General Utility for Text Classes
 @mixin text($name, $size, $lineheight) {
-    .#{$name} {
-        @include headingTextDisplay($size, 400, $lineheight, var(--colors-text-text-secondary-700, #344054));
-    }
+  .#{$name} {
+    @include headingTextDisplay(
+      $size,
+      400,
+      $lineheight,
+      var(--colors-text-text-secondary-700, #344054)
+    );
+  }
 }
 
 // General Utility for Description Text Classes
 @mixin description($name, $size, $lineheight) {
-    .#{$name} {
-        @include headingTextDisplay($size, 400, $lineheight, var(--colors-text-text-tertiary-600, #475467));
-    }
+  .#{$name} {
+    @include headingTextDisplay(
+      $size,
+      400,
+      $lineheight,
+      var(--colors-text-text-tertiary-600, #475467)
+    );
+  }
 }
 
 // Headings

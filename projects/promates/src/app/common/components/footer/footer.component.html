@@ -1,0 +1,101 @@
+<!-- src/app/footer/footer.component.html -->
+<footer class="bg-dark text-white p-0">
+  <div class="row row-data-footer mb-4">
+    <!-- Social Media Column -->
+    <div class="col-md-2 d-none">
+      <h5>Social Media</h5>
+      <ul class="list-unstyled">
+        <li><a href="#" class="text-white">Facebook</a></li>
+        <li><a href="#" class="text-white">Twitter</a></li>
+        <li><a href="#" class="text-white">Instagram</a></li>
+        <li><a href="#" class="text-white">LinkedIn</a></li>
+      </ul>
+    </div>
+
+    <!-- Services Column -->
+    <div class="col-md-2">
+      <h5>Services</h5>
+      <ul class="list-unstyled">
+        <li>
+          <a (click)="navigateTo($event, APP_PATHS.SERVICES.CONSULTING)" class="text-white"
+            >Consulting</a
+          >
+        </li>
+        <li>
+          <a (click)="navigateTo($event, APP_PATHS.SERVICES.STAFFING)" class="text-white"
+            >Staffing</a
+          >
+        </li>
+        <li>
+          <a (click)="navigateTo($event, APP_PATHS.SERVICES.CONSULTING)" class="text-white d-none"
+            >Cloud Services</a
+          >
+        </li>
+        <li><a href="#" class="text-white d-none">Support</a></li>
+      </ul>
+    </div>
+
+    <!-- About Column -->
+    <div class="col-md-2">
+      <h5>About</h5>
+      <ul class="list-unstyled">
+        <li>
+          <a (click)="navigateTo($event, APP_PATHS.ABOUT)" class="text-white">Our Story</a>
+        </li>
+        <li><a href="#" class="text-white d-none">Careers</a></li>
+        <li>
+          <a (click)="navigateTo($event, APP_PATHS.CONTACT)" class="text-white">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Resources Column -->
+    <div class="col-md-2 d-none">
+      <h5>Resources</h5>
+      <ul class="list-unstyled">
+        <li><a href="#" class="text-white">Blog</a></li>
+        <li><a href="#" class="text-white">Case Studies</a></li>
+        <li><a href="#" class="text-white">Whitepapers</a></li>
+      </ul>
+    </div>
+
+    <!-- Areas of Experience Column -->
+    <div class="col-md-2">
+      <h5>Areas of Experience</h5>
+      <ul class="list-unstyled">
+        <li>
+          <a (click)="navigateTo($event, APP_PATHS.INDUSTRIES.FINANCE)" class="text-white"
+            >Finance</a
+          >
+        </li>
+        <li>
+          <a (click)="navigateTo($event, APP_PATHS.INDUSTRIES.HEALTH_CARE)" class="text-white"
+            >Healthcare</a
+          >
+        </li>
+        <li>
+          <a (click)="navigateTo($event, APP_PATHS.INDUSTRIES.IT)" class="text-white"
+            >Information Technology</a
+          >
+        </li>
+        <li>
+          <a (click)="navigateTo($event, APP_PATHS.INDUSTRIES.RETAIL)" class="text-white">Retail</a>
+        </li>
+        <li>
+          <a (click)="navigateTo($event, APP_PATHS.INDUSTRIES.LOGISTICS)" class="text-white"
+            >Logistics</a
+          >
+        </li>
+        <li>
+          <a (click)="navigateTo($event, APP_PATHS.INDUSTRIES.LIFE_SCIENCES)" class="text-white"
+            >Life Sciences</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="text-center bottom-data justify-content-center">
+    <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+  </div>
+</footer>

@@ -1,0 +1,237 @@
+<div class="container py-4">
+  <h2 class="mb-4">Post a New Job</h2>
+
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()" class="needs-validation">
+    <div class="mb-3">
+      <label for="title" class="form-label text-sm medium">Job Title<sup>*</sup></label>
+      <input
+        id="title"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="jobForm.get('title')?.invalid && jobForm.get('title')?.touched"
+        formControlName="title"
+        placeholder="e.g., Senior Software Engineer"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="jobForm.get('title')?.invalid && jobForm.get('title')?.touched"
+      >
+        Job title is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="companyName" class="form-label text-sm medium">Company Name<sup>*</sup></label>
+      <input
+        id="companyName"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="
+          jobForm.get('companyName')?.invalid && jobForm.get('companyName')?.touched
+        "
+        formControlName="companyName"
+        placeholder="Your companyName name"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="jobForm.get('companyName')?.invalid && jobForm.get('companyName')?.touched"
+      >
+        Company name is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label text-sm medium">Location<sup>*</sup></label>
+      <input
+        id="location"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="jobForm.get('location')?.invalid && jobForm.get('location')?.touched"
+        formControlName="location"
+        placeholder="e.g., New York, NY or Remote"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="jobForm.get('location')?.invalid && jobForm.get('location')?.touched"
+      >
+        Location is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="employmentType" class="form-label text-sm medium">Job Type<sup>*</sup></label>
+      <div class="dropdown-container">
+        <div ngbDropdown class="d-block">
+          <button
+            type="button"
+            class="w-100 text-start form-select"
+            [class.is-invalid]="
+              jobForm.get('employmentType')?.invalid && jobForm.get('employmentType')?.touched
+            "
+            id="employmentTypeDropdown"
+            ngbDropdownToggle
+            type="button"
+          >
+            {{ jobForm.get('employmentType')?.value || 'Select job type' }}
+          </button>
+          <div ngbDropdownMenu aria-labelledby="employmentTypeDropdown" class="w-100">
+            <button
+              ngbDropdownItem
+              *ngFor="let type of jobTypes"
+              (click)="jobForm.patchValue({ employmentType: type })"
+              type="button"
+            >
+              {{ type }}
+            </button>
+          </div>
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="jobForm.get('employmentType')?.invalid && jobForm.get('employmentType')?.touched"
+        >
+          Job type is required
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="experienceLevel" class="form-label text-sm medium"
+        >Experience Level<sup>*</sup></label
+      >
+      <div class="dropdown-container">
+        <div ngbDropdown class="d-block">
+          <button
+            type="button"
+            class="w-100 text-start form-select"
+            [class.is-invalid]="
+              jobForm.get('experienceLevel')?.invalid && jobForm.get('experienceLevel')?.touched
+            "
+            id="experienceLevelDropdown"
+            ngbDropdownToggle
+          >
+            {{ jobForm.get('experienceLevel')?.value || 'Select experience level' }}
+          </button>
+          <div ngbDropdownMenu aria-labelledby="experienceLevelDropdown" class="w-100">
+            <button
+              ngbDropdownItem
+              *ngFor="let level of experienceLevels"
+              (click)="jobForm.patchValue({ experienceLevel: level })"
+              type="button"
+            >
+              {{ level }}
+            </button>
+          </div>
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="jobForm.get('experienceLevel')?.invalid && jobForm.get('experienceLevel')?.touched"
+        >
+          Experience level is required
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="salaryRange" class="form-label text-sm medium">Salary Range<sup>*</sup></label>
+      <input
+        id="salaryRange"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="
+          jobForm.get('salaryRange')?.invalid && jobForm.get('salaryRange')?.touched
+        "
+        formControlName="salaryRange"
+        placeholder="e.g., $80,000 - $100,000"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="jobForm.get('salaryRange')?.invalid && jobForm.get('salaryRange')?.touched"
+      >
+        Salary range is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label text-sm medium">Job Description<sup>*</sup></label>
+      <textarea
+        id="description"
+        class="form-control"
+        [class.is-invalid]="
+          jobForm.get('description')?.invalid && jobForm.get('description')?.touched
+        "
+        formControlName="description"
+        rows="6"
+        placeholder="Provide a detailed description of the role"
+      ></textarea>
+      <div
+        class="invalid-feedback"
+        *ngIf="jobForm.get('description')?.invalid && jobForm.get('description')?.touched"
+      >
+        Job description is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="requirements" class="form-label text-sm medium">Requirements<sup>*</sup></label>
+      <textarea
+        id="requirements"
+        class="form-control"
+        [class.is-invalid]="
+          jobForm.get('requirements')?.invalid && jobForm.get('requirements')?.touched
+        "
+        formControlName="requirements"
+        rows="4"
+        placeholder="List the key requirements and qualifications"
+      ></textarea>
+      <div
+        class="invalid-feedback"
+        *ngIf="jobForm.get('requirements')?.invalid && jobForm.get('requirements')?.touched"
+      >
+        Requirements are required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="benefits" class="form-label text-sm medium">Benefits & Perks</label>
+      <textarea
+        id="benefits"
+        class="form-control"
+        formControlName="benefits"
+        rows="4"
+        placeholder="List the benefits and perks offered"
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="applicationDeadline" class="form-label text-sm medium"
+        >Application Deadline<sup>*</sup></label
+      >
+      <input
+        id="applicationDeadline"
+        type="date"
+        class="form-control"
+        [class.is-invalid]="
+          jobForm.get('applicationDeadline')?.invalid && jobForm.get('applicationDeadline')?.touched
+        "
+        formControlName="applicationDeadline"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          jobForm.get('applicationDeadline')?.invalid && jobForm.get('applicationDeadline')?.touched
+        "
+      >
+        Application deadline is required
+      </div>
+    </div>
+
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-primary" [disabled]="!jobForm.valid || savingInProgress">
+        {{ savingInProgress ? 'Saving..' : 'Post Job' }}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="jobForm.reset()">Reset</button>
+    </div>
+  </form>
+
+  <app-loader [isLoading]="isSubmitting" [overlay]="true"></app-loader>
+</div>

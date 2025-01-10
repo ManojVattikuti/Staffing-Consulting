@@ -1,0 +1,34 @@
+<div
+  class="frequently-asked-que"
+  data-aos="flip-right"
+  data-aos-delay="10"
+  data-aos-duration="1000"
+  data-aos-offset="200"
+>
+  <div class="container">
+    <h1 class="heading-border position-relative heading-xs semibold center-border text-center mb-4">
+      Frequently Asked Questions
+    </h1>
+    <p class="desc-sm mb-4 text-center">
+      Click the icon beside each question to see the answers to our most frequently asked questions.
+    </p>
+    <div ngbAccordion #accordion="ngbAccordion" [closeOthers]="true">
+      <ng-container *ngFor="let question of frequentlyAskedQuestions; let i = index">
+        <div ngbAccordionItem="{{ i }}">
+          <div ngbAccordionHeader>
+            <button ngbAccordionButton>
+              <div class="">{{ question.question }}</div>
+            </button>
+          </div>
+          <div ngbAccordionCollapse>
+            <div ngbAccordionBody>
+              <ng-template>
+                <p>{{ question.answer }}</p>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

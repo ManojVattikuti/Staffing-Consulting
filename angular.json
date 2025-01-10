@@ -26,10 +26,7 @@
             "outputPath": "dist/trimah",
             "index": "projects/trimah/src/index.html",
             "browser": "projects/trimah/src/main.ts",
-            "polyfills": [
-              "zone.js",
-              "@angular/localize/init"
-            ],
+            "polyfills": ["zone.js", "@angular/localize/init"],
             "tsConfig": "projects/trimah/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -38,9 +35,7 @@
                 "input": "projects/trimah/public"
               }
             ],
-            "styles": [
-              "projects/trimah/src/styles.scss"
-            ],
+            "styles": ["projects/trimah/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -88,11 +83,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing",
-              "@angular/localize/init"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing", "@angular/localize/init"],
             "tsConfig": "projects/trimah/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -102,9 +93,7 @@
               },
               "projects/trimah/src/assets"
             ],
-            "styles": [
-              "projects/trimah/src/styles.scss"
-            ],
+            "styles": ["projects/trimah/src/styles.scss"],
             "scripts": []
           }
         }
@@ -127,10 +116,7 @@
             "outputPath": "dist/promates",
             "index": "projects/promates/src/index.html",
             "browser": "projects/promates/src/main.ts",
-            "polyfills": [
-              "zone.js",
-               "@angular/localize/init"
-            ],
+            "polyfills": ["zone.js", "@angular/localize/init"],
             "tsConfig": "projects/promates/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -140,9 +126,7 @@
               },
               "projects/promates/src/assets"
             ],
-            "styles": [
-              "projects/promates/src/styles.scss"
-            ],
+            "styles": ["projects/promates/src/styles.scss"],
             "scripts": [],
             "fileReplacements": [
               {
@@ -202,11 +186,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing",
-              "@angular/localize/init"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing", "@angular/localize/init"],
             "tsConfig": "projects/promates/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -215,9 +195,7 @@
                 "input": "projects/promates/public"
               }
             ],
-            "styles": [
-              "projects/promates/src/styles.scss"
-            ],
+            "styles": ["projects/promates/src/styles.scss"],
             "scripts": []
           }
         }
@@ -248,11 +226,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/shared/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing",
-              "@angular/localize/init"
-            ]
+            "polyfills": ["zone.js", "zone.js/testing", "@angular/localize/init"]
           }
         }
       }
