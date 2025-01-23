@@ -6,7 +6,7 @@
       <br />We’ll get back to you shortly
     </p>
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <div class="d-flex gap-3">
+      <div class="d-flex gap-lg-3 flex-column flex-lg-row">
         <div class="mb-3 w-100">
           <label for="firstName" class="form-label text-sm medium">First name<sup>*</sup></label>
           <input
@@ -48,7 +48,7 @@
           <div class="char-remaining"></div>
         </div>
       </div>
-      <div class="d-flex gap-3">
+      <div class="d-flex gap-lg-3 flex-column flex-lg-row">
         <div class="mb-3 w-100">
           <label for="email" class="form-label text-sm medium">Email<sup>*</sup></label>
           <input
@@ -112,7 +112,7 @@
         </div>
       </div>
 
-      <div class="d-flex gap-3">
+      <div class="d-flex gap-lg-3 flex-column flex-lg-row">
         <div class="mb-3 w-100">
           <label for="companyName" class="form-label text-sm medium"
             >Company name<sup>*</sup></label

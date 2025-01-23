@@ -1,3 +1,13 @@
+@import "././../../../../SCSS/media-queries";
+
 .services-block {
-  padding: 100px;
+  @include xs{
+    padding: 30px;
+  }
+  @include sm{
+    padding: 50px;
+  }
+  @include md {
+    padding: 100px;
+  }
 }

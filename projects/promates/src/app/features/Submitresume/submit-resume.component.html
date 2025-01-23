@@ -7,7 +7,7 @@
         (ngSubmit)="onSubmit()"
         [ngClass]="{ 'd-none': formSubmitted }"
       >
-        <div class="d-flex gap-4">
+        <div class="d-flex flex-column flex-lg-row gap-lg-4">
           <div class="form-group">
             <label for="firstName">First name<sup>*</sup></label>
             <input
@@ -48,7 +48,7 @@
           </div>
         </div>
 
-        <div class="d-flex gap-4">
+        <div class="d-flex flex-column flex-lg-row gap-lg-4">
           <div class="form-group">
             <label for="phone">Phone<sup>*</sup></label>
             <input
@@ -96,7 +96,7 @@
           </div>
         </div>
 
-        <div class="d-flex gap-4">
+        <div class="d-flex flex-column flex-lg-row gap-lg-4">
           <div class="form-group">
             <label for="email">Primary Email<sup>*</sup></label>
             <input
@@ -144,7 +144,7 @@
           </div>
         </div>
 
-        <div class="d-flex gap-4 mb-3">
+        <div class="d-flex flex-column flex-lg-row gap-lg-4 mb-3 gap-2">
           <div ngbDropdown class="d-inline-block w-100">
             <label for="gender">Country<sup>*</sup></label>
             <button class="form-select" id="dropdownMenu3" ngbDropdownToggle type="button">
@@ -207,7 +207,7 @@
           </div>
         </div>
 
-        <div class="d-flex gap-4 mb-3">
+        <div class="d-flex flex-column flex-lg-row gap-lg-4 mb-3 gap-2">
           <div ngbDropdown class="d-inline-block w-100">
             <label for="gender">Gender<sup>*</sup></label>
             <button class="form-select" id="dropdownMenu2" ngbDropdownToggle type="button">

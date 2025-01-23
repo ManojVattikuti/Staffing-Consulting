@@ -1,14 +1,36 @@
+@import "././../../../../SCSS/media-queries";
+
 .services-block {
-  padding: 100px;
+  @include xs{
+    padding: 30px;
+  }
+  @include sm{
+    padding: 50px;
+  }
+  @include md {
+    padding: 100px;
+  }
 }
 .recruting-needs {
-  padding: 100px;
   background: #f9f9f9;
+  @include xs{
+    padding: 30px;
+  }
+  @include sm{
+    padding: 50px;
+  }
+  @include md {
+    padding: 100px;
+  }
   .card-block-needs {
     display: flex;
+    flex-direction: column;
     gap: 40px;
     margin-top: 60px;
     width: 100%;
+    @include lg {
+     flex-direction: row !important;
+    }
     .card-content {
       width: 100%;
       text-align: center;

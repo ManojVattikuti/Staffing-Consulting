@@ -1,4 +1,6 @@
 // Typography Mixin
+
+@import "./media-queries";
 @mixin headingTextDisplay(
   $size,
   $weight: var(--font-weight-normal-Regular, 400),
@@ -73,6 +75,10 @@
 @include heading('heading-sm', 36px, 44px);
 @include heading('heading-xs', 32px, 42px);
 @include heading('heading-xxs', 24px, 32px);
+
+@include xs{
+  @include heading('heading-xs', 20px, 36px);
+}
 
 // Text
 @include text('text-xl', 20px, 30px);

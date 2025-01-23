@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center justify-content-center gap-4">
+<div class="d-flex align-items-center justify-content-center gap-2 gap-lg-4 gap-md-3">
   <ng-container *ngFor="let item of menuItems">
     <ng-template
       [ngTemplateOutlet]="dropdownTemplate"
@@ -20,7 +20,7 @@
         {{ item.name }}
       </button>
       <ul ngbDropdownMenu>
-        <div class="d-flex align-items-start gap-3" *ngIf="item?.subchildrens">
+        <div class="d-flex align-items-start gap-3 overflow-hidden" *ngIf="item?.subchildrens">
           <div class="d-flex flex-column">
             <ng-container *ngFor="let subItem of item.subnav">
               <div class="submenu-list">
@@ -44,7 +44,7 @@
                 ngbDropdownItem
                 (click)="navigateToChild(child.path)"
               >
-                <svg width="33" height="40" viewBox="0 0 33 40" fill="none">
+                <svg class="flex-shirnk-0" width="33" height="40" viewBox="0 0 33 40" fill="none">
                   <path
                     d="M29.9556 1.40952H14.3689L14.3229 1.28929C14.0236 0.512902 13.2766 0 12.444 0H3.21811C1.46964 0 0 1.38778 0 3.13625V36.8625C0 38.6084 1.46836 40 3.21811 40H27.2145C27.5919 40 27.9436 39.8133 28.1559 39.505C28.3682 39.1955 28.4156 38.8002 28.2838 38.4511H29.9568C31.5748 38.4511 32.8168 37.1451 32.8168 35.5284V4.3424C32.8155 2.72567 31.5723 1.40952 29.9556 1.40952ZM29.5782 35.0718H27.0329L25.6068 31.3024C26.3857 31.1604 26.9728 30.4979 26.9728 29.678C26.9728 28.7532 26.2258 28.0293 25.2985 28.0293H24.3661L23.1996 24.9314H25.5825C26.5072 24.9314 27.2542 24.164 27.2542 23.2405C27.2542 22.317 26.5072 21.5521 25.5825 21.5521H21.9499L20.7834 18.453H25.5825C26.5072 18.453 27.2542 17.7559 27.2542 16.8337C27.2542 15.9089 26.5072 15.2118 25.5825 15.2118H19.5338L18.3673 12.1152H25.5825C26.5072 12.1152 27.2542 11.3478 27.2542 10.4243C27.2542 9.50213 26.5072 8.73597 25.5825 8.73597H17.1189L15.6173 4.79135H29.577V35.0718H29.5782Z"
                     fill="url(#paint0_linear_70_34)"
@@ -63,7 +63,7 @@
                     </linearGradient>
                   </defs>
                 </svg>
-                <span>{{ child.name }}</span>
+                <span class="text-truncate" title="{{ child.name }}">{{ child.name }}</span>
               </button>
             </div>
           </ng-container>
@@ -94,3 +94,5 @@
     {{ item.name }}
   </button>
 </ng-template>
+
+

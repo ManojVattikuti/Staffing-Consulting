@@ -1,23 +1,68 @@
+@import "./../../../../SCSS/media-queries";
+
 .about-us-sec {
   padding: 100px 0;
+  &.transform-businees-sec-2{
+    flex-direction: column-reverse !important;
+    @include lg {
+      flex-direction: row !important;
+    }
+  }
+  @include xs{
+    padding: 30px;
+  }
+  @include sm{
+    padding: 50px 0;
+  }
+  @include md {
+    padding: 100px 0;
+  }
   .content-block {
-    width: 50%;
+    width: 100%;
+    margin-bottom: 30px;
+    @include lg {
+      width: 50%;
+      margin: 0;
+    }
   }
   .img-banner {
-    width: 50%;
+    width: 100%;
+    @include lg {
+      width: 50%;
+    }
   }
 }
 
 .ready-transfer-banner {
-  padding: 0 100px;
+  @include xs{
+    padding: 0 30px;
+  }
+  @include sm{
+    padding: 0 40px;
+  }
+  @include md{
+    padding: 0 60px;
+  }
+  @include lg{
+    padding: 0 100px;
+  }
   .ready-banner {
     display: flex;
-    padding: 60px;
-    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    align-items: start;
     gap: 10px;
     border-radius: 0px 20px;
     opacity: 0.78;
     background: linear-gradient(127deg, #7e1dff 3.64%, #0085ff 79.56%);
+    @include xs{
+      flex-direction: column;
+    }
+    @include md{
+      flex-direction: column;
+      padding: 60px;
+      align-items: center;
+    }
     .content-block {
       width: 100%;
       h1 {

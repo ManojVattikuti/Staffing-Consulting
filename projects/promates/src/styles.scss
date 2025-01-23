@@ -16,6 +16,10 @@ html {
   scroll-behavior: smooth;
 }
 
+// First import media queries
+@import './SCSS/media-queries';
+
+// Then import reset and other files
 @import './SCSS/reset';
 
 @import '../../../node_modules/bootstrap/scss/functions';

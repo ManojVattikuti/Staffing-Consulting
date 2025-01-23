@@ -1,5 +1,19 @@
+
+
+@import "./../../../SCSS/media-queries";
+
+
 .content-block-titles {
   padding: 100px 0;
+  @include xs{
+    padding: 30px;
+  }
+  @include sm{
+    padding: 50px 0;
+  }
+  @include md {
+    padding: 100px 0;
+  }
   background: #f9f9f9;
 }
 
@@ -14,15 +28,30 @@
     letter-spacing: -0.5px;
   }
 }
+
 .about-us-sec {
   padding: 100px 0;
-  &:nth-child(even) {
-    background: #f9f9f9;
+  @include xs{
+    padding: 30px;
+  }
+  @include sm{
+    padding: 50px 0;
+  }
+  @include md {
+    padding: 100px 0;
   }
   .content-block {
-    width: 50%;
+    width: 100%;
+    margin-bottom: 30px;
+    @include lg {
+      width: 50%;
+      margin: 0;
+    }
   }
   .img-banner {
-    width: 50%;
+    width: 100%;
+    @include lg {
+      width: 50%;
+    }
   }
 }
