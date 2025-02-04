@@ -8,6 +8,7 @@ import { NotificationService } from '../../services/notification.service';
 import { Subscription } from 'rxjs';
 import { ServiceInvokerService } from '../../services/api-invoker.service';
 import { HttpClient } from '@angular/common/http';
+import { APP_PATHS } from '../../constants/app.constants';
 
 @Component({
   selector: 'app-header',
@@ -45,23 +46,26 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   navigateToLogin() {
-    this.logginInProgress = true;
-    this.serviceInvoker.invoke('app.login', {}, {}, {}).subscribe(
-      (res: any) => {
-        this.authService.storeUserData(res.token, res.user);
-        this.notificationService.showSuccess('Login Successful!');
-        this.authService.login();
-        this.navigateToHome();
-        this.logginInProgress = false;
-      },
-      (err: any) => {
-        this.logginInProgress = false;
-        this.notificationService.notify(
-          'Login Failed! check whether google account is logged in',
-          'error',
-        );
-      },
-    );
+    // this.logginInProgress = true;
+    this.route.navigate(['/'+APP_PATHS.LOGIN], {
+      skipLocationChange: environment.ENABLE_SKIP_LOCATION,
+    });
+    // this.serviceInvoker.invoke('app.login', {}, {}, {}).subscribe(
+    //   (res: any) => {
+    //     this.authService.storeUserData(res.token, res.user);
+    //     this.notificationService.showSuccess('Login Successful!');
+    //     this.authService.login();
+    //     this.navigateToHome();
+    //     this.logginInProgress = false;
+    //   },
+    //   (err: any) => {
+    //     this.logginInProgress = false;
+    //     this.notificationService.notify(
+    //       'Login Failed! check whether google account is logged in',
+    //       'error',
+    //     );
+    //   },
+    // );
   }
 
   logoutUser() {

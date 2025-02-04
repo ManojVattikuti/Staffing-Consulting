@@ -56,15 +56,15 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="w-100 btn btn-primary btn-lg" [disabled]="loginForm.invalid">
-          Submit
+        <button type="submit" class="w-100 btn btn-primary btn-lg" [disabled]="loginForm.invalid || logginInProgress">
+          {{ logginInProgress ? 'Logging in...' : 'Sign in' }}
         </button>
       </form>
-      <button class="w-100 btn btn-primary btn-lg">Sign in</button>
-      <p class="text-center desc-xs medium">
+      <button class="w-100 btn btn-primary btn-lg d-none">Sign in</button>
+      <p class="text-center desc-xs medium d-none">
         Don't have an account? <a (click)="navigateTo('signup')">Sign up</a>
       </p>
-      <p class="text-center desc-xs medium">Forgot your password? <a href="#">Reset password</a></p>
+      <p class="text-center desc-xs medium d-none">Forgot your password? <a href="#">Reset password</a></p>
     </div>
   </div>
   <div class="login-image w-100 d-none">

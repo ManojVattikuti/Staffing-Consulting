@@ -29,7 +29,7 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private serviceInvoker: ServiceInvokerService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -51,13 +51,24 @@ export class LoginComponent {
   get password() {
     return this.loginForm.get('password');
   }
-
+ logginInProgress: Boolean = false;
   onSubmit(): void {
     if (this.loginForm.valid) {
-      console.log('Login Successful!', this.loginForm.value);
-      this.notificationService.showSuccess('Login Successful!');
-      this.loginForm.reset();
-      this.authService.login();
+      this.logginInProgress = true;
+      this.serviceInvoker.invoke('app.login', {}, this.loginForm.value, {}).subscribe((res: any) => {
+        this.authService.storeUserData(res.token, res.user);
+        this.authService.login();
+        this.route.navigate([''], {
+          skipLocationChange: environment.ENABLE_SKIP_LOCATION,
+        });
+        this.loginForm.reset();
+        this.authService.login();
+        this.notificationService.showSuccess('Login Successful!');
+        this.logginInProgress = false;
+      },(err: any) => {
+        this.notificationService.showError(err);
+        this.logginInProgress = false;
+      });
     } else {
       console.log('Form not valid');
     }

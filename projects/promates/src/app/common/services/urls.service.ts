@@ -45,8 +45,8 @@ export class EndPointsService {
     };
 
     this.apiList['app.login'] = {
-      endpoint: this.API_SERVER_URL + '/api/auth/google',
-      method: 'get',
+      endpoint: this.API_SERVER_URL + '/api/auth/login',
+      method: 'post',
     };
 
     this.apiList['get.jobs'] = {

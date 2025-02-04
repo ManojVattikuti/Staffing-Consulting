@@ -10,4 +10,5 @@ export class MenuService {
   getMenuData() {
     return MENU_DATA; // Return the imported menu data
   }
+  
 }
