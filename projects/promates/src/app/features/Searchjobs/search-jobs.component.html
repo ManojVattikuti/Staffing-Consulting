@@ -1,195 +1,138 @@
-<div class="search-jobs">
+<div class="search-jobs" *ngIf="!checkForRole()">
   <div class="container p-0">
     <h1 class="heading-border position-relative heading-xs semibold mb-4">Job Search</h1>
     <div class="form-block">
-      <form>
-        <div class="d-flex gap-4 align-items-end">
-          <div class="form-group w-100">
-            <label for="jobTitle" class="mb-2 text-sm medium d-block">Job Title</label>
-            <input type="text" class="form-control" id="jobTitle" placeholder="Job Title" />
-          </div>
-          <div class="form-group w-100">
-            <label for="location" class="mb-2 text-sm medium d-block">Location</label>
-            <input type="text" class="form-control" id="location" placeholder="Location" />
-          </div>
-          <div class="form-group w-100">
-            <label for="jobType" class="mb-2 text-sm medium d-block">Job Type</label>
-            <div ngbDropdown class="d-inline-block w-100">
-              <button class="form-select text-start" id="dropdownMenu1" ngbDropdownToggle>
-                Workspace
-              </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
-                <button class="dropdown-item">Action - 1</button>
-                <button class="dropdown-item">Action - 2</button>
-              </div>
+      <!-- <form> -->
+      <div class="d-flex gap-4 align-items-end flex-column flex-lg-row">
+        <div class="form-group w-100">
+          <label for="jobTitle" class="mb-2 text-sm medium d-block">Job Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="jobTitle"
+            placeholder="Job Title"
+            [(ngModel)]="searchJobsQuery.title"
+          />
+        </div>
+        <div class="form-group w-100">
+          <label for="location" class="mb-2 text-sm medium d-block">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            placeholder="Location"
+            [(ngModel)]="searchJobsQuery.location"
+          />
+        </div>
+        <div class="form-group w-100">
+          <label for="jobType" class="mb-2 text-sm medium d-block">Job Type</label>
+          <div ngbDropdown class="d-inline-block w-100">
+            <button class="form-select text-start" id="dropdownMenu1" ngbDropdownToggle>
+              {{ selectedJobSearch?.title ? selectedJobSearch.title : 'Select Job Type' }}
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownMenu1" class="w-100">
+              <ng-container *ngFor="let job of jobTypes">
+                <button class="dropdown-item" (click)="jobtypeSelection(job, 'search')">
+                  {{ job.value }}
+                </button>
+              </ng-container>
             </div>
           </div>
-          <button class="promates-btn flex-shrink-0">Search</button>
         </div>
-      </form>
+        <button class="promates-btn flex-shrink-0 btn-with-arrow" (click)="getSearchJobs()">
+          <span>Search</span>
+        </button>
+      </div>
+      <!-- </form> -->
     </div>
 
     <div class="job-list d-flex flex-column gap-3 mt-5">
-      <div class="job-card">
-        <div class="job-card-data d-flex gap-4 align-items-start">
-          <div class="job-card-details w-100">
-            <h2 class="text-lg semibold mb-2">Angular Java Spring boot SQL Developer</h2>
-            <p class="text-sm medium">
-              We are seeking a highly skilled Angular Java Spring Boot SQL Developer to join our
-              dynamic development team. In this role, you will be responsible for developing robust,
-              scalable, and efficient web applications and backend systems, primarily using Angular,
-              Java Spring Boot, and SQL technologies. The ideal candidate will be comfortable
-              working across the full stack, from front-end development to back-end integration and
-              database management. As an Angular Java Spring Boot SQL Developer, you will
-              collaborate with cross-functional teams, including front-end developers, back-end
-              engineers, UX/UI designers, and product managers, to create high-quality software
-              solutions that meet business needs.
-            </p>
+      <ng-container *ngIf="loading">
+        <app-loader [isLoading]="loading"></app-loader>
+      </ng-container>
+      <ng-container *ngIf="!loading && searchJobs.length === 0">
+        <p class="text-sm medium text-align-center">No jobs found</p>
+      </ng-container>
+      <ng-container *ngIf="!loading && searchJobs.length > 0">
+        <ng-container *ngFor="let job of searchJobs">
+          <div class="job-card">
+            <div class="job-card-data d-flex gap-4 align-items-start flex-lg-nowrap flex-wrap">
+              <div class="job-card-details w-100">
+                <h2 class="text-lg semibold mb-2">{{ job.title }}</h2>
+                <p class="text-sm medium">{{ job.description }}</p>
+              </div>
+              <div class="job-card-location flex-shrink-0 d-flex gap-2 flex-column">
+                <p class="text-sm medium mb-1">{{ job.experienceLevel }}</p>
+                <p class="text-sm medium mb-1">{{ job.employmentType }}</p>
+                <p class="text-sm medium mb-1">{{ job.location }}</p>
+              </div>
+            </div>
           </div>
-          <div class="job-card-location flex-shrink-0 d-flex gap-2 flex-column">
-            <p class="text-sm medium mb-1">9/27/2024</p>
-            <p class="text-sm medium mb-1">Full Time</p>
-            <p class="text-sm medium mb-1">Hyderabad</p>
-          </div>
-        </div>
-      </div>
-      <div class="job-card">
-        <div class="job-card-data d-flex gap-4 align-items-start">
-          <div class="job-card-details w-100">
-            <h2 class="text-lg semibold mb-2">Angular Java Spring boot SQL Developer</h2>
-            <p class="text-sm medium">
-              We are seeking a highly skilled Angular Java Spring Boot SQL Developer to join our
-              dynamic development team. In this role, you will be responsible for developing robust,
-              scalable, and efficient web applications and backend systems, primarily using Angular,
-              Java Spring Boot, and SQL technologies. The ideal candidate will be comfortable
-              working across the full stack, from front-end development to back-end integration and
-              database management. As an Angular Java Spring Boot SQL Developer, you will
-              collaborate with cross-functional teams, including front-end developers, back-end
-              engineers, UX/UI designers, and product managers, to create high-quality software
-              solutions that meet business needs.
-            </p>
-          </div>
-          <div class="job-card-location flex-shrink-0 d-flex gap-2 flex-column">
-            <p class="text-sm medium mb-1">9/27/2024</p>
-            <p class="text-sm medium mb-1">Full Time</p>
-            <p class="text-sm medium mb-1">Hyderabad</p>
-          </div>
-        </div>
-      </div>
-      <div class="job-card">
-        <div class="job-card-data d-flex gap-4 align-items-start">
-          <div class="job-card-details w-100">
-            <h2 class="text-lg semibold mb-2">Angular Java Spring boot SQL Developer</h2>
-            <p class="text-sm medium">
-              We are seeking a highly skilled Angular Java Spring Boot SQL Developer to join our
-              dynamic development team. In this role, you will be responsible for developing robust,
-              scalable, and efficient web applications and backend systems, primarily using Angular,
-              Java Spring Boot, and SQL technologies. The ideal candidate will be comfortable
-              working across the full stack, from front-end development to back-end integration and
-              database management. As an Angular Java Spring Boot SQL Developer, you will
-              collaborate with cross-functional teams, including front-end developers, back-end
-              engineers, UX/UI designers, and product managers, to create high-quality software
-              solutions that meet business needs.
-            </p>
-          </div>
-          <div class="job-card-location flex-shrink-0 d-flex gap-2 flex-column">
-            <p class="text-sm medium mb-1">9/27/2024</p>
-            <p class="text-sm medium mb-1">Full Time</p>
-            <p class="text-sm medium mb-1">Hyderabad</p>
-          </div>
-        </div>
-      </div>
-      <div class="job-card">
-        <div class="job-card-data d-flex gap-4 align-items-start">
-          <div class="job-card-details w-100">
-            <h2 class="text-lg semibold mb-2">Angular Java Spring boot SQL Developer</h2>
-            <p class="text-sm medium">
-              We are seeking a highly skilled Angular Java Spring Boot SQL Developer to join our
-              dynamic development team. In this role, you will be responsible for developing robust,
-              scalable, and efficient web applications and backend systems, primarily using Angular,
-              Java Spring Boot, and SQL technologies. The ideal candidate will be comfortable
-              working across the full stack, from front-end development to back-end integration and
-              database management. As an Angular Java Spring Boot SQL Developer, you will
-              collaborate with cross-functional teams, including front-end developers, back-end
-              engineers, UX/UI designers, and product managers, to create high-quality software
-              solutions that meet business needs.
-            </p>
-          </div>
-          <div class="job-card-location flex-shrink-0 d-flex gap-2 flex-column">
-            <p class="text-sm medium mb-1">9/27/2024</p>
-            <p class="text-sm medium mb-1">Full Time</p>
-            <p class="text-sm medium mb-1">Hyderabad</p>
-          </div>
-        </div>
-      </div>
+        </ng-container>
+      </ng-container>
+      <!-- <ngb-pagination [collectionSize]="se" [(page)]="page" [directionLinks]="false" /> -->
     </div>
   </div>
 </div>
 
-<div class="search-jobs">
+<div class="search-jobs" *ngIf="checkForRole()">
   <div class="container p-0">
     <h1 class="heading-border position-relative heading-xs semibold mb-4">Job Listing</h1>
     <div class="form-block">
-      <form>
-        <div class="d-flex gap-4 align-items-end">
-          <div class="form-group w-100">
-            <label for="location" class="mb-2 text-sm medium d-block">Location</label>
-            <input type="text" class="form-control" id="location" placeholder="Location" />
-          </div>
-          <div class="form-group w-100">
-            <label for="jobType" class="mb-2 text-sm medium d-block">Job Type</label>
-            <div ngbDropdown class="d-inline-block w-100">
-              <button class="form-select text-start" id="dropdownMenu1" ngbDropdownToggle>
-                Workspace
-              </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
-                <button class="dropdown-item">Action - 1</button>
-                <button class="dropdown-item">Action - 2</button>
-              </div>
+      <!-- <form> -->
+      <div class="d-flex gap-4 align-items-end flex-column flex-lg-row">
+        <div class="form-group w-100">
+          <label for="location" class="mb-2 text-sm medium d-block">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            placeholder="Location"
+            [(ngModel)]="jobListingQuery.location"
+          />
+        </div>
+        <div class="form-group w-100">
+          <label for="jobType" class="mb-2 text-sm medium d-block">Job Type</label>
+          <div ngbDropdown class="d-inline-block w-100">
+            <button class="form-select text-start" id="dropdownMenu1" ngbDropdownToggle>
+              {{ selectedJobListing?.title ? selectedJobListing.title : 'Select Job Type' }}
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownMenu1" class="w-100">
+              <ng-container *ngFor="let job of jobTypes">
+                <button class="dropdown-item" (click)="jobtypeSelection(job, 'listing')">
+                  {{ job.value }}
+                </button>
+              </ng-container>
             </div>
           </div>
-          <button class="promates-btn flex-shrink-0">Search Jobs</button>
         </div>
-      </form>
+        <button class="promates-btn flex-shrink-0 btn-with-arrow" (click)="getJobListing()">
+          <span>Search Jobs</span>
+        </button>
+      </div>
+      <!-- </form> -->
     </div>
 
     <div class="job-list d-flex flex-column gap-3 mt-5">
-      <div class="job-card">
-        <div class="job-card-data d-flex gap-4 align-items-start">
-          <div class="job-card-details w-100">
-            <h2 class="text-lg semibold mb-2">Content Manager</h2>
-            <p class="text-sm medium">San Francisco, CA, USA</p>
+      <ng-container *ngIf="listingloading">
+        <app-loader [isLoading]="listingloading"></app-loader>
+      </ng-container>
+      <ng-container *ngIf="!listingloading && searchJobs.length === 0">
+        <p class="text-sm medium text-align-center">No jobs found</p>
+      </ng-container>
+      <ng-container *ngIf="!listingloading && searchJobs.length > 0">
+        <ng-container *ngFor="let job of searchJobs">
+          <div class="job-card">
+            <div class="job-card-data d-flex gap-4 align-items-start flex-lg-nowrap flex-wrap">
+              <div class="job-card-details w-100">
+                <h2 class="text-lg semibold mb-2">{{ job.title }}</h2>
+                <p class="text-sm medium">{{ job.description }}</p>
+              </div>
+              <button class="view-job-btn flex-shrink-0 text-sm medium">View Job</button>
+            </div>
           </div>
-          <button class="view-job-btn flex-shrink-0 text-sm medium">View Job</button>
-        </div>
-      </div>
-      <div class="job-card">
-        <div class="job-card-data d-flex gap-4 align-items-start">
-          <div class="job-card-details w-100">
-            <h2 class="text-lg semibold mb-2">Content Manager</h2>
-            <p class="text-sm medium">San Francisco, CA, USA</p>
-          </div>
-          <button class="view-job-btn flex-shrink-0 text-sm medium">View Job</button>
-        </div>
-      </div>
-      <div class="job-card">
-        <div class="job-card-data d-flex gap-4 align-items-start">
-          <div class="job-card-details w-100">
-            <h2 class="text-lg semibold mb-2">Content Manager</h2>
-            <p class="text-sm medium">San Francisco, CA, USA</p>
-          </div>
-          <button class="view-job-btn flex-shrink-0 text-sm medium">View Job</button>
-        </div>
-      </div>
-      <div class="job-card">
-        <div class="job-card-data d-flex gap-4 align-items-start">
-          <div class="job-card-details w-100">
-            <h2 class="text-lg semibold mb-2">Content Manager</h2>
-            <p class="text-sm medium">San Francisco, CA, USA</p>
-          </div>
-          <button class="view-job-btn flex-shrink-0">View Job</button>
-        </div>
-      </div>
+        </ng-container>
+      </ng-container>
     </div>
   </div>
 </div>

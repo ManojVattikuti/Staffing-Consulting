@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { BannerComponent } from '../features/Home/banner/banner.component';
 import { FreqAskedQueComponent } from '../features/Home/freq-asked-que/freq-asked-que.component';
 import { FeedbackComponent } from '../features/Home/feedback/feedback.component';
@@ -10,6 +11,7 @@ import { TransfromBusinessComponent } from '../features/Home/transfrom-business/
   selector: 'app-home',
   standalone: true,
   imports: [
+    RouterOutlet,
     BannerComponent,
     FreqAskedQueComponent,
     FeedbackComponent,
@@ -20,4 +22,7 @@ import { TransfromBusinessComponent } from '../features/Home/transfrom-business/
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+  constructor() {}
+  ngOnInit(): void {}
+}

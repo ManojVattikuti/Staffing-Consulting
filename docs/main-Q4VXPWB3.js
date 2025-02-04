@@ -2033,7 +2033,12 @@ function d1(t) {
   return typeof t == 'function' && t.hasOwnProperty(Lw) && t.__forward_ref__ === nn;
 }
 function M(t) {
-  return { token: t.token, providedIn: t.providedIn || null, factory: t.factory, value: void 0 };
+  return {
+    token: t.token,
+    providedIn: t.providedIn || null,
+    factory: t.factory,
+    value: void 0,
+  };
 }
 function dt(t) {
   return { providers: t.providers || [], imports: t.imports || [] };
@@ -3190,7 +3195,11 @@ function hr(t) {
   let n = t[ut];
   return ni(n) ? n[ut] : n;
 }
-var te = { lFrame: nv(null), bindingsEnabled: !0, skipHydrationRootTNode: null };
+var te = {
+  lFrame: nv(null),
+  bindingsEnabled: !0,
+  skipHydrationRootTNode: null,
+};
 var W1 = !1;
 function $D() {
   return te.lFrame.elementDepthCount;
@@ -6075,7 +6084,11 @@ var Nf = class {
         this.handler?.destroy(), (this.handler = null), (this.internalCallbacks.length = 0);
       }
       static {
-        this.ɵprov = M({ token: t, providedIn: 'root', factory: () => new t() });
+        this.ɵprov = M({
+          token: t,
+          providedIn: 'root',
+          factory: () => new t(),
+        });
       }
     }
     return t;
@@ -6116,7 +6129,11 @@ function e1(t, n) {
       s = o ? r[0] : r,
       a = o ? r[1] : wi.None;
     n
-      ? e.push({ propName: s, templateName: i, isSignal: (a & wi.SignalBased) !== 0 })
+      ? e.push({
+          propName: s,
+          templateName: i,
+          isSignal: (a & wi.SignalBased) !== 0,
+        })
       : e.push({ propName: s, templateName: i });
   }
   return e;
@@ -6802,7 +6819,11 @@ function Vh(t) {
     let i = (Array.isArray(t) ? t : t()).map((r) =>
       typeof r == 'function'
         ? { directive: it(r), inputs: Zn, outputs: Zn }
-        : { directive: it(r.directive), inputs: n1(r.inputs), outputs: n1(r.outputs) },
+        : {
+            directive: it(r.directive),
+            inputs: n1(r.inputs),
+            outputs: n1(r.outputs),
+          },
     );
     e.hostDirectives === null
       ? ((e.findHostDirectiveDefs = b_), (e.hostDirectives = i))
@@ -6902,7 +6923,12 @@ var Ll = class extends Ti {
   }
 };
 function jh(t, n, e = null) {
-  return new Ll({ providers: t, parent: n, debugName: e, runEnvironmentInitializers: !0 }).injector;
+  return new Ll({
+    providers: t,
+    parent: n,
+    debugName: e,
+    runEnvironmentInitializers: !0,
+  }).injector;
 }
 function C_(t) {
   return uM(t) ? Array.isArray(t) || (!(t instanceof Map) && Symbol.iterator in t) : !1;
@@ -7657,7 +7683,11 @@ var YM = (() => {
       }
     }
     static {
-      this.ɵprov = M({ token: t, providedIn: 'environment', factory: () => new t(N(vt)) });
+      this.ɵprov = M({
+        token: t,
+        providedIn: 'environment',
+        factory: () => new t(N(vt)),
+      });
     }
   }
   return t;
@@ -8214,7 +8244,10 @@ var lI = (() => {
 function cI() {
   return (typeof $localize < 'u' && $localize.locale) || jl;
 }
-var uc = new F('', { providedIn: 'root', factory: () => y(uc, ae.Optional | ae.SkipSelf) || cI() });
+var uc = new F('', {
+  providedIn: 'root',
+  factory: () => y(uc, ae.Optional | ae.SkipSelf) || cI(),
+});
 var j_ = new F('');
 function dl(t) {
   return !!t.platformInjector;
@@ -8683,8 +8716,17 @@ function B_(t) {
     let { rootComponent: n, appProviders: e, platformProviders: i } = t,
       r = hI(i),
       o = [k_({}), { provide: yo, useExisting: lI }, ...(e || [])],
-      s = new Ll({ providers: o, parent: r, debugName: '', runEnvironmentInitializers: !1 });
-    return uI({ r3Injector: s.injector, platformInjector: r, rootComponent: n });
+      s = new Ll({
+        providers: o,
+        parent: r,
+        debugName: '',
+        runEnvironmentInitializers: !1,
+      });
+    return uI({
+      r3Injector: s.injector,
+      platformInjector: r,
+      rootComponent: n,
+    });
   } catch (n) {
     return Promise.reject(n);
   }
@@ -8706,7 +8748,11 @@ function un(t) {
     ue(n);
   }
 }
-var yt = { production: !0, API_SERVER_URL: 'https://api.example.com', ENABLE_SKIP_LOCATION: !0 };
+var yt = {
+  production: !0,
+  API_SERVER_URL: 'https://api.example.com',
+  ENABLE_SKIP_LOCATION: !0,
+};
 var Q_ = null;
 function ri() {
   return Q_;
@@ -8727,7 +8773,11 @@ var Se = new F(''),
         };
       }
       static {
-        this.ɵprov = M({ token: t, factory: () => y(CI), providedIn: 'platform' });
+        this.ɵprov = M({
+          token: t,
+          factory: () => y(CI),
+          providedIn: 'platform',
+        });
       }
     }
     return t;
@@ -8799,7 +8849,11 @@ var CI = (() => {
       };
     }
     static {
-      this.ɵprov = M({ token: t, factory: () => new t(), providedIn: 'platform' });
+      this.ɵprov = M({
+        token: t,
+        factory: () => new t(),
+        providedIn: 'platform',
+      });
     }
   }
   return t;
@@ -8910,7 +8964,12 @@ var Es = (() => {
       let i = this._locationStrategy.getBaseHref();
       (this._basePath = EI($_(H_(i)))),
         this._locationStrategy.onPopState((r) => {
-          this._subject.emit({ url: this.path(!0), pop: !0, state: r.state, type: r.type });
+          this._subject.emit({
+            url: this.path(!0),
+            pop: !0,
+            state: r.state,
+            type: r.type,
+          });
         });
     }
     ngOnDestroy() {
@@ -9497,7 +9556,16 @@ function MI(t, n) {
   );
 }
 var II = /%(\d[a-f0-9])/gi,
-  xI = { 40: '@', '3A': ':', 24: '$', '2C': ',', '3B': ';', '3D': '=', '3F': '?', '2F': '/' };
+  xI = {
+    40: '@',
+    '3A': ':',
+    24: '$',
+    '2C': ',',
+    '3B': ';',
+    '3D': '=',
+    '3F': '?',
+    '2F': '/',
+  };
 function ey(t) {
   return encodeURIComponent(t).replace(II, (n, e) => xI[e] ?? n);
 }
@@ -10022,9 +10090,25 @@ var FI = (() => {
           }
           f === 0 && (f = p ? ay : 0),
             f >= 200 && f < 300
-              ? (r.next(new xs({ body: p, headers: a, status: f, statusText: l, url: c })),
+              ? (r.next(
+                  new xs({
+                    body: p,
+                    headers: a,
+                    status: f,
+                    statusText: l,
+                    url: c,
+                  }),
+                ),
                 r.complete())
-              : r.error(new Fi({ error: p, headers: a, status: f, statusText: l, url: c }));
+              : r.error(
+                  new Fi({
+                    error: p,
+                    headers: a,
+                    status: f,
+                    statusText: l,
+                    url: c,
+                  }),
+                );
         });
       }
       parseBody(e, i, r) {
@@ -10051,7 +10135,12 @@ var FI = (() => {
           let o = e.detectContentTypeHeader();
           o !== null && (i['Content-Type'] = o);
         }
-        return { body: e.serializeBody(), method: e.method, headers: i, credentials: r };
+        return {
+          body: e.serializeBody(),
+          method: e.method,
+          headers: i,
+          credentials: r,
+        };
       }
       concatChunks(e, i) {
         let r = new Uint8Array(i),
@@ -10160,7 +10249,15 @@ var sy = (() => {
                     let _ = s.statusText || 'OK',
                       C = new oi(s.getAllResponseHeaders()),
                       S = $I(s) || e.url;
-                    return (l = new yc({ headers: C, status: s.status, statusText: _, url: S })), l;
+                    return (
+                      (l = new yc({
+                        headers: C,
+                        status: s.status,
+                        statusText: _,
+                        url: S,
+                      })),
+                      l
+                    );
                   },
                   f = () => {
                     let { headers: _, status: C, statusText: S, url: O } = c(),
@@ -10922,7 +11019,10 @@ function vy(t, n) {
   return B_(E({ rootComponent: t }, u2(n)));
 }
 function u2(t) {
-  return { appProviders: [...m2, ...(t?.providers ?? [])], platformProviders: p2 };
+  return {
+    appProviders: [...m2, ...(t?.providers ?? [])],
+    platformProviders: p2,
+  };
 }
 function d2() {
   op.makeCurrent();
@@ -11232,7 +11332,11 @@ var Bp = (() => {
         };
       }
       static {
-        this.ɵprov = M({ token: t, factory: () => new Us(), providedIn: 'root' });
+        this.ɵprov = M({
+          token: t,
+          factory: () => new Us(),
+          providedIn: 'root',
+        });
       }
     }
     return t;
@@ -12429,7 +12533,11 @@ var K2 = (t, n, e, i) =>
       if (i && i.outlet) {
         let s = i.outlet.detach(),
           a = i.children.onOutletDeactivated();
-        this.routeReuseStrategy.store(n.value.snapshot, { componentRef: s, route: n, contexts: a });
+        this.routeReuseStrategy.store(n.value.snapshot, {
+          componentRef: s,
+          route: n,
+          contexts: a,
+        });
       }
     }
     deactivateRouteAndOutlet(n, e) {
@@ -12868,9 +12976,15 @@ function Cx(t) {
 }
 function Sy(t, n, e, i) {
   return e.length > 0 && Sx(t, e, i)
-    ? { segmentGroup: new ge(n, Dx(i, new ge(e, t.children))), slicedSegments: [] }
+    ? {
+        segmentGroup: new ge(n, Dx(i, new ge(e, t.children))),
+        slicedSegments: [],
+      }
     : e.length === 0 && Ex(t, e, i)
-      ? { segmentGroup: new ge(t.segments, wx(t, e, i, t.children)), slicedSegments: e }
+      ? {
+          segmentGroup: new ge(t.segments, wx(t, e, i, t.children)),
+          slicedSegments: e,
+        }
       : { segmentGroup: new ge(t.segments, t.children), slicedSegments: e };
 }
 function wx(t, n, e, i) {
@@ -13465,7 +13579,11 @@ var Gx = new F(''),
           })),
           this.transitions.pipe(
             tt((o) => o.id !== 0),
-            z((o) => ee(E({}, o), { extractedUrl: this.urlHandlingStrategy.extract(o.rawUrl) })),
+            z((o) =>
+              ee(E({}, o), {
+                extractedUrl: this.urlHandlingStrategy.extract(o.rawUrl),
+              }),
+            ),
             nt((o) => {
               let s = !1,
                 a = !1;
@@ -13485,7 +13603,9 @@ var Gx = new F(''),
                       trigger: l.source,
                       extras: l.extras,
                       previousNavigation: this.lastSuccessfulNavigation
-                        ? ee(E({}, this.lastSuccessfulNavigation), { previousNavigation: null })
+                        ? ee(E({}, this.lastSuccessfulNavigation), {
+                            previousNavigation: null,
+                          })
                         : null,
                     });
                   let c =
@@ -13555,7 +13675,10 @@ var Gx = new F(''),
                         ee(E({}, l), {
                           targetSnapshot: S,
                           urlAfterRedirects: g,
-                          extras: ee(E({}, _), { skipLocationChange: !1, replaceUrl: !1 }),
+                          extras: ee(E({}, _), {
+                            skipLocationChange: !1,
+                            replaceUrl: !1,
+                          }),
                         })),
                       (this.currentNavigation.finalUrl = g),
                       L(o)
@@ -14016,8 +14139,18 @@ function Kx(t, n) {
 function Yx(t) {
   throw t;
 }
-var Jx = { paths: 'exact', fragment: 'ignored', matrixParams: 'ignored', queryParams: 'exact' },
-  Xx = { paths: 'subset', fragment: 'ignored', matrixParams: 'ignored', queryParams: 'subset' },
+var Jx = {
+    paths: 'exact',
+    fragment: 'ignored',
+    matrixParams: 'ignored',
+    queryParams: 'exact',
+  },
+  Xx = {
+    paths: 'subset',
+    fragment: 'ignored',
+    matrixParams: 'ignored',
+    queryParams: 'subset',
+  },
   Vn = (() => {
     class t {
       get currentUrlTree() {
@@ -15032,7 +15165,11 @@ var Vo = class {
         e && n.emitEvent !== !1 && this._events.next(new ra(!0, i));
     }
     markAllAsTouched(n = {}) {
-      this.markAsTouched({ onlySelf: !0, emitEvent: n.emitEvent, sourceControl: this }),
+      this.markAsTouched({
+        onlySelf: !0,
+        emitEvent: n.emitEvent,
+        sourceControl: this,
+      }),
         this._forEachChild((e) => e.markAllAsTouched(n));
     }
     markAsUntouched(n = {}) {
@@ -15040,7 +15177,11 @@ var Vo = class {
       (this.touched = !1), (this._pendingTouched = !1);
       let i = n.sourceControl ?? this;
       this._forEachChild((r) => {
-        r.markAsUntouched({ onlySelf: !0, emitEvent: n.emitEvent, sourceControl: i });
+        r.markAsUntouched({
+          onlySelf: !0,
+          emitEvent: n.emitEvent,
+          sourceControl: i,
+        });
       }),
         this._parent && !n.onlySelf && this._parent._updateTouched(n, i),
         e && n.emitEvent !== !1 && this._events.next(new ra(!1, i));
@@ -15247,7 +15388,10 @@ var Vo = class {
         this._initObservables(),
         this._setUpdateStrategy(e),
         this._setUpControls(),
-        this.updateValueAndValidity({ onlySelf: !0, emitEvent: !!this.asyncValidator });
+        this.updateValueAndValidity({
+          onlySelf: !0,
+          emitEvent: !!this.asyncValidator,
+        });
     }
     registerControl(n, e) {
       return this.controls[n]
@@ -15282,7 +15426,10 @@ var Vo = class {
       wb(this, !0, n),
         Object.keys(n).forEach((i) => {
           Cb(this, !0, i),
-            this.controls[i].setValue(n[i], { onlySelf: !0, emitEvent: e.emitEvent });
+            this.controls[i].setValue(n[i], {
+              onlySelf: !0,
+              emitEvent: e.emitEvent,
+            });
         }),
         this.updateValueAndValidity(e);
     }
@@ -15352,7 +15499,10 @@ var Vo = class {
     }
   };
 var Jp = class extends jo {};
-var oa = new F('CallSetDisabledState', { providedIn: 'root', factory: () => sa }),
+var oa = new F('CallSetDisabledState', {
+    providedIn: 'root',
+    factory: () => sa,
+  }),
   sa = 'always';
 function DN(t, n) {
   return [...n.path, t];
@@ -15636,7 +15786,10 @@ var Hc = class extends Vo {
       this._applyFormState(n),
       this._setUpdateStrategy(e),
       this._initObservables(),
-      this.updateValueAndValidity({ onlySelf: !0, emitEvent: !!this.asyncValidator }),
+      this.updateValueAndValidity({
+        onlySelf: !0,
+        emitEvent: !!this.asyncValidator,
+      }),
       Jc(e) &&
         (e.nonNullable || e.initialValueIsDefault) &&
         (sb(n) ? (this.defaultValue = n.value) : (this.defaultValue = n));
@@ -15683,7 +15836,11 @@ var Hc = class extends Vo {
       (this._pendingDirty && this.markAsDirty(),
       this._pendingTouched && this.markAsTouched(),
       this._pendingChange)
-      ? (this.setValue(this._pendingValue, { onlySelf: !0, emitModelToViewChange: !1 }), !0)
+      ? (this.setValue(this._pendingValue, {
+          onlySelf: !0,
+          emitModelToViewChange: !1,
+        }),
+        !0)
       : !1;
   }
   _applyFormState(n) {
@@ -15810,7 +15967,11 @@ var kN = (() => {
                 return r.onTouched();
               });
           },
-          inputs: { name: 'name', formControlName: 'formControlName', value: 'value' },
+          inputs: {
+            name: 'name',
+            formControlName: 'formControlName',
+            value: 'value',
+          },
           features: [At([FN]), xt],
         });
       }
@@ -16128,7 +16289,10 @@ var Mb = (() => {
         this._initObservables(),
         this._setUpdateStrategy(e),
         this._setUpControls(),
-        this.updateValueAndValidity({ onlySelf: !0, emitEvent: !!this.asyncValidator });
+        this.updateValueAndValidity({
+          onlySelf: !0,
+          emitEvent: !!this.asyncValidator,
+        });
     }
     at(n) {
       return this.controls[this._adjustIndex(n)];
@@ -16321,7 +16485,10 @@ var $n = (() => {
         return {
           ngModule: t,
           providers: [
-            { provide: Tb, useValue: e.warnOnNgModelWithFormControl ?? 'always' },
+            {
+              provide: Tb,
+              useValue: e.warnOnNgModelWithFormControl ?? 'always',
+            },
             { provide: oa, useValue: e.callSetDisabledState ?? sa },
           ],
         };
@@ -16410,7 +16577,12 @@ function KN(t) {
 function YN(t) {
   var n = t.state,
     e = {
-      popper: { position: n.options.strategy, left: '0', top: '0', margin: '0' },
+      popper: {
+        position: n.options.strategy,
+        left: '0',
+        top: '0',
+        margin: '0',
+      },
       arrow: { position: 'absolute' },
       reference: {},
     };
@@ -16479,7 +16651,16 @@ function qt(t, n, e) {
     f = (i.top + (l && a ? a.offsetTop : 0)) / o,
     p = i.width / r,
     g = i.height / o;
-  return { width: p, height: g, top: f, right: c + p, bottom: f + g, left: c, x: c, y: f };
+  return {
+    width: p,
+    height: g,
+    top: f,
+    right: c + p,
+    bottom: f + g,
+    left: c,
+    x: c,
+    y: f,
+  };
 }
 function Pr(t) {
   var n = qt(t),
@@ -16747,7 +16928,13 @@ function rA(t) {
       'data-popper-placement': n.placement,
     }));
 }
-var Fb = { name: 'computeStyles', enabled: !0, phase: 'beforeWrite', fn: rA, data: {} };
+var Fb = {
+  name: 'computeStyles',
+  enabled: !0,
+  phase: 'beforeWrite',
+  fn: rA,
+  data: {},
+};
 var nu = { passive: !0 };
 function oA(t) {
   var n = t.state,
@@ -17079,7 +17266,13 @@ function dA(t) {
         Ue = Qt(je) === ui,
         mn = [Ve, at].indexOf(Be) >= 0,
         gn = mn ? 'width' : 'height',
-        x = qi(n, { placement: je, boundary: f, rootBoundary: p, altBoundary: g, padding: c }),
+        x = qi(n, {
+          placement: je,
+          boundary: f,
+          rootBoundary: p,
+          altBoundary: g,
+          padding: c,
+        }),
         P = mn ? (Ue ? Je : Qe) : Ue ? at : Ve;
       G[gn] > B[gn] && (P = Ho(P));
       var $ = Ho(P),
@@ -17153,7 +17346,13 @@ function hA(t) {
     ((n.modifiersData.popperOffsets.x += l), (n.modifiersData.popperOffsets.y += c)),
     (n.modifiersData[i] = s);
 }
-var ym = { name: 'offset', enabled: !0, phase: 'main', requires: ['popperOffsets'], fn: hA };
+var ym = {
+  name: 'offset',
+  enabled: !0,
+  phase: 'main',
+  requires: ['popperOffsets'],
+  fn: hA,
+};
 function pA(t) {
   var n = t.state,
     e = t.name;
@@ -17164,7 +17363,13 @@ function pA(t) {
     placement: n.placement,
   });
 }
-var Vb = { name: 'popperOffsets', enabled: !0, phase: 'read', fn: pA, data: {} };
+var Vb = {
+  name: 'popperOffsets',
+  enabled: !0,
+  phase: 'read',
+  fn: pA,
+  data: {},
+};
 function bm(t) {
   return t === 'x' ? 'y' : 'x';
 }
@@ -17692,7 +17897,11 @@ var xA = (t, n, e) => {
             collapsed: [0, 'ngbCollapse', 'collapsed'],
             horizontal: 'horizontal',
           },
-          outputs: { ngbCollapseChange: 'ngbCollapseChange', shown: 'shown', hidden: 'hidden' },
+          outputs: {
+            ngbCollapseChange: 'ngbCollapseChange',
+            shown: 'shown',
+            hidden: 'hidden',
+          },
           exportAs: ['ngbCollapse'],
           standalone: !0,
         });
@@ -17964,7 +18173,12 @@ var xA = (t, n, e) => {
             disabled: 'disabled',
             collapsed: 'collapsed',
           },
-          outputs: { show: 'show', shown: 'shown', hide: 'hide', hidden: 'hidden' },
+          outputs: {
+            show: 'show',
+            shown: 'shown',
+            hide: 'hide',
+            hidden: 'hidden',
+          },
           exportAs: ['ngbAccordionItem'],
           standalone: !0,
         });
@@ -18040,7 +18254,12 @@ var xA = (t, n, e) => {
             closeOthers: 'closeOthers',
             destroyOnHide: 'destroyOnHide',
           },
-          outputs: { show: 'show', shown: 'shown', hide: 'hide', hidden: 'hidden' },
+          outputs: {
+            show: 'show',
+            shown: 'shown',
+            hide: 'hide',
+            hidden: 'hidden',
+          },
           exportAs: ['ngbAccordion'],
           standalone: !0,
         });
@@ -18223,7 +18442,12 @@ function Gb({ placement: t, baseClass: n }, e) {
       Cm,
       hm,
       { enabled: !0, name: 'flip', options: { fallbackPlacements: s } },
-      { enabled: !0, name: 'preventOverflow', phase: 'main', fn: function () {} },
+      {
+        enabled: !0,
+        name: 'preventOverflow',
+        phase: 'main',
+        fn: function () {},
+      },
     ],
   };
 }
@@ -18746,7 +18970,10 @@ var Wo = (() => {
   }
   return t;
 })();
-var u$ = new F('live announcer delay', { providedIn: 'root', factory: () => 100 });
+var u$ = new F('live announcer delay', {
+  providedIn: 'root',
+  factory: () => 100,
+});
 function JA(t, n) {
   if ((t & 1 && (u(0, 'p'), h(1), d()), t & 2)) {
     let e = U().$implicit;
@@ -20163,7 +20390,10 @@ var Pm = class {
           })),
           (this.state = Gt({
             value: 'inactive',
-            params: { easeTime: this.toastPackage.config.easeTime, easing: 'ease-in' },
+            params: {
+              easeTime: this.toastPackage.config.easeTime,
+              easing: 'ease-in',
+            },
           }));
       }
       ngOnDestroy() {
@@ -20786,7 +21016,10 @@ var Qo = class {},
             ? (this.translations[e] = uC(this.translations[e], i))
             : (this.translations[e] = i),
           this.updateLangs(),
-          this.onTranslationChange.emit({ lang: e, translations: this.translations[e] });
+          this.onTranslationChange.emit({
+            lang: e,
+            translations: this.translations[e],
+          });
       }
       getLangs() {
         return this.langs;
@@ -20893,16 +21126,25 @@ var Qo = class {},
       set(e, i, r = this.currentLang) {
         (this.translations[r][e] = this.compiler.compile(i, r)),
           this.updateLangs(),
-          this.onTranslationChange.emit({ lang: r, translations: this.translations[r] });
+          this.onTranslationChange.emit({
+            lang: r,
+            translations: this.translations[r],
+          });
       }
       changeLang(e) {
         (this.currentLang = e),
-          this.onLangChange.emit({ lang: e, translations: this.translations[e] }),
+          this.onLangChange.emit({
+            lang: e,
+            translations: this.translations[e],
+          }),
           this.defaultLang == null && this.changeDefaultLang(e);
       }
       changeDefaultLang(e) {
         (this.defaultLang = e),
-          this.onDefaultLangChange.emit({ lang: e, translations: this.translations[e] });
+          this.onDefaultLangChange.emit({
+            lang: e,
+            translations: this.translations[e],
+          });
       }
       reloadLang(e) {
         return this.resetLang(e), this.getTranslation(e);
@@ -21052,7 +21294,10 @@ var Du = class t {
     return this.serviceList[n];
   }
   init() {
-    this.serviceList['app.test'] = { endpoint: this.API_SERVER_URL + '/test', method: 'post' };
+    this.serviceList['app.test'] = {
+      endpoint: this.API_SERVER_URL + '/test',
+      method: 'post',
+    };
   }
   static ɵfac = function (e) {
     return new (e || t)();
@@ -21101,7 +21346,12 @@ var Gn = class t {
       p === l && ((p = s), (g['X-HTTP-Method-Override'] = l)),
       p === a && ((p = s), (g['X-HTTP-Method-Override'] = a)),
       navigator.onLine || this.notify.notify(this.translate.instant('check_internet'), 'error'),
-      { method: p, url: f, headers: Object.assign(r || {}, g), payload: i || {} }
+      {
+        method: p,
+        url: f,
+        headers: Object.assign(r || {}, g),
+        payload: i || {},
+      }
     );
   }
   resolveUrl(n, e, i) {
@@ -24248,7 +24498,9 @@ var ku = class t {
       : console.log('Form not valid');
   }
   navigateTo(n) {
-    this.route.navigate([`${n}`], { skipLocationChange: yt.ENABLE_SKIP_LOCATION });
+    this.route.navigate([`${n}`], {
+      skipLocationChange: yt.ENABLE_SKIP_LOCATION,
+    });
   }
   static ɵfac = function (e) {
     return new (e || t)(k(Hi), k(Et), k(Gn), k(Ji));
@@ -24525,7 +24777,9 @@ var Lu = class t {
       : console.log('Form not valid');
   }
   navigateToLogin() {
-    this.route.navigate(['/login'], { skipLocationChange: yt.ENABLE_SKIP_LOCATION });
+    this.route.navigate(['/login'], {
+      skipLocationChange: yt.ENABLE_SKIP_LOCATION,
+    });
   }
   static ɵfac = function (e) {
     return new (e || t)(k(Hi), k(Et), k(Gn));
@@ -25293,7 +25547,12 @@ var yC = '',
         }),
           o.size && e.errors.push(I3(n.name, [...o.values()]));
       }
-      return { type: J.State, name: n.name, style: i, options: r ? { params: r } : null };
+      return {
+        type: J.State,
+        name: n.name,
+        style: i,
+        options: r ? { params: r } : null,
+      };
     }
     visitTransition(n, e) {
       (e.queryCount = 0), (e.depCount = 0);
@@ -25451,7 +25710,11 @@ var yC = '',
       );
     }
     visitReference(n, e) {
-      return { type: J.Reference, animation: kt(this, _a(n.animation), e), options: Gr(n.options) };
+      return {
+        type: J.Reference,
+        animation: kt(this, _a(n.animation), e),
+        options: Gr(n.options),
+      };
     }
     visitAnimateChild(n, e) {
       return e.depCount++, { type: J.AnimateChild, options: Gr(n.options) };
@@ -26079,7 +26342,11 @@ var ng = class {
         (this.preStyleProps = r),
         (this.postStyleProps = o),
         (this._stretchStartingKeyframe = a),
-        (this.timings = { duration: s.duration, delay: s.delay, easing: s.easing });
+        (this.timings = {
+          duration: s.duration,
+          delay: s.delay,
+          easing: s.easing,
+        });
     }
     containsAnimation() {
       return this.keyframes.length > 1;
@@ -27986,8 +28253,18 @@ var zC = [
         id: 'services',
         icon: '',
         subchildren: [
-          { name: 'Staffing', id: 'staffing', icon: '', path: ve.SERVICES.STAFFING },
-          { name: 'Consulting', id: 'consulting', icon: '', path: ve.SERVICES.CONSULTING },
+          {
+            name: 'Staffing',
+            id: 'staffing',
+            icon: '',
+            path: ve.SERVICES.STAFFING,
+          },
+          {
+            name: 'Consulting',
+            id: 'consulting',
+            icon: '',
+            path: ve.SERVICES.CONSULTING,
+          },
         ],
       },
       {
@@ -27995,17 +28272,42 @@ var zC = [
         id: 'industries',
         icon: '',
         subchildren: [
-          { name: 'Finance', icon: '', id: 'finance', path: ve.INDUSTRIES.FINANCE },
-          { name: 'Health Care', icon: '', id: 'healthcare', path: ve.INDUSTRIES.HEALTH_CARE },
-          { name: 'Information Technology', icon: '', id: 'it', path: ve.INDUSTRIES.IT },
-          { name: 'Retail', icon: '', id: 'retail', path: ve.INDUSTRIES.RETAIL },
+          {
+            name: 'Finance',
+            icon: '',
+            id: 'finance',
+            path: ve.INDUSTRIES.FINANCE,
+          },
+          {
+            name: 'Health Care',
+            icon: '',
+            id: 'healthcare',
+            path: ve.INDUSTRIES.HEALTH_CARE,
+          },
+          {
+            name: 'Information Technology',
+            icon: '',
+            id: 'it',
+            path: ve.INDUSTRIES.IT,
+          },
+          {
+            name: 'Retail',
+            icon: '',
+            id: 'retail',
+            path: ve.INDUSTRIES.RETAIL,
+          },
           {
             name: 'Life Sciences',
             icon: '',
             id: 'lifesciences',
             path: ve.INDUSTRIES.LIFE_SCIENCES,
           },
-          { name: 'Logistics', icon: '', id: 'logistics', path: ve.INDUSTRIES.LOGISTICS },
+          {
+            name: 'Logistics',
+            icon: '',
+            id: 'logistics',
+            path: ve.INDUSTRIES.LOGISTICS,
+          },
         ],
       },
     ],
@@ -28016,8 +28318,18 @@ var zC = [
     id: 'jobseeker',
     subchildrens: !1,
     subnav: [
-      { name: 'Search Jobs', id: 'searchjobs', icon: '', path: ve.JOB_SEEKER.SEARCH_JOBS },
-      { name: 'Submit Resume', id: 'submitresume', icon: '', path: ve.JOB_SEEKER.SUBMIT_RESUME },
+      {
+        name: 'Search Jobs',
+        id: 'searchjobs',
+        icon: '',
+        path: ve.JOB_SEEKER.SEARCH_JOBS,
+      },
+      {
+        name: 'Submit Resume',
+        id: 'submitresume',
+        icon: '',
+        path: ve.JOB_SEEKER.SUBMIT_RESUME,
+      },
     ],
   },
   { name: 'Contact Us', icon: '', id: 'contact', subnav: [], path: ve.CONTACT },
@@ -28226,7 +28538,9 @@ var nd = class t {
   menuService = y(td);
   headerDropdown;
   navigateToAbout() {
-    this.route.navigate(['/about'], { skipLocationChange: yt.ENABLE_SKIP_LOCATION });
+    this.route.navigate(['/about'], {
+      skipLocationChange: yt.ENABLE_SKIP_LOCATION,
+    });
   }
   navigateToChild(n, e) {
     this.headerDropdown?.isOpen() && this.headerDropdown.close(),
@@ -28364,10 +28678,14 @@ var id = class t {
     );
   }
   navigateToHome() {
-    this.route.navigate(['home'], { skipLocationChange: yt.ENABLE_SKIP_LOCATION });
+    this.route.navigate(['home'], {
+      skipLocationChange: yt.ENABLE_SKIP_LOCATION,
+    });
   }
   navigateToLogin() {
-    this.route.navigate(['login'], { skipLocationChange: yt.ENABLE_SKIP_LOCATION });
+    this.route.navigate(['login'], {
+      skipLocationChange: yt.ENABLE_SKIP_LOCATION,
+    });
   }
   logoutUser() {
     this.authService.logout(),

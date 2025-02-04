@@ -1,9 +1,24 @@
+
+@import "././../../../../SCSS/media-queries";
+
 .consulting-data {
-  padding: 100px;
+  @include xs{
+    padding: 30px;
+  }
+  @include sm{
+    padding: 30px;
+  }
+  @include md {
+    padding: 100px;
+  }
 }
 
 .img-wrapper-data {
   .card-data {
+    margin-bottom: 20px;
+    @include lg {
+      margin: 0;
+    }
     img {
       height: 250px;
       width: 100%;
@@ -15,15 +30,27 @@
 
 .engineering-wrapper-data {
   img {
-    width: 35%;
+    width: 100%;
     object-fit: fill;
+    margin-bottom:20px;
+    @include lg {
+      width: 35%;
+      margin: 0;
+    }
   }
 }
 
 .cloud-wrapper-data {
+
   img {
-    width: 35%;
+    width: 100%;
     object-fit: fill;
+    margin-bottom: 20px;
+    height: fit-content;
+    @include lg {
+      width: 35%;
+      margin: 0;
+    }
   }
   ul {
     padding: 0 0 0 16px;

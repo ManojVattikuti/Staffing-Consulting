@@ -1379,7 +1379,13 @@ function At(e) {
               function (P, b) {
                 if (c.current[m] === !0 || P[a]) return G.apply(P, b);
                 {
-                  let S = { target: P, url: P[g], isPeriodic: !1, args: b, aborted: !1 },
+                  let S = {
+                      target: P,
+                      url: P[g],
+                      isPeriodic: !1,
+                      args: b,
+                      aborted: !1,
+                    },
                     J = Ue(q, d, S, k, j);
                   P && P[y] === !0 && !S.aborted && J.state === W && J.invoke();
                 }
@@ -1551,7 +1557,13 @@ function jt(e) {
             l === O && r instanceof Error)
           ) {
             let p = c.currentTask && c.currentTask.data && c.currentTask.data[M];
-            p && f(r, F, { configurable: !0, enumerable: !1, writable: !0, value: p });
+            p &&
+              f(r, F, {
+                configurable: !0,
+                enumerable: !1,
+                writable: !0,
+                value: p,
+              });
           }
           for (let p = 0; p < R.length; ) o(h, R[p++], R[p++], R[p++], R[p++]);
           if (R.length == 0 && l == O) {

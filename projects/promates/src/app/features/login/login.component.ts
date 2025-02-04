@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -9,9 +8,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { NotificationService } from '../../common/services/notification.service';
-import { ServiceInvokerService } from '../../common/services/service-invoker.service';
-import { AuthService } from '../../common/services/auth.service';
+import { ServiceInvokerService } from '../../common/services/api-invoker.service';
+import { Router } from '@angular/router';
 import { environment } from '@promates.environments/environment';
+import { AuthService } from '../../common/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,12 +23,13 @@ import { environment } from '@promates.environments/environment';
 export class LoginComponent {
   loginForm!: FormGroup;
   public route = inject(Router);
+  private authService = inject(AuthService);
+  public notificationService = inject(NotificationService);
+
   constructor(
     private fb: FormBuilder,
-    public notificationService: NotificationService,
     private serviceInvoker: ServiceInvokerService,
-    private authService: AuthService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -50,19 +51,32 @@ export class LoginComponent {
   get password() {
     return this.loginForm.get('password');
   }
-
+ logginInProgress: Boolean = false;
   onSubmit(): void {
     if (this.loginForm.valid) {
-      console.log('Login Successful!', this.loginForm.value);
-      this.notificationService.showSuccess('Login Successful!');
-      this.loginForm.reset();
-      this.authService.login();
+      this.logginInProgress = true;
+      this.serviceInvoker.invoke('app.login', {}, this.loginForm.value, {}).subscribe((res: any) => {
+        this.authService.storeUserData(res.token, res.user);
+        this.authService.login();
+        this.route.navigate([''], {
+          skipLocationChange: environment.ENABLE_SKIP_LOCATION,
+        });
+        this.loginForm.reset();
+        this.authService.login();
+        this.notificationService.showSuccess('Login Successful!');
+        this.logginInProgress = false;
+      },(err: any) => {
+        this.notificationService.showError(err);
+        this.logginInProgress = false;
+      });
     } else {
       console.log('Form not valid');
     }
   }
 
   navigateTo(path: String) {
-    this.route.navigate([`${path}`], { skipLocationChange: environment.ENABLE_SKIP_LOCATION });
+    this.route.navigate([`${path}`], {
+      skipLocationChange: environment.ENABLE_SKIP_LOCATION,
+    });
   }
 }

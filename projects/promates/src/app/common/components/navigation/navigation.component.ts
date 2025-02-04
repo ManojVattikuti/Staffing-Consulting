@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -7,35 +7,29 @@ import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from '@promates.environments/environment';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports: [CommonModule, NgbDropdownModule],
+  imports: [CommonModule, NgbDropdownModule, TranslateModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
 })
 export class NavigationComponent implements OnInit, OnDestroy {
   menuItems: any[] = [];
   subscription: Subscription = new Subscription();
-  isAuthenticated: boolean = false;
   public route = inject(Router);
   private menuService = inject(MenuService);
   private authService = inject(AuthService);
   @ViewChild('headerDropdown', { static: false }) headerDropdown!: NgbDropdown;
 
-  ngOnInit(): void {
-    this.menuItems = this.menuService.getMenuData();
-    this.subscription.add(
-      this.authService.authenticated$.subscribe((authStatus: boolean) => {
-        this.isAuthenticated = authStatus;
-        this.onUserLoggedIn(authStatus);
-      }),
-    );
-  }
+  constructor(public translate: TranslateService) {}
 
   navigateToAbout(): void {
-    this.route.navigate(['/about'], { skipLocationChange: environment.ENABLE_SKIP_LOCATION });
+    this.route.navigate(['/about'], {
+      skipLocationChange: environment.ENABLE_SKIP_LOCATION,
+    });
   }
 
   navigateToChild(path: string, headerDropdown?: any): void {
@@ -45,7 +39,30 @@ export class NavigationComponent implements OnInit, OnDestroy {
     if (headerDropdown?.isOpen()) {
       headerDropdown.close();
     }
-    this.route.navigate([path], { skipLocationChange: environment.ENABLE_SKIP_LOCATION }); // Navigate to the child path
+    this.route.navigate([path], {
+      skipLocationChange: environment.ENABLE_SKIP_LOCATION,
+    }); // Navigate to the child path
+  }
+
+  isAuthenticated: boolean = false;
+  role: string = '';
+  ngOnInit(): void {
+    let user = this.authService.getUserData();
+    if (user && user.userData) {
+      this.role = user.userData.role;
+    }
+
+    this.menuItems = this.menuService.getMenuData();
+    this.subscription.add(
+      this.authService.authenticated$.subscribe((authStatus: boolean) => {
+        this.isAuthenticated = authStatus;
+        let user = this.authService.getUserData();
+        if (user && user.userData) {
+          this.role = user.userData.role;
+        }
+        this.onUserLoggedIn(authStatus);
+      }),
+    );
   }
 
   subItemSelection(tab: any, subItem?: any) {
@@ -81,10 +98,12 @@ export class NavigationComponent implements OnInit, OnDestroy {
       });
     }
   }
-
   private setVisibility(item: any, authStatus: boolean): void {
     if (item.hasOwnProperty('visibleAfterLogin')) {
       item.visible = item.visibleAfterLogin === authStatus;
+      if (item.permission && !item.permission.includes(this.role)) {
+        item.visible = false;
+      }
     } else {
       item.visible = true;
     }

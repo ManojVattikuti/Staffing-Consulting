@@ -1765,7 +1765,12 @@ function Sp(e) {
   return typeof e == 'function' && e.hasOwnProperty(mv) && e.__forward_ref__ === bs;
 }
 function C(e) {
-  return { token: e.token, providedIn: e.providedIn || null, factory: e.factory, value: void 0 };
+  return {
+    token: e.token,
+    providedIn: e.providedIn || null,
+    factory: e.factory,
+    value: void 0,
+  };
 }
 function jn(e) {
   return { providers: e.providers || [], imports: e.imports || [] };
@@ -5491,7 +5496,11 @@ var hl = class {
         this.handler?.destroy(), (this.handler = null), (this.internalCallbacks.length = 0);
       }
       static {
-        this.ɵprov = C({ token: e, providedIn: 'root', factory: () => new e() });
+        this.ɵprov = C({
+          token: e,
+          providedIn: 'root',
+          factory: () => new e(),
+        });
       }
     }
     return e;
@@ -5532,7 +5541,11 @@ function pp(e, n) {
       s = o ? r[0] : r,
       a = o ? r[1] : rn.None;
     n
-      ? t.push({ propName: s, templateName: i, isSignal: (a & rn.SignalBased) !== 0 })
+      ? t.push({
+          propName: s,
+          templateName: i,
+          isSignal: (a & rn.SignalBased) !== 0,
+        })
       : t.push({ propName: s, templateName: i });
   }
   return t;
@@ -6198,7 +6211,11 @@ function yu(e) {
     let i = (Array.isArray(e) ? e : e()).map((r) =>
       typeof r == 'function'
         ? { directive: Ce(r), inputs: Ft, outputs: Ft }
-        : { directive: Ce(r.directive), inputs: gp(r.inputs), outputs: gp(r.outputs) },
+        : {
+            directive: Ce(r.directive),
+            inputs: gp(r.inputs),
+            outputs: gp(r.outputs),
+          },
     );
     t.hostDirectives === null
       ? ((t.findHostDirectiveDefs = wg), (t.hostDirectives = i))
@@ -6298,7 +6315,12 @@ var ms = class extends an {
   }
 };
 function bu(e, n, t = null) {
-  return new ms({ providers: e, parent: n, debugName: t, runEnvironmentInitializers: !0 }).injector;
+  return new ms({
+    providers: e,
+    parent: n,
+    debugName: t,
+    runEnvironmentInitializers: !0,
+  }).injector;
 }
 function Cg(e) {
   return Eb(e) ? Array.isArray(e) || (!(e instanceof Map) && Symbol.iterator in e) : !1;
@@ -6950,7 +6972,11 @@ var lD = (() => {
       }
     }
     static {
-      this.ɵprov = C({ token: e, providedIn: 'environment', factory: () => new e(U(We)) });
+      this.ɵprov = C({
+        token: e,
+        providedIn: 'environment',
+        factory: () => new e(U(We)),
+      });
     }
   }
   return e;
@@ -7507,7 +7533,10 @@ var bD = (() => {
 function DD() {
   return (typeof $localize < 'u' && $localize.locale) || _s;
 }
-var Us = new A('', { providedIn: 'root', factory: () => v(Us, $.Optional | $.SkipSelf) || DD() });
+var Us = new A('', {
+  providedIn: 'root',
+  factory: () => v(Us, $.Optional | $.SkipSelf) || DD(),
+});
 var Rg = new A('');
 function Go(e) {
   return !!e.platformInjector;
@@ -7976,8 +8005,17 @@ function Pg(e) {
     let { rootComponent: n, appProviders: t, platformProviders: i } = e,
       r = ED(i),
       o = [Ng({}), { provide: Ni, useExisting: bD }, ...(t || [])],
-      s = new ms({ providers: o, parent: r, debugName: '', runEnvironmentInitializers: !1 });
-    return wD({ r3Injector: s.injector, platformInjector: r, rootComponent: n });
+      s = new ms({
+        providers: o,
+        parent: r,
+        debugName: '',
+        runEnvironmentInitializers: !1,
+      });
+    return wD({
+      r3Injector: s.injector,
+      platformInjector: r,
+      rootComponent: n,
+    });
   } catch (n) {
     return Promise.reject(n);
   }
@@ -8003,7 +8041,11 @@ var Oe = new A(''),
         };
       }
       static {
-        this.ɵprov = C({ token: e, factory: () => v(PD), providedIn: 'platform' });
+        this.ɵprov = C({
+          token: e,
+          factory: () => v(PD),
+          providedIn: 'platform',
+        });
       }
     }
     return e;
@@ -8075,7 +8117,11 @@ var PD = (() => {
       };
     }
     static {
-      this.ɵprov = C({ token: e, factory: () => new e(), providedIn: 'platform' });
+      this.ɵprov = C({
+        token: e,
+        factory: () => new e(),
+        providedIn: 'platform',
+      });
     }
   }
   return e;
@@ -8186,7 +8232,12 @@ var Ar = (() => {
       let i = this._locationStrategy.getBaseHref();
       (this._basePath = jD(Fg(Lg(i)))),
         this._locationStrategy.onPopState((r) => {
-          this._subject.emit({ url: this.path(!0), pop: !0, state: r.state, type: r.type });
+          this._subject.emit({
+            url: this.path(!0),
+            pop: !0,
+            state: r.state,
+            type: r.type,
+          });
         });
     }
     ngOnDestroy() {
@@ -9211,7 +9262,10 @@ function sm(e, n) {
   return Pg(w({ rootComponent: e }, tw(n)));
 }
 function tw(e) {
-  return { appProviders: [...sw, ...(e?.providers ?? [])], platformProviders: ow };
+  return {
+    appProviders: [...sw, ...(e?.providers ?? [])],
+    platformProviders: ow,
+  };
 }
 function nw() {
   ku.makeCurrent();
@@ -9449,7 +9503,11 @@ var gd = (() => {
         };
       }
       static {
-        this.ɵprov = C({ token: e, factory: () => new Gr(), providedIn: 'root' });
+        this.ɵprov = C({
+          token: e,
+          factory: () => new Gr(),
+          providedIn: 'root',
+        });
       }
     }
     return e;
@@ -10646,7 +10704,11 @@ var $w = (e, n, t, i) =>
       if (i && i.outlet) {
         let s = i.outlet.detach(),
           a = i.children.onOutletDeactivated();
-        this.routeReuseStrategy.store(n.value.snapshot, { componentRef: s, route: n, contexts: a });
+        this.routeReuseStrategy.store(n.value.snapshot, {
+          componentRef: s,
+          route: n,
+          contexts: a,
+        });
       }
     }
     deactivateRouteAndOutlet(n, t) {
@@ -11085,9 +11147,15 @@ function fC(e) {
 }
 function fm(e, n, t, i) {
   return t.length > 0 && gC(e, t, i)
-    ? { segmentGroup: new q(n, hC(i, new q(t, e.children))), slicedSegments: [] }
+    ? {
+        segmentGroup: new q(n, hC(i, new q(t, e.children))),
+        slicedSegments: [],
+      }
     : t.length === 0 && mC(e, t, i)
-      ? { segmentGroup: new q(e.segments, pC(e, t, i, e.children)), slicedSegments: t }
+      ? {
+          segmentGroup: new q(e.segments, pC(e, t, i, e.children)),
+          slicedSegments: t,
+        }
       : { segmentGroup: new q(e.segments, e.children), slicedSegments: t };
 }
 function pC(e, n, t, i) {
@@ -11681,7 +11749,11 @@ var kC = new A(''),
           })),
           this.transitions.pipe(
             ke((o) => o.id !== 0),
-            V((o) => oe(w({}, o), { extractedUrl: this.urlHandlingStrategy.extract(o.rawUrl) })),
+            V((o) =>
+              oe(w({}, o), {
+                extractedUrl: this.urlHandlingStrategy.extract(o.rawUrl),
+              }),
+            ),
             Ke((o) => {
               let s = !1,
                 a = !1;
@@ -11701,7 +11773,9 @@ var kC = new A(''),
                       trigger: c.source,
                       extras: c.extras,
                       previousNavigation: this.lastSuccessfulNavigation
-                        ? oe(w({}, this.lastSuccessfulNavigation), { previousNavigation: null })
+                        ? oe(w({}, this.lastSuccessfulNavigation), {
+                            previousNavigation: null,
+                          })
                         : null,
                     });
                   let l =
@@ -11771,7 +11845,10 @@ var kC = new A(''),
                         oe(w({}, c), {
                           targetSnapshot: D,
                           urlAfterRedirects: g,
-                          extras: oe(w({}, y), { skipLocationChange: !1, replaceUrl: !1 }),
+                          extras: oe(w({}, y), {
+                            skipLocationChange: !1,
+                            replaceUrl: !1,
+                          }),
                         })),
                       (this.currentNavigation.finalUrl = g),
                       x(o)
@@ -12232,8 +12309,18 @@ function $C(e, n) {
 function HC(e) {
   throw e;
 }
-var UC = { paths: 'exact', fragment: 'ignored', matrixParams: 'ignored', queryParams: 'exact' },
-  GC = { paths: 'subset', fragment: 'ignored', matrixParams: 'ignored', queryParams: 'subset' },
+var UC = {
+    paths: 'exact',
+    fragment: 'ignored',
+    matrixParams: 'ignored',
+    queryParams: 'exact',
+  },
+  GC = {
+    paths: 'subset',
+    fragment: 'ignored',
+    matrixParams: 'ignored',
+    queryParams: 'subset',
+  },
   tr = (() => {
     class e {
       get currentUrlTree() {
@@ -12650,7 +12737,12 @@ function cS(e) {
 function lS(e) {
   var n = e.state,
     t = {
-      popper: { position: n.options.strategy, left: '0', top: '0', margin: '0' },
+      popper: {
+        position: n.options.strategy,
+        left: '0',
+        top: '0',
+        margin: '0',
+      },
       arrow: { position: 'absolute' },
       reference: {},
     };
@@ -12719,7 +12811,16 @@ function at(e, n, t) {
     u = (i.top + (c && a ? a.offsetTop : 0)) / o,
     d = i.width / r,
     g = i.height / o;
-  return { width: d, height: g, top: u, right: l + d, bottom: u + g, left: l, x: l, y: u };
+  return {
+    width: d,
+    height: g,
+    top: u,
+    right: l + d,
+    bottom: u + g,
+    left: l,
+    x: l,
+    y: u,
+  };
 }
 function Xn(e) {
   var n = at(e),
@@ -12987,7 +13088,13 @@ function mS(e) {
       'data-popper-placement': n.placement,
     }));
 }
-var Ym = { name: 'computeStyles', enabled: !0, phase: 'beforeWrite', fn: mS, data: {} };
+var Ym = {
+  name: 'computeStyles',
+  enabled: !0,
+  phase: 'beforeWrite',
+  fn: mS,
+  data: {},
+};
 var ma = { passive: !0 };
 function vS(e) {
   var n = e.state,
@@ -13319,7 +13426,13 @@ function CS(e) {
         Ae = ct(Te) === qt,
         yn = [de, Ie].indexOf(lt) >= 0,
         bn = yn ? 'width' : 'height',
-        Ge = mn(n, { placement: Te, boundary: u, rootBoundary: d, altBoundary: g, padding: l }),
+        Ge = mn(n, {
+          placement: Te,
+          boundary: u,
+          rootBoundary: d,
+          altBoundary: g,
+          padding: l,
+        }),
         ut = yn ? (Ae ? be : me) : Ae ? Ie : de;
       G[bn] > L[bn] && (ut = or(ut));
       var lo = or(ut),
@@ -13393,7 +13506,13 @@ function ES(e) {
     ((n.modifiersData.popperOffsets.x += c), (n.modifiersData.popperOffsets.y += l)),
     (n.modifiersData[i] = s);
 }
-var Ad = { name: 'offset', enabled: !0, phase: 'main', requires: ['popperOffsets'], fn: ES };
+var Ad = {
+  name: 'offset',
+  enabled: !0,
+  phase: 'main',
+  requires: ['popperOffsets'],
+  fn: ES,
+};
 function IS(e) {
   var n = e.state,
     t = e.name;
@@ -13404,7 +13523,13 @@ function IS(e) {
     placement: n.placement,
   });
 }
-var Xm = { name: 'popperOffsets', enabled: !0, phase: 'read', fn: IS, data: {} };
+var Xm = {
+  name: 'popperOffsets',
+  enabled: !0,
+  phase: 'read',
+  fn: IS,
+  data: {},
+};
 function Rd(e) {
   return e === 'x' ? 'y' : 'x';
 }
@@ -13932,7 +14057,11 @@ var $S = (e, n, t) => {
             collapsed: [0, 'ngbCollapse', 'collapsed'],
             horizontal: 'horizontal',
           },
-          outputs: { ngbCollapseChange: 'ngbCollapseChange', shown: 'shown', hidden: 'hidden' },
+          outputs: {
+            ngbCollapseChange: 'ngbCollapseChange',
+            shown: 'shown',
+            hidden: 'hidden',
+          },
           exportAs: ['ngbCollapse'],
           standalone: !0,
         });
@@ -14204,7 +14333,12 @@ var $S = (e, n, t) => {
             disabled: 'disabled',
             collapsed: 'collapsed',
           },
-          outputs: { show: 'show', shown: 'shown', hide: 'hide', hidden: 'hidden' },
+          outputs: {
+            show: 'show',
+            shown: 'shown',
+            hide: 'hide',
+            hidden: 'hidden',
+          },
           exportAs: ['ngbAccordionItem'],
           standalone: !0,
         });
@@ -14280,7 +14414,12 @@ var $S = (e, n, t) => {
             closeOthers: 'closeOthers',
             destroyOnHide: 'destroyOnHide',
           },
-          outputs: { show: 'show', shown: 'shown', hide: 'hide', hidden: 'hidden' },
+          outputs: {
+            show: 'show',
+            shown: 'shown',
+            hide: 'hide',
+            hidden: 'hidden',
+          },
           exportAs: ['ngbAccordion'],
           standalone: !0,
         });
@@ -14463,7 +14602,12 @@ function o0({ placement: e, baseClass: n }, t) {
       Pd,
       Id,
       { enabled: !0, name: 'flip', options: { fallbackPlacements: s } },
-      { enabled: !0, name: 'preventOverflow', phase: 'main', fn: function () {} },
+      {
+        enabled: !0,
+        name: 'preventOverflow',
+        phase: 'main',
+        fn: function () {},
+      },
     ],
   };
 }
@@ -14986,7 +15130,10 @@ var m0 = (() => {
   }
   return e;
 })();
-var YL = new A('live announcer delay', { providedIn: 'root', factory: () => 100 });
+var YL = new A('live announcer delay', {
+  providedIn: 'root',
+  factory: () => 100,
+});
 function uE(e, n) {
   e & 1 &&
     (p(0, 'p'),
@@ -15869,8 +16016,18 @@ var D0 = [
         id: 'services',
         icon: '',
         subchildren: [
-          { name: 'Staffing', id: 'staffing', icon: '', path: ee.SERVICES.STAFFING },
-          { name: 'Consulting', id: 'consulting', icon: '', path: ee.SERVICES.CONSULTING },
+          {
+            name: 'Staffing',
+            id: 'staffing',
+            icon: '',
+            path: ee.SERVICES.STAFFING,
+          },
+          {
+            name: 'Consulting',
+            id: 'consulting',
+            icon: '',
+            path: ee.SERVICES.CONSULTING,
+          },
         ],
       },
       {
@@ -15878,17 +16035,42 @@ var D0 = [
         id: 'industries',
         icon: '',
         subchildren: [
-          { name: 'Finance', icon: '', id: 'finance', path: ee.INDUSTRIES.FINANCE },
-          { name: 'Health Care', icon: '', id: 'healthcare', path: ee.INDUSTRIES.HEALTH_CARE },
-          { name: 'Information Technology', icon: '', id: 'it', path: ee.INDUSTRIES.IT },
-          { name: 'Retail', icon: '', id: 'retail', path: ee.INDUSTRIES.RETAIL },
+          {
+            name: 'Finance',
+            icon: '',
+            id: 'finance',
+            path: ee.INDUSTRIES.FINANCE,
+          },
+          {
+            name: 'Health Care',
+            icon: '',
+            id: 'healthcare',
+            path: ee.INDUSTRIES.HEALTH_CARE,
+          },
+          {
+            name: 'Information Technology',
+            icon: '',
+            id: 'it',
+            path: ee.INDUSTRIES.IT,
+          },
+          {
+            name: 'Retail',
+            icon: '',
+            id: 'retail',
+            path: ee.INDUSTRIES.RETAIL,
+          },
           {
             name: 'Life Sciences',
             icon: '',
             id: 'lifesciences',
             path: ee.INDUSTRIES.LIFE_SCIENCES,
           },
-          { name: 'Logistics', icon: '', id: 'logistics', path: ee.INDUSTRIES.LOGISTICS },
+          {
+            name: 'Logistics',
+            icon: '',
+            id: 'logistics',
+            path: ee.INDUSTRIES.LOGISTICS,
+          },
         ],
       },
     ],
@@ -15898,8 +16080,18 @@ var D0 = [
     icon: '',
     id: 'jobseeker',
     subnav: [
-      { name: 'Search Jobs', id: 'searchjobs', icon: '', path: ee.JOB_SEEKER.SEARCH_JOBS },
-      { name: 'Submit Resume', id: 'submitresume', icon: '', path: ee.JOB_SEEKER.SUBMIT_RESUME },
+      {
+        name: 'Search Jobs',
+        id: 'searchjobs',
+        icon: '',
+        path: ee.JOB_SEEKER.SEARCH_JOBS,
+      },
+      {
+        name: 'Submit Resume',
+        id: 'submitresume',
+        icon: '',
+        path: ee.JOB_SEEKER.SUBMIT_RESUME,
+      },
     ],
   },
   { name: 'Contact', icon: '', id: 'contact', subnav: [], path: ee.CONTACT },

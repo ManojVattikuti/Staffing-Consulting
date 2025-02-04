@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { APP_PATHS } from './common/constants/app.constants';
 import { HomeComponent } from './app-home/home.component';
-import { MENU_DATA } from './common/constants/menu.constants';
 import { AboutusComponent } from './features/Aboutus/aboutus.component';
 import { ContactUsComponent } from './features/Contactus/contact-us.component';
 import { StaffingComponent } from './features/Products/staffing/staffing.component';
@@ -14,13 +13,10 @@ import { LifeSciencesComponent } from './features/Industries/life-sciences/life-
 import { LogisticsComponent } from './features/Industries/logistics/logistics.component';
 import { SearchJobsComponent } from './features/Searchjobs/search-jobs.component';
 import { SubmitResumeComponent } from './features/Submitresume/submit-resume.component';
-import { LoginComponent } from './features/login/login.component';
+import { LoginComponent } from './features/Login/login.component';
 import { SignUpComponent } from './features/Signup/sign-up.component';
-
-// const menuRoutes = MENU_DATA.map(item => ({
-//     path: 'item.path',
-//     loadChildren: () => import(`./${item.id}/${item.id}.component`).then(m => m[item.id.charAt(0).toUpperCase() + item.id.slice(1) + 'Component']),
-// }));
+import { PostJobsComponent } from './features/Postjobs/post-jobs.component';
+import { CompaniesComponent } from './features/Companies/companies.component';
 
 export const routes: Routes = [
   // { path: '', redirectTo: APP_PATHS.HOME, pathMatch: 'full' },
@@ -35,8 +31,16 @@ export const routes: Routes = [
   { path: APP_PATHS.INDUSTRIES.HEALTH_CARE, component: HealthCareComponent },
   { path: APP_PATHS.INDUSTRIES.IT, component: InformationTechnologyComponent },
   { path: APP_PATHS.INDUSTRIES.RETAIL, component: RetailComponent },
-  { path: APP_PATHS.INDUSTRIES.LIFE_SCIENCES, component: LifeSciencesComponent },
+  {
+    path: APP_PATHS.INDUSTRIES.LIFE_SCIENCES,
+    component: LifeSciencesComponent,
+  },
   { path: APP_PATHS.INDUSTRIES.LOGISTICS, component: LogisticsComponent },
   { path: APP_PATHS.JOB_SEEKER.SEARCH_JOBS, component: SearchJobsComponent },
-  { path: APP_PATHS.JOB_SEEKER.SUBMIT_RESUME, component: SubmitResumeComponent },
+  {
+    path: APP_PATHS.JOB_SEEKER.SUBMIT_RESUME,
+    component: SubmitResumeComponent,
+  },
+  { path: APP_PATHS.POST_JOBS, component: PostJobsComponent },
+  { path: APP_PATHS.COMPANIES, component: CompaniesComponent },
 ];

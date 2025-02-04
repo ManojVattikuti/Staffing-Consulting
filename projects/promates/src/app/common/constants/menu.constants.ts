@@ -168,13 +168,24 @@ export const MENU_DATA = [
     id: 'contact',
     subnav: [],
     path: APP_PATHS.CONTACT, // Use the path from APP_PATHS
+    visibleAfterLogin: false,
+  },
+  {
+    name: 'Companies',
+    icon: '',
+    id: 'companies',
+    subnav: [],
+    path: APP_PATHS.COMPANIES, // Use the path from APP_PATHS
+    visibleAfterLogin: true,
+    permission: ['admin', 'super_admin'],
   },
   {
     name: 'Post Jobs',
     icon: '',
     id: 'postjob',
     subnav: [],
-    path: APP_PATHS.CONTACT, // Use the path from APP_PATHS,
+    path: APP_PATHS.POST_JOBS, // Use the path from APP_PATHS,
     visibleAfterLogin: true,
+    permission: ['admin', 'super_admin'],
   },
 ];

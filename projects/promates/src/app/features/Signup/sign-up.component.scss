@@ -12,6 +12,29 @@ $border-color: #ccc;
   align-items: center;
   min-height: 100vh;
   background-color: $background-color;
+  .logo {
+    display: flex;
+    // padding: 8px 16px;
+    align-items: center;
+    // gap: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.632px;
+    flex-direction: column;
+    background: linear-gradient(93deg, #8f51f7 15.35%, #00adef 87.08%);
+    padding: 5px;
+    width: 150px;
+    margin: 0 auto;
+    // border: 2px solid #FFF;
+    img {
+      height: 40px;
+    }
+    div {
+      letter-spacing: 8px;
+    }
+  }
 }
 
 /* Signup form styling */

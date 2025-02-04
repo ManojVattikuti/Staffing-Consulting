@@ -1,11 +1,26 @@
+@import "././../../../SCSS/media-queries";
+
+
 .contact-us-wrapper {
-  padding: 100px;
+  @include xs{
+    padding: 30px;
+  }
+  @include sm{
+    padding: 50px;
+  }
+  @include md {
+    padding: 80px;
+  }
+  @include lg {
+    padding: 100px;
+  }
   sup {
     color: #dc3545;
   }
   textarea {
     min-height: 200px;
   }
+  
   .error-msg {
     font-size: 12px;
     color: #dc3545;

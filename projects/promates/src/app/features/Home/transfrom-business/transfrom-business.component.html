@@ -1,45 +1,72 @@
-<div class="d-flex align-items-center gap-5 about-us-sec container">
-  <div class="content-block">
+<div class="d-flex align-items-center gap-3 about-us-sec flex-lg-row flex-column gap-5 gap-md-5 container">
+  <div
+    class="content-block"
+    data-aos="fade-right"
+    data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-offset="200"
+  >
     <h1 class="heading-border position-relative heading-xs semibold mb-4">
-      Ready to Transform your Business
+      {{ 'read_to_transform' | translate }}
     </h1>
-    <p class="desc-sm mb-4">
-      Embark on a journey of innovation and growth with ProMates Tech. Whether you need cutting
-      -edge IT Solutions ot top-notch staffing services, we are here to support your business every
-      step of the wa. Get in touch with us today for free evaluation and take first step to unlock
-      the business full potential
-    </p>
-    <button class="promates-btn">Hire Talent</button>
+    <p class="desc-sm mb-4">{{ 'read_to_transform_desc1' | translate }}</p>
+    <p class="desc-sm mb-4">{{ 'read_to_transform_desc2' | translate }}</p>
+    <button class="promates-btn btn-with-arrow" (click)="navigateToContactus()">
+      <span>{{ 'hire_talent' | translate }}</span>
+    </button>
   </div>
-  <div class="img-banner">
+  <div
+    class="img-banner"
+    data-aos="flip-up"
+    data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-offset="200"
+  >
     <img src="assets/transfrom-business.png" />
   </div>
 </div>
 
-<div class="d-flex align-items-center gap-5 about-us-sec container">
-  <div class="img-banner">
+<div class="d-flex align-items-center gap-3 about-us-sec flex-lg-row flex-column gap-5 gap-md-5 container transform-businees-sec-2">
+  <div
+    class="img-banner"
+    data-aos="flip-up"
+    data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-offset="200"
+  >
     <img src="assets/ready-to-take-business.png" />
   </div>
-  <div class="content-block">
+  <div
+    class="content-block"
+    data-aos="fade-right"
+    data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-offset="200"
+  >
     <h1 class="heading-border position-relative heading-xs semibold mb-4">
-      Ready to Transform your Business
+      {{ 'read_to_transform' | translate }}
     </h1>
-    <p class="desc-sm mb-4">
-      Embark on a journey of innovation and growth with ProMates Tech. Whether you need cutting
-      -edge IT Solutions ot top-notch staffing services, we are here to support your business every
-      step of the wa. Get in touch with us today for free evaluation and take first step to unlock
-      the business full potential
-    </p>
-    <button class="promates-btn">Hire Talent</button>
+    <p class="desc-sm mb-4">{{ 'read_to_transform_desc3' | translate }}</p>
+    <button class="promates-btn btn-with-arrow" (click)="navigateToContactus()">
+      <span>{{ 'hire_talent' | translate }}</span>
+    </button>
   </div>
 </div>
 
-<div class="ready-transfer-banner">
+<div
+  class="ready-transfer-banner"
+  data-aos="flip-up"
+  data-aos-delay="10"
+  data-aos-duration="1000"
+  data-aos-offset="200"
+>
   <div class="ready-banner">
     <div class="content-block">
-      <h1 class="text-md">Ready to transform your business</h1>
+      <h1 class="text-md">{{ 'read_to_transform' | translate }}</h1>
       <p class="desc-sm">Embark on journey of innovation and growth with ProMates Tech. </p>
     </div>
-    <button class="btn-evalution">Get Free Evaluation</button>
+    <button class="btn-evalution">
+      {{ 'get_free_evaluation' | translate }}
+    </button>
   </div>
 </div>

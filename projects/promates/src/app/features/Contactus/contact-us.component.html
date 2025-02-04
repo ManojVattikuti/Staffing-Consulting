@@ -2,11 +2,11 @@
   <div class="container">
     <h1 class="text-center text-xl semibold mb-2">Contact Us</h1>
     <p class="desc-sm text-center mb-3">
-      We’re here for anything you need.Just drop us a quick message below. <br />We’ll get back to
-      you shortly
+      We’re here for anything you need.Just drop us a quick message below.
+      <br />We’ll get back to you shortly
     </p>
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <div class="d-flex gap-3">
+      <div class="d-flex gap-lg-3 flex-column flex-lg-row">
         <div class="mb-3 w-100">
           <label for="firstName" class="form-label text-sm medium">First name<sup>*</sup></label>
           <input
@@ -48,7 +48,7 @@
           <div class="char-remaining"></div>
         </div>
       </div>
-      <div class="d-flex gap-3">
+      <div class="d-flex gap-lg-3 flex-column flex-lg-row">
         <div class="mb-3 w-100">
           <label for="email" class="form-label text-sm medium">Email<sup>*</sup></label>
           <input
@@ -81,38 +81,38 @@
           <div class="char-remaining"></div>
         </div>
         <div class="mb-3 w-100">
-          <label for="PhoneNumber" class="form-label text-sm medium"
+          <label for="phoneNumber" class="form-label text-sm medium"
             >Phone Number<sup>*</sup></label
           >
           <input
             type="text"
             class="form-control"
-            id="PhoneNumber"
-            name="PhoneNumber"
-            formControlName="PhoneNumber"
+            id="phoneNumber"
+            name="phoneNumber"
+            formControlName="phoneNumber"
             placeholder="Phone Number"
             required
             autocomplete="off"
           />
-          <!-- <div class="error-msg" *ngIf="contactForm.get('PhoneNumber')?.invalid && contactForm.get('PhoneNumber')?.touched">Last name is required</div> -->
+          <!-- <div class="error-msg" *ngIf="contactForm.get('phoneNumber')?.invalid && contactForm.get('phoneNumber')?.touched">Last name is required</div> -->
           <div
             *ngIf="
-              contactForm.get('PhoneNumber')?.invalid &&
-              (contactForm.get('PhoneNumber')?.touched || contactForm.get('PhoneNumber')?.dirty)
+              contactForm.get('phoneNumber')?.invalid &&
+              (contactForm.get('phoneNumber')?.touched || contactForm.get('phoneNumber')?.dirty)
             "
             class="text-danger"
           >
-            <div *ngIf="contactForm.get('PhoneNumber')?.errors?.['required']">
+            <div class="error-msg" *ngIf="contactForm.get('phoneNumber')?.errors?.['required']">
               Phone number is required.
             </div>
-            <div *ngIf="contactForm.get('PhoneNumber')?.errors?.['pattern']">
+            <div class="error-msg" *ngIf="contactForm.get('phoneNumber')?.errors?.['pattern']">
               Enter a valid 10-digit phone number.
             </div>
           </div>
         </div>
       </div>
 
-      <div class="d-flex gap-3">
+      <div class="d-flex gap-lg-3 flex-column flex-lg-row">
         <div class="mb-3 w-100">
           <label for="companyName" class="form-label text-sm medium"
             >Company name<sup>*</sup></label
@@ -187,8 +187,12 @@
         </div>
       </div>
       <div class="d-flex align-items-center justify-content-end">
-        <button class="promates-btn w-25 text-center justify-content-center" type="submit">
-          Submit
+        <button
+          class="promates-btn w-25 text-center justify-content-center btn-with-arrow"
+          type="submit"
+          [disabled]="savingInProgress"
+        >
+          <span>{{ savingInProgress ? 'Submitting..' : 'Submit' }}</span>
         </button>
       </div>
     </form>

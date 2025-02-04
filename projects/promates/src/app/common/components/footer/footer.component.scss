@@ -1,7 +1,19 @@
+
+
+@import "./../../../../SCSS/media-queries";
+
 footer {
   background: #070c2e !important;
   .row-data-footer {
-    padding: 50px 100px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include md{
+      padding: 50px 100px;
+     flex-direction: row;
+     gap: 0;
+    }
     h5 {
       color: #e9efff;
       font-size: 16px;

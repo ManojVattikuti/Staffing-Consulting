@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -8,8 +8,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { NotificationService } from '../../common/services/notification.service';
-import { ServiceInvokerService } from '../../common/services/service-invoker.service';
+import { ServiceInvokerService } from '../../common/services/api-invoker.service';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-submit-resume',
@@ -20,14 +21,17 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SubmitResumeComponent implements OnInit {
   resumeForm!: FormGroup;
+  formSubmitted: boolean = false;
+  selectedFileName: any;
+  resumeformData: FormData = new FormData();
+  dropdownValues: any = {};
   public notificationService = inject(NotificationService);
-  private serviceInvoker = inject(ServiceInvokerService);
 
   constructor(
     private fb: FormBuilder,
+    private serviceInvoker: ServiceInvokerService,
   ) {}
 
-  dropdownValues: any = {};
   gendersArray = [
     {
       value: 'male',
@@ -357,16 +361,14 @@ export class SubmitResumeComponent implements OnInit {
     },
     // Add more countries as needed
   ];
-  formSubmitted: boolean = false;
 
-  selectedFileName: any;
   ngOnInit(): void {
     this.resumeForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       phone: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
       altPhone: ['', Validators.pattern('[0-9]{10}')],
-      primaryEmail: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       altEmail: ['', Validators.email],
       state: ['', Validators.required],
       gender: ['', Validators.required],
@@ -393,11 +395,35 @@ export class SubmitResumeComponent implements OnInit {
 
   onSubmit(): void {
     if (this.resumeForm.valid) {
-      console.log(this.resumeForm.value);
-      this.resumeForm.reset({ workAuth: 'authorized' });
-      this.notificationService.notify('Submitted sucessfully', 'success');
-      this.selectedFileName = null;
-      this.formSubmitted = true;
+      let _payloadObj = _.cloneDeep(this.resumeForm.value);
+      if (!_payloadObj['address']) {
+        _payloadObj['address'] = {};
+      }
+      let _resume = new FormData();
+      _resume.append('resume', _payloadObj.resume);
+      _payloadObj.address['country'] = _payloadObj.country;
+      _payloadObj.address['state'] = _payloadObj.state;
+      _payloadObj.address['zip'] = _payloadObj.zip;
+      let address = ['country', 'state', 'zip'];
+      Object.keys(_payloadObj).map((key) => {
+        if (key != 'resume' && key != 'address' && address.indexOf(key) == -1) {
+          _resume.append(key, _payloadObj[key]);
+        } else if (address.indexOf(key) > -1) {
+          _resume.append('address.' + key, _payloadObj[key]);
+        }
+      });
+      this.serviceInvoker.invoke('post.submitresume', {}, _resume, {}).subscribe(
+        (res: any) => {
+          console.log(this.resumeForm.value);
+          this.resumeForm.reset({ workAuth: 'authorized' });
+          this.notificationService.notify('Submitted sucessfully', 'success');
+          this.selectedFileName = null;
+          this.formSubmitted = true;
+        },
+        (err: any) => {
+          this.notificationService.notify('Something went wrong', 'errror');
+        },
+      );
     } else {
       this.notificationService.notify('Mandatory fileds are missing', 'warning');
       console.log('Form is invalid');
@@ -412,6 +438,7 @@ export class SubmitResumeComponent implements OnInit {
         this.selectedFileName = file.name;
         this.dropdownValues = {};
         this.resumeForm.patchValue({ resume: file });
+        this.resumeformData.append('resume', this.resumeForm.get('resume')?.value);
       } else {
         this.notificationService.notify(
           'Invalid file type. Only PDF and DOC/DOCX files are allowed.',
@@ -423,7 +450,6 @@ export class SubmitResumeComponent implements OnInit {
       }
     }
   }
-  
   private isValidFileType(file: File): boolean {
     const validTypes = [
       'application/pdf',

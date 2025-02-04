@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -9,7 +9,7 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './freq-asked-que.component.html',
   styleUrl: './freq-asked-que.component.scss',
 })
-export class FreqAskedQueComponent implements OnInit {
+export class FreqAskedQueComponent {
   frequentlyAskedQuestions: any = [
     {
       question: 'What is IT consulting?',
@@ -37,6 +37,4 @@ export class FreqAskedQueComponent implements OnInit {
         'IT consulting involves providing expert advice and services to organizations to help them improve their IT systems and infrastructure. This includes strategic planning, system integration, and technology implementation.',
     },
   ];
-
-  ngOnInit(): void {}
 }

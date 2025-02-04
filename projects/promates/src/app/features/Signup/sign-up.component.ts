@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { NotificationService } from '../../common/services/notification.service';
-import { ServiceInvokerService } from '../../common/services/service-invoker.service';
+import { ServiceInvokerService } from '../../common/services/api-invoker.service';
 import { Router } from '@angular/router';
 import { environment } from '@promates.environments/environment';
 
@@ -23,9 +23,11 @@ export class SignUpComponent {
   signupForm!: FormGroup;
   public route = inject(Router);
   public notificationService = inject(NotificationService);
-  private serviceInvoker = inject(ServiceInvokerService);
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private serviceInvoker: ServiceInvokerService,
+  ) {}
 
   ngOnInit(): void {
     this.signupForm = this.fb.group(
@@ -44,6 +46,18 @@ export class SignUpComponent {
     );
   }
 
+  get email() {
+    return this.signupForm.get('email');
+  }
+
+  get password() {
+    return this.signupForm.get('password');
+  }
+
+  get confirmPassword() {
+    return this.signupForm.get('confirmPassword');
+  }
+
   checkPasswords(group: FormGroup) {
     const password = group?.get('password')?.value;
     const confirmPassword = group?.get('confirmPassword')?.value;
@@ -60,18 +74,8 @@ export class SignUpComponent {
   }
 
   navigateToLogin() {
-    this.route.navigate(['/login'], { skipLocationChange: environment.ENABLE_SKIP_LOCATION });
-  }
-
-  get email() {
-    return this.signupForm.get('email');
-  }
-
-  get password() {
-    return this.signupForm.get('password');
-  }
-
-  get confirmPassword() {
-    return this.signupForm.get('confirmPassword');
+    this.route.navigate(['/login'], {
+      skipLocationChange: environment.ENABLE_SKIP_LOCATION,
+    });
   }
 }

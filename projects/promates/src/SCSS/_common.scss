@@ -46,6 +46,44 @@ p {
   }
 }
 
+.rotate-icon {
+  transition: transform 0.3s ease;
+}
+.rotate-icon:hover {
+  transform: rotate(-45deg); /* Adjust the degree as needed */
+}
+
+.btn-with-arrow {
+  position: relative;
+  transition: all 0.3s ease;
+  @extend .promates-btn;
+  &::after {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    background-image: url('./../assets/arrow-circle-right.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0;
+    transform: translate(-10px, -50%);
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    padding-right: 3rem;
+
+    &::after {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
+  }
+}
+
 .dropdown-toggle {
   &::after {
     display: none;

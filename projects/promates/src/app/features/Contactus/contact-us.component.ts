@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { NotificationService } from '../../common/services/notification.service';
-import { ServiceInvokerService } from '../../common/services/service-invoker.service';
+import { ServiceInvokerService } from '../../common/services/api-invoker.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -20,11 +20,12 @@ import { ServiceInvokerService } from '../../common/services/service-invoker.ser
 })
 export class ContactUsComponent implements OnInit {
   contactForm!: FormGroup;
-  private notificationService = inject(NotificationService);
-  private serviceInvoker = inject(ServiceInvokerService);
+  savingInProgress: boolean = false;
+  public notificationService = inject(NotificationService);
 
   constructor(
     private fb: FormBuilder,
+    private serviceInvoker: ServiceInvokerService,
   ) {}
 
   ngOnInit(): void {
@@ -35,20 +36,23 @@ export class ContactUsComponent implements OnInit {
       message: ['', Validators.required],
       companyName: ['', Validators.required],
       companyLocation: ['', Validators.required],
-      PhoneNumber: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
+      phoneNumber: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
     });
   }
 
   onSubmit() {
     if (this.contactForm.valid) {
       console.log(this.contactForm.value);
-      this.serviceInvoker.invoke('app.test', {}, this.contactForm.value, {}).subscribe(
+      this.savingInProgress = true;
+      this.serviceInvoker.invoke('post.contactus', {}, this.contactForm.value, {}).subscribe(
         (res: any) => {
-          this.notificationService.showSuccess('saved successfully');
+          this.notificationService.showSuccess(res.message ? res.message : 'saved successfully');
           this.contactForm.reset();
+          this.savingInProgress = false;
         },
         (err: any) => {
-          this.notificationService.showSuccess('saved successfully');
+          this.savingInProgress = false;
+          this.notificationService.showError(err);
         },
       );
     } else {

@@ -1,11 +1,20 @@
+
+@import "./../../../../SCSS/media-queries";
+
 .feedback-wrapper {
-  padding: 100px 100px 40px 100px;
+  padding: 30px;
+  @include md{
+    padding: 100px 100px 40px 100px;
+  }
 }
 .carousel {
   .carousel-inner {
     .carousel-item {
       .feedback-card-wrapper {
-        padding: 60px;
+        padding: 15px;
+        @include md{
+          padding: 60px;
+        }
         .feedback-card {
           border-radius: 8px;
           background: #fff;
@@ -17,6 +26,9 @@
           gap: 24px;
           flex: 1 0 0;
           position: relative;
+          &.d-lg-block{
+            display: none;
+          }
           .feedback-card-header {
           }
         }

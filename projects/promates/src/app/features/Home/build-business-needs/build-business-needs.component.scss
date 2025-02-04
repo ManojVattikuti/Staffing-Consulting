@@ -5,8 +5,19 @@
   background: #f9f9f9;
 }
 
+@import "./../../../../SCSS/media-queries";
+
 .build-business {
   padding: 100px 0;
+  @include xs{
+    padding: 30px;
+  }
+  @include sm{
+    padding: 50px 0;
+  }
+  @include md {
+    padding: 100px 0;
+  }
 }
 
 .card {
